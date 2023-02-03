@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Griffin Hill - Illaso Automation Test Suite">
+
+    <listeners>
+        <listener class-name="com.griffinhill.reports.ExtentReporterNG" />
+    </listeners>
+
+    <test name="Griffin Hill - Illaso Regression Testing">
+        <classes>
+            <class name="com.griffinhill.tests.testcases.LoginTest"></class>
+        </classes>
+    </test>
+</suite>

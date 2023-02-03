@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="griffin-hill" />
+        <module name="jupiter-cloud" />
+        <module name="jupiter-cloud-pb" />
+        <module name="griffin-hill-automation" />
+        <module name="griffin-hill-automation-" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
