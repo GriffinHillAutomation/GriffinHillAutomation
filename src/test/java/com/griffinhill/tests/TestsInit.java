@@ -1,16 +1,23 @@
 package com.griffinhill.tests;
 
+<<<<<<< HEAD
 import com.griffinhill.modals.EditCadenceNameModal;
 import com.griffinhill.modals.OrganizeStepsModal;
 import com.griffinhill.site.pages.*;
 import com.griffinhill.site.pages.BasePageObject;
+=======
+import com.griffinhill.site.pages.AchievementHubPage;
+import com.griffinhill.site.pages.BasePageObject;
+import com.griffinhill.site.pages.IlassoPage;
+import com.griffinhill.site.pages.LoginPage;
+import io.github.bonigarcia.wdm.WebDriverManager;
+>>>>>>> 501b5d9b9ae20df2b17daa9129da12a986083838
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 public class TestsInit {
@@ -34,14 +41,18 @@ public class TestsInit {
     }
 
     @AfterMethod(alwaysRun = true)
-    public void afterMethodTestsInit() { driver.quit(); }
+    public void afterMethodTestsInit() {
+        driver.quit();
+    }
 
     private void setup() {
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + File.separator + "drivers" + File.separator + "chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
+
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.navigate().refresh();
         driver.get(GRIFFIN_HILL_URL);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     public WebDriver getDriver() {
