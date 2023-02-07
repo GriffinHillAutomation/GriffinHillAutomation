@@ -57,4 +57,30 @@ public class IlassoTest extends TestsInit {
         ilassoPage.verifySearchResult("AutomationTest-Cadence");
     }
 
+    @Test
+    public void Ilasso_TC_005() {
+        ilassoPage.deleteLatestCadenceRecord();
+        ilassoPage.verifySuccessMsg();
+    }
+
+    @Test
+    public void Ilasso_TC_006() {
+        ilassoPage.clickCadenceViewOption("VIEW_CADENCE");
+        viewCadencePage.checkOpenedPage();
+        viewCadencePage.validateViewCadenceButtons();
+    }
+
+    @Test
+    public void Ilasso_TC_007() {
+        ilassoPage.clickCadenceViewOption("EDIT_CADENCE_NAME");
+        editCadenceName.checkEditCadenceModal();
+        editCadenceName.editCadenceName("Automation_Test_2");
+    }
+
+    @Test
+    public void Ilasso_TC_008() {
+        ilassoPage.clickCadenceViewOption("ORGANIZE_STEP");
+        organizeSteps.checkOrganizeStepsModal();
+    }
+
 }

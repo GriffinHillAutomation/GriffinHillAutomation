@@ -1,7 +1,6 @@
 package com.griffinhill.site.pages;
 
 import com.griffinhill.enums.PageNavigation;
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -76,6 +75,7 @@ public class IlassoPage {
     private static WebElement optionDeactivateCadence;
     @FindBy(xpath = "//div[@class='dropdown-menu show dropdown-menu-right']/a[5]")
     private static WebElement optionDeleteCadence;
+
 
     public static void checkOpenedPage() {
         checkElementsEnabled(tasks, contacts, calendar, reports, phoneLogs, cadences, scoreCard);
@@ -183,7 +183,6 @@ public class IlassoPage {
         switch (element) {
             case "VIEW_CADENCE":
                click(optionViewCadence);
-                pause(10000);
                 break;
             case "EDIT_CADENCE_NAME":
                 click(optionEditCadenceName);

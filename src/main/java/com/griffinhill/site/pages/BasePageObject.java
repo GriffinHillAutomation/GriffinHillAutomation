@@ -30,6 +30,7 @@ public class BasePageObject {
 
     public static void sendKeys(WebElement element, String data) {
         waitForElementVisibility(element);
+        element.clear();
         element.sendKeys(data);
     }
 

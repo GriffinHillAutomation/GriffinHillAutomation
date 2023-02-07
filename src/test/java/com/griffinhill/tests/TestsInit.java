@@ -1,10 +1,12 @@
 package com.griffinhill.tests;
 
+import com.griffinhill.modals.EditCadenceNameModal;
+import com.griffinhill.modals.OrganizeStepsModal;
 import com.griffinhill.site.pages.*;
+import com.griffinhill.site.pages.BasePageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -19,6 +21,9 @@ public class TestsInit {
     public LoginPage loginPage;
     public AchievementHubPage achievementHubPage;
     public IlassoPage ilassoPage;
+    public ViewCadencePage viewCadencePage;
+    public EditCadenceNameModal editCadenceName;
+    public OrganizeStepsModal organizeSteps;
     public BasePageObject basePageObject;
 
     @BeforeMethod(alwaysRun = true)
@@ -35,8 +40,8 @@ public class TestsInit {
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + File.separator + "drivers" + File.separator + "chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get(GRIFFIN_HILL_URL);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.get(GRIFFIN_HILL_URL);
     }
 
     public WebDriver getDriver() {
@@ -51,5 +56,11 @@ public class TestsInit {
         PageFactory.initElements(getDriver(), achievementHubPage);
         ilassoPage = new IlassoPage();
         PageFactory.initElements(getDriver(), ilassoPage);
+        viewCadencePage = new ViewCadencePage();
+        PageFactory.initElements(getDriver(), viewCadencePage);
+        editCadenceName = new EditCadenceNameModal();
+        PageFactory.initElements(getDriver(), editCadenceName);
+        organizeSteps = new OrganizeStepsModal();
+        PageFactory.initElements(getDriver(), organizeSteps);
     }
 }
