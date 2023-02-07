@@ -1,17 +1,13 @@
 package com.griffinhill.tests;
 
-<<<<<<< HEAD
 import com.griffinhill.modals.EditCadenceNameModal;
 import com.griffinhill.modals.OrganizeStepsModal;
 import com.griffinhill.site.pages.*;
 import com.griffinhill.site.pages.BasePageObject;
-=======
 import com.griffinhill.site.pages.AchievementHubPage;
-import com.griffinhill.site.pages.BasePageObject;
 import com.griffinhill.site.pages.IlassoPage;
 import com.griffinhill.site.pages.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
->>>>>>> 501b5d9b9ae20df2b17daa9129da12a986083838
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
