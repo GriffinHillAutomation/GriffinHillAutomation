@@ -19,7 +19,8 @@ import java.util.concurrent.TimeUnit;
 public class TestsInit {
 
     public static WebDriver driver;
-    private final String GRIFFIN_HILL_URL = "https://beta.griffinhill.com/login";
+    private final String GRIFFIN_HILL_URL = "https://beta-legacy.griffinhill.com/";
+    //private final String GRIFFIN_HILL_URL = "https://members.griffinhill.com/";
 
     public LoginPage loginPage;
     public AchievementHubPage achievementHubPage;
@@ -33,7 +34,7 @@ public class TestsInit {
     public void beforeMethodTestsInit() {
         setup();
         initPage();
-        loginPage.checkOpenedPage();
+        //loginPage.checkOpenedPage();
     }
 
     @AfterMethod(alwaysRun = true)
@@ -47,8 +48,8 @@ public class TestsInit {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.navigate().refresh();
+        driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
         driver.get(GRIFFIN_HILL_URL);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     public WebDriver getDriver() {
@@ -56,18 +57,19 @@ public class TestsInit {
     }
 
     private void initPage() {
-        basePageObject = new BasePageObject(getDriver());
+        driver = getDriver();
+        basePageObject = new BasePageObject(driver);
         loginPage = new LoginPage();
-        PageFactory.initElements(getDriver(), loginPage);
+        PageFactory.initElements(driver, loginPage);
         achievementHubPage = new AchievementHubPage();
-        PageFactory.initElements(getDriver(), achievementHubPage);
+        PageFactory.initElements(driver, achievementHubPage);
         ilassoPage = new IlassoPage();
-        PageFactory.initElements(getDriver(), ilassoPage);
+        PageFactory.initElements(driver, ilassoPage);
         viewCadencePage = new ViewCadencePage();
-        PageFactory.initElements(getDriver(), viewCadencePage);
+        PageFactory.initElements(driver, viewCadencePage);
         editCadenceName = new EditCadenceNameModal();
-        PageFactory.initElements(getDriver(), editCadenceName);
+        PageFactory.initElements(driver, editCadenceName);
         organizeSteps = new OrganizeStepsModal();
-        PageFactory.initElements(getDriver(), organizeSteps);
+        PageFactory.initElements(driver, organizeSteps);
     }
 }
