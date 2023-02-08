@@ -2,3 +2,4 @@ target/
 .idea/compiler.xml
 .idea/misc.xml
 src/main/java/com/griffinhill/reports/ExtentReporterNG.java
+/target/
