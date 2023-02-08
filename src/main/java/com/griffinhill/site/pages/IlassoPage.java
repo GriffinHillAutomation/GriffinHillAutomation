@@ -77,11 +77,11 @@ public class IlassoPage {
     private static WebElement optionDeleteCadence;
 
 
-    public static void checkOpenedPage() {
+    public void checkOpenedPage() {
         checkElementsEnabled(tasks, contacts, calendar, reports, phoneLogs, cadences, scoreCard);
     }
 
-    public static void navigateTo(PageNavigation page) {
+    public void navigateTo(PageNavigation page) {
         checkOpenedPage();
         switch (page) {
             case TASKS:

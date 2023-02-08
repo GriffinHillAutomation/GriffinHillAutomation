@@ -9,24 +9,24 @@ import static com.griffinhill.utils.PageUtils.checkElementsEnabled;
 
 public class AchievementHubPage {
 
-    @FindBy(css = "ul.menu-lists li:nth-child(1)")
+    @FindBy(xpath = "(//*[@ng-if='tool.btn_image'])[1]")
     private static WebElement learning;
-    @FindBy(css = "ul.menu-lists li:nth-child(2)")
-    private static WebElement priorityAlignmentTool;
-    @FindBy(css = "ul.menu-lists li:nth-child(3)")
-    private static WebElement highPerformanceJournal;
-    @FindBy(css = "ul.menu-lists li:nth-child(4)")
-    private static WebElement goalAchiever;
-    @FindBy(css = "ul.menu-lists li:nth-child(5)")
-    private static WebElement iLasso;
-    @FindBy(css = "ul.menu-lists li:nth-child6)")
+    @FindBy(xpath = "(//*[@ng-if='tool.btn_image'])[2]")
     private static WebElement scoreCard;
+    @FindBy(xpath = "(//*[@ng-if='tool.btn_image'])[3]")
+    private static WebElement highPerformanceJournal;
+    @FindBy(xpath = "(//*[@ng-if='tool.btn_image'])[4]")
+    private static WebElement priorityAlignmentTool;
+    @FindBy(xpath = "(//*[@ng-if='tool.btn_image'])[5]")
+    private static WebElement goalAchiever;
+    @FindBy(xpath = "(//*[@ng-if='tool.btn_image'])[6]")
+    private static WebElement iLasso;
 
-    public static void checkOpenedPage() {
+    public void checkOpenedPage() {
         checkElementsEnabled(learning, priorityAlignmentTool, highPerformanceJournal, goalAchiever, iLasso, scoreCard);
     }
 
-    public static void navigateTo(PageNavigation page) {
+    public void navigateTo(PageNavigation page) {
         switch (page) {
             case LEARNING:
                 click(learning);
