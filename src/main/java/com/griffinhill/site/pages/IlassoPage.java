@@ -75,6 +75,8 @@ public class IlassoPage {
     private static WebElement optionDeactivateCadence;
     @FindBy(xpath = "//div[@class='dropdown-menu show dropdown-menu-right']/a[5]")
     private static WebElement optionDeleteCadence;
+    @FindBy(css = "button.CadenceStatusBtn")
+    private static List<WebElement> cadenceStatusIndicator;
 
 
     public static void checkOpenedPage() {
@@ -196,6 +198,17 @@ public class IlassoPage {
             case "DELETE_CADENCE":
                 click(optionDeleteCadence);
                 break;
+        }
+    }
+
+    public void activateCadence() {
+        waitForVisibilityOfAllElements(cadenceStatusIndicator);
+        for (WebElement e : cadenceStatusIndicator) {
+            String status = e.getText();
+            if (status.equalsIgnoreCase("Inactive")) {
+                verifyCadenceViewOptions();
+                click(optionDeactivateCadence);
+            }
         }
     }
 }

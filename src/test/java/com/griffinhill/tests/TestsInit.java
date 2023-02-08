@@ -1,5 +1,6 @@
 package com.griffinhill.tests;
 
+import com.griffinhill.modals.DeactivateActivateCadenceModal;
 import com.griffinhill.modals.EditCadenceNameModal;
 import com.griffinhill.modals.OrganizeStepsModal;
 import com.griffinhill.site.pages.*;
@@ -27,6 +28,7 @@ public class TestsInit {
     public ViewCadencePage viewCadencePage;
     public EditCadenceNameModal editCadenceName;
     public OrganizeStepsModal organizeSteps;
+    public DeactivateActivateCadenceModal cadenceStatus;
     public BasePageObject basePageObject;
 
     @BeforeMethod(alwaysRun = true)
@@ -69,5 +71,7 @@ public class TestsInit {
         PageFactory.initElements(getDriver(), editCadenceName);
         organizeSteps = new OrganizeStepsModal();
         PageFactory.initElements(getDriver(), organizeSteps);
+        cadenceStatus = new DeactivateActivateCadenceModal();
+        PageFactory.initElements(getDriver(), cadenceStatus);
     }
 }

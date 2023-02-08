@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.util.List;
 import java.util.function.Function;
@@ -41,6 +42,11 @@ public class BasePageObject {
     public static void verifyElementDisplayed(WebElement element) {
         waitForElementVisibility(element);
         element.isDisplayed();
+    }
+
+    public static void verifyContent(WebElement element, String message) {
+        waitForElementVisibility(element);
+        Assert.assertTrue(element.getText().equalsIgnoreCase(message));
     }
 
     protected void waitForVisibilityOf(By locator){
