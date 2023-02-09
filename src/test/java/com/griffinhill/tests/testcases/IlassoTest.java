@@ -83,4 +83,21 @@ public class IlassoTest extends TestsInit {
         organizeSteps.checkOrganizeStepsModal();
     }
 
+    @Test
+    public void Ilasso_TC_009() {
+        ilassoPage.clickCadenceViewOption("DEACTIVATE_CADENCE");
+        cadenceStatus.checkCadenceStatusModal("Deactivating a Cadence will pause all steps and activities within the Cadence. You will be able to turn it back to active once you've set it as inactive.");
+        cadenceStatus.confirm();
+        ilassoPage.verifySuccessMsg();
+    }
+
+    @Test
+    public void Ilasso_TC_010() {
+        ilassoPage.activateCadence();
+        cadenceStatus.checkCadenceStatusModal("Turning a Cadence to active will resume all steps and activities within the Cadence. You will be able to turn it back to inactive once you've set it as active.");
+        cadenceStatus.confirm();
+        ilassoPage.verifySuccessMsg();
+    }
+
+
 }
