@@ -211,4 +211,16 @@ public class IlassoPage {
             }
         }
     }
+
+    public String validateCadenceStatus() {
+        boolean isActive;
+        waitForVisibilityOfAllElements(cadenceStatusIndicator);
+        for (WebElement e : cadenceStatusIndicator) {
+            String status = e.getText();
+            if (status.equalsIgnoreCase("Active")) {
+                isActive = true;
+            }
+        }
+        return isActive;
+    }
 }
