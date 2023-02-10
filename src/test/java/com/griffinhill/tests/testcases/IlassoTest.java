@@ -99,5 +99,20 @@ public class IlassoTest extends TestsInit {
         ilassoPage.verifySuccessMsg();
     }
 
+    @Test
+    public void Ilasso_TC_011() {
+        ilassoPage.clickCadenceViewOption("DELETE_CADENCE");
+        cadenceStatus.confirm();
+        ilassoPage.verifySuccessMsg();
+    }
+
+    @Test
+    public void Ilasso_TC_012() {
+        ilassoPage.clickCadenceViewOption("DEACTIVATE_CADENCE");
+        cadenceStatus.checkCadenceStatusModal("Deactivating a Cadence will pause all steps and activities within the Cadence. You will be able to turn it back to active once you've set it as inactive.");
+        cadenceStatus.confirm();
+        ilassoPage.verifySuccessMsg();
+        ilassoPage.validateCadenceStatus();
+    }
 
 }
