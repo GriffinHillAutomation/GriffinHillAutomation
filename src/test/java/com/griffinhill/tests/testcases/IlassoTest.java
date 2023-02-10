@@ -112,7 +112,16 @@ public class IlassoTest extends TestsInit {
         cadenceStatus.checkCadenceStatusModal("Deactivating a Cadence will pause all steps and activities within the Cadence. You will be able to turn it back to active once you've set it as inactive.");
         cadenceStatus.confirm();
         ilassoPage.verifySuccessMsg();
-        ilassoPage.validateCadenceStatus();
+        ilassoPage.validateCadenceStatus("Inactive");
+    }
+
+    @Test
+    public void Ilasso_TC_013() {
+        ilassoPage.clickCadenceViewOption("DEACTIVATE_CADENCE");
+        cadenceStatus.checkCadenceStatusModal("Deactivating a Cadence will pause all steps and activities within the Cadence. You will be able to turn it back to active once you've set it as inactive.");
+        cadenceStatus.confirm();
+        ilassoPage.verifySuccessMsg();
+        ilassoPage.validateCadenceStatus("Active");
     }
 
 }
