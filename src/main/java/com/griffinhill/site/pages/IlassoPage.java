@@ -212,13 +212,15 @@ public class IlassoPage {
         }
     }
 
-    public String validateCadenceStatus() {
-        boolean isActive;
+    public boolean validateCadenceStatus(String statusValue) {
+        boolean isActive = false;
         waitForVisibilityOfAllElements(cadenceStatusIndicator);
         for (WebElement e : cadenceStatusIndicator) {
             String status = e.getText();
-            if (status.equalsIgnoreCase("Active")) {
+            if (status.equalsIgnoreCase(statusValue)) {
                 isActive = true;
+            } else {
+                isActive = false;
             }
         }
         return isActive;
