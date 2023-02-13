@@ -124,4 +124,13 @@ public class IlassoTest extends TestsInit {
         ilassoPage.validateCadenceStatus("Active");
     }
 
+    @Test
+    public void Ilasso_TC_014() {
+        ilassoPage.clickCadenceViewOption("EDIT_CADENCE_NAME");
+        editCadenceName.checkEditCadenceModal();
+        editCadenceName.editCadenceName("Automation_Test_3");
+        ilassoPage.verifySuccessMsg();
+
+    }
+
 }
