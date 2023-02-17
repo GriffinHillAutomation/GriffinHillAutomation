@@ -133,4 +133,33 @@ public class IlassoTest extends TestsInit {
 
     }
 
+    @Test
+    public void Ilasso_TC_015() {
+       // ilassoPage.addCadence("New", "AutomationTest-Cadence");
+       // ilassoPage.verifySuccessMsg();
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.writeNotes("Timer: Delay | Step type: Email | Step Action: Manual");
+        ilassoPage.clickSave();
+        ilassoPage.fillEmailTemplate(
+                "Test-Automation",
+                "Send Email Testing",
+                "Compose Email here");
+        ilassoPage.verifySuccessMsg();
+    }
+
+    @Test
+    public void Ilasso_TC_016() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Date timer");
+        ilassoPage.writeNotes("Timer: Date | Step type: Email | Step Action: Manual");
+        ilassoPage.clickSave();
+        ilassoPage.fillEmailTemplate(
+                "Test-Automation",
+                "Send Email Testing",
+                "Compose Email here");
+        ilassoPage.verifySuccessMsg();
+    }
+
 }

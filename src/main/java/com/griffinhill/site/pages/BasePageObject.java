@@ -26,6 +26,7 @@ public class BasePageObject {
     public static void click(WebElement element) {
         waitForElementVisibility(element);
         element.click();
+        waitForPageLoad();
     }
 
     public static void sendKeys(WebElement element, String data) {
