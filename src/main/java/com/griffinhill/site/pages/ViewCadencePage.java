@@ -7,15 +7,15 @@ import static com.griffinhill.utils.PageUtils.checkElementsEnabled;
 
 public class ViewCadencePage {
 
-    @FindBy(xpath = "a[data-rb-event-key='cadence-flow']")
+    @FindBy(xpath = "//a[@data-rb-event-key='cadence-flow']")
     private static WebElement cadenceFlow;
-    @FindBy(xpath = "a[data-rb-event-key='reports']")
+    @FindBy(xpath = "//a[@data-rb-event-key='reports']")
     private static WebElement reports;
-    @FindBy(xpath = "a[data-rb-event-key='contacts']")
+    @FindBy(xpath = "//a[@data-rb-event-key='contacts']")
     private static WebElement contacts;
-    @FindBy(xpath = "a[data-rb-event-key='integration']")
+    @FindBy(xpath = "//a[@data-rb-event-key='integrations']")
     private static WebElement integration;
-    @FindBy(xpath = "a[data-rb-event-key='settings']")
+    @FindBy(xpath = "//a[@data-rb-event-key='settings']")
     private static WebElement settings;
     @FindBy(css = "div.TallyBox:nth-child(1)")
     private static WebElement steps;

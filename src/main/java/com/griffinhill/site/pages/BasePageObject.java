@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.util.List;
-import java.util.function.Function;
 
 import static com.griffinhill.utils.PageUtils.pause;
 
@@ -40,8 +39,7 @@ public class BasePageObject {
     }
 
     public static void verifyElementDisplayed(WebElement element) {
-        waitForElementVisibility(element);
-        element.isDisplayed();
+        wait.until(waitForElementVisibility(element)).isDisplayed();
     }
 
     public static void verifyContent(WebElement element, String message) {
@@ -62,11 +60,11 @@ public class BasePageObject {
         }
     }
 
-    public static void waitForVisibilityOfAllElement(WebElement element, Integer... timeOutInSeconds){
+    public static void waitForVisibilityOfAllElement(WebElement element){
         int attempts = 0;
         while (attempts < 2){
             try {
-                waitFor(ExpectedConditions.visibilityOf(element), (timeOutInSeconds.length > 0 ? timeOutInSeconds[0] : null));
+                waitFor(ExpectedConditions.visibilityOf(element));
                 System.out.println("Attempting to find element: " + element + " -- attempt count: " + attempts);
                 pause(1000);
             } catch(Exception e) {
@@ -80,7 +78,7 @@ public class BasePageObject {
         int attempts = 0;
         while (attempts < 2){
             try {
-                waitForElements(ExpectedConditions.visibilityOfAllElements(elements), (timeOutInSeconds.length > 0 ? timeOutInSeconds[0] : null));
+                waitForElements(ExpectedConditions.visibilityOfAllElements(elements));
                 System.out.println("Attempting to find element: " + elements.get(0) + " -- attempt count: " + attempts);
                 pause(1000);
             } catch(Exception e) {
@@ -90,20 +88,15 @@ public class BasePageObject {
         }
     }
 
-    private static void waitFor(ExpectedCondition<WebElement> condition, Integer timeOutInSeconds){
-        timeOutInSeconds = timeOutInSeconds != null ? timeOutInSeconds : 30;
-        WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
+    private static void waitFor(ExpectedCondition<WebElement> condition){
         wait.until(condition);
     }
 
-    private static void waitForElements(ExpectedCondition<List<WebElement>> condition, Integer timeOutInSeconds){
-        timeOutInSeconds = timeOutInSeconds != null ? timeOutInSeconds : 30;
-        WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
+    private static void waitForElements(ExpectedCondition<List<WebElement>> condition){
         wait.until(condition);
     }
 
     public static void waitForPageLoad() {
-        wait = new WebDriverWait(driver, 30);
         wait.until(driver -> {
             System.out.println("Current Window State: " + (((JavascriptExecutor) driver).executeScript("return document.readyState")));
             return String

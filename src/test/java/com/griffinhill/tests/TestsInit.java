@@ -17,10 +17,13 @@ import org.testng.annotations.BeforeMethod;
 
 import java.util.concurrent.TimeUnit;
 
+import static com.griffinhill.site.pages.LoginPage.checkOpenedPage;
+
 public class TestsInit {
 
     public static WebDriver driver;
     private final String GRIFFIN_HILL_URL = "https://beta-legacy.griffinhill.com/";
+    //private final String GRIFFIN_HILL_URL = "https://beta.griffinhill.com/";
     //private final String GRIFFIN_HILL_URL = "https://members.griffinhill.com/";
 
     public LoginPage loginPage;
@@ -36,7 +39,7 @@ public class TestsInit {
     public void beforeMethodTestsInit() {
         setup();
         initPage();
-        loginPage.checkOpenedPage();
+        //checkOpenedPage();
     }
 
     @AfterMethod(alwaysRun = true)
