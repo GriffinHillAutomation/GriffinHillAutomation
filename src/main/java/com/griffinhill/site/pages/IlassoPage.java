@@ -83,18 +83,26 @@ public class IlassoPage {
     private static WebElement addStepModalForm;
     @FindBy(xpath = "//div[@class='col-lg-12'][1]//div[@class='Select css-2b097c-container']")
     private static WebElement timer;
+    @FindBy(xpath = "//div[@class='col-lg-12'][2]//div[@class='Select css-2b097c-container']")
+    private static WebElement stepType;
+    @FindBy(xpath = "//div[@class='col-lg-12'][3]//div[@class='Select css-2b097c-container']")
+    private static WebElement stepAction;
     @FindBy(css = "textarea[label='Notes']")
     private static WebElement addStepNotes;
     @FindBy(xpath = "//button[@type='submit']")
     private static WebElement next;
+    @FindBy(xpath = "//button[@type='submit']")
+    private static WebElement save;
     @FindBy(css = "div.CadenceEmailTemplate")
     private static WebElement emailTemplate;
+    @FindBy(css = "div.CadenceMessageTemplate")
+    private static WebElement textMessageTemplate;
     @FindBy(xpath = "//p[text()='Template name:']/parent::div/parent::div//input")
     private static WebElement templateName;
     @FindBy(xpath = "//p[text()='Subject: ']/parent::div/parent::div//input")
     private static WebElement subject;
     @FindBy(xpath = "//div[@role='textbox']")
-    private static WebElement email;
+    private static WebElement textbox;
 
 
 
@@ -265,21 +273,47 @@ public class IlassoPage {
         click(e);
     }
 
+    public void selectStepType(String stepTypeValue) {
+        click(stepType);
+        WebElement e = driver.findElement(By.xpath(String.format("//div[contains(text(), '%s')]", stepTypeValue)));
+        System.out.println(e.isDisplayed());
+        click(e);
+    }
+
+    public void selectStepAction(String stepActionValue) {
+        click(stepAction);
+        WebElement e = driver.findElement(By.xpath(String.format("//div[contains(text(), '%s')]", stepActionValue)));
+        System.out.println(e.isDisplayed());
+        click(e);
+    }
+
     public void writeNotes(String notes) {
         sendKeys(addStepNotes, notes);
         click(next);
     }
 
-    public void clickSave() {
+    public void clickNext() {
         waitForVisibilityOfAllElement(next);
         click(next);
+    }
+
+    public void clickSave() {
+        waitForVisibilityOfAllElement(save);
+        click(save);
     }
 
     public void fillEmailTemplate(String templateNameValue, String subjectValue, String emailValue) {
         waitForVisibilityOfAllElement(emailTemplate);
         sendKeys(templateName, templateNameValue);
         sendKeys(subject, subjectValue);
-        sendKeys(email, emailValue);
+        sendKeys(textbox, emailValue);
+        this.clickSave();
+    }
+
+    public void fillTextMessageTemplate(String templateNameValue, String emailValue) {
+        waitForVisibilityOfAllElement(textMessageTemplate);
+        sendKeys(templateName, templateNameValue);
+        sendKeys(textbox, emailValue);
         this.clickSave();
     }
 
