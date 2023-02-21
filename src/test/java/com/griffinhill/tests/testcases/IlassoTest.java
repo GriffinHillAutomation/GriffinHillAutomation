@@ -201,4 +201,34 @@ public class IlassoTest extends TestsInit {
                 "Compose Email here");
         ilassoPage.verifySuccessMsg();
     }
+
+    @Test
+    /* Test Case: Add Step - Delay Timer - Text Message - Manual (Cadence Record -> Add Step) */
+    public void Ilasso_TC_019() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectStepType("Text Message");
+        ilassoPage.selectStepAction("Manual");
+        ilassoPage.clickNext();
+        ilassoPage.clickSave();
+        ilassoPage.fillTextMessageTemplate(
+                "Test-Automation-TextMessage",
+                "Compose Message here");
+        ilassoPage.verifySuccessMsg();
+    }
+
+    @Test
+    /* Test Case: Add Step - Delay Timer - Text Message - Automatic (Cadence Record -> Add Step) */
+    public void Ilasso_TC_020() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectStepType("Text Message");
+        ilassoPage.selectStepAction("Automatic");
+        ilassoPage.clickNext();
+        ilassoPage.clickSave();
+        ilassoPage.fillTextMessageTemplate(
+                "Test-Automation-TextMessage-Automatic",
+                "Compose Message here");
+        ilassoPage.verifySuccessMsg();
+    }
 }
