@@ -230,4 +230,36 @@ public class IlassoTest extends TestsInit {
                 "Compose Message here");
         ilassoPage.verifySuccessMsg();
     }
+
+    @Test
+    /* Test Case: Add Step - Date Timer - Text Message - Manual (Cadence Record -> Add Step) */
+    public void Ilasso_TC_021() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Date timer");
+        ilassoPage.selectStepType("Text Message");
+        ilassoPage.selectStepAction("Manual");
+        ilassoPage.clickNext();
+        ilassoPage.clickSave();
+        ilassoPage.fillTextMessageTemplate(
+                "Test-Automation-TextMessage-Automatic",
+                "Compose Message here");
+        ilassoPage.verifySuccessMsg();
+    }
+
+    @Test
+    /* Test Case: Add Step - Date Timer - Text Message - Automatic (Cadence Record -> Add Step) */
+    public void Ilasso_TC_022() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Date timer");
+        ilassoPage.selectStepType("Text Message");
+        ilassoPage.selectStepAction("Automatic");
+        ilassoPage.clickNext();
+        ilassoPage.clickSave();
+        ilassoPage.fillTextMessageTemplate(
+                "Test-Automation-TextMessage-Automatic",
+                "Compose Message here");
+        ilassoPage.verifySuccessMsg();
+    }
 }
