@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.griffinhill.site.pages.BasePageObject.*;
-import static com.griffinhill.utils.PageUtils.*;
+import static com.griffinhill.utils.PageUtils.checkElementsEnabled;
+import static com.griffinhill.utils.PageUtils.validateActualAndExpected;
 
 public class IlassoPage {
 
@@ -105,8 +106,6 @@ public class IlassoPage {
     private static WebElement textbox;
 
 
-
-
     public void checkOpenedPage() {
         checkElementsEnabled(tasks, contacts, calendar, reports, phoneLogs, cadences, scoreCard);
     }
@@ -167,11 +166,13 @@ public class IlassoPage {
         searchButton.click();
     }
 
-    public void loadAllData() { loadAllData.click(); }
+    public void loadAllData() {
+        loadAllData.click();
+    }
 
     public void verifySearchResult(String cadence) {
         waitForVisibilityOfAllElements(searchResults);
-        List <String> result = new ArrayList<>();
+        List<String> result = new ArrayList<>();
         for (WebElement searchResult : searchResults) {
             result.add(searchResult.getText());
         }
@@ -203,7 +204,7 @@ public class IlassoPage {
     }
 
     private void verifyCadenceViewOptions() {
-        waitForVisibilityOfAllElement(cadenceViewArrowDown);
+        verifyElementDisplayed(cadenceViewArrowDown);
         click(cadenceViewArrowDown);
         waitForVisibilityOfAllElement(cadenceViewOptions);
     }
@@ -213,7 +214,7 @@ public class IlassoPage {
         waitForPageLoad();
         switch (element) {
             case "VIEW_CADENCE":
-               click(optionViewCadence);
+                click(optionViewCadence);
                 break;
             case "EDIT_CADENCE_NAME":
                 click(optionEditCadenceName);

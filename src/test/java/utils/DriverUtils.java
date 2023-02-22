@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DriverUtils {
 
-    public static void waitUntilPageIsLoaded() {
+    public static void waitUntilPageIsLoadedxx() {
         Wait<WebDriver> wait = new WebDriverWait(TestsInit.driver, 30);
         wait.until(driver1 -> ((JavascriptExecutor)TestsInit.driver).executeScript("return document.readyState").equals("complete"));
     }

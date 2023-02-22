@@ -4,27 +4,24 @@ import com.griffinhill.modals.DeactivateActivateCadenceModal;
 import com.griffinhill.modals.EditCadenceNameModal;
 import com.griffinhill.modals.OrganizeStepsModal;
 import com.griffinhill.site.pages.*;
-import com.griffinhill.site.pages.BasePageObject;
-import com.griffinhill.site.pages.AchievementHubPage;
-import com.griffinhill.site.pages.IlassoPage;
-import com.griffinhill.site.pages.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.griffinhill.site.pages.LoginPage.checkOpenedPage;
+public class TestsInit extends BasePageObject {
 
-public class TestsInit {
-
-    public static WebDriver driver;
     private final String GRIFFIN_HILL_URL = "https://beta-legacy.griffinhill.com/";
     //private final String GRIFFIN_HILL_URL = "https://beta.griffinhill.com/";
     //private final String GRIFFIN_HILL_URL = "https://members.griffinhill.com/";
+
+    public TestsInit() {
+    }
 
     public LoginPage loginPage;
     public AchievementHubPage achievementHubPage;
@@ -35,6 +32,7 @@ public class TestsInit {
     public DeactivateActivateCadenceModal cadenceStatus;
     public BasePageObject basePageObject;
 
+
     @BeforeMethod(alwaysRun = true)
     public void beforeMethodTestsInit() {
         setup();
@@ -44,16 +42,17 @@ public class TestsInit {
 
     @AfterMethod(alwaysRun = true)
     public void afterMethodTestsInit() {
+        driver.close();
         driver.quit();
     }
 
     private void setup() {
         WebDriverManager.chromedriver().setup();
-
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.navigate().refresh();
-        driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, 10);
         driver.get(GRIFFIN_HILL_URL);
     }
 
@@ -62,8 +61,8 @@ public class TestsInit {
     }
 
     private void initPage() {
-        driver = getDriver();
-        basePageObject = new BasePageObject(driver);
+        //driver = getDriver();
+        //basePageObject = new BasePageObject();
         loginPage = new LoginPage();
         PageFactory.initElements(driver, loginPage);
         achievementHubPage = new AchievementHubPage();

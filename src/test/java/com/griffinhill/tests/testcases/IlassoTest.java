@@ -9,7 +9,6 @@ import static com.griffinhill.enums.PageNavigation.CADENCES;
 import static com.griffinhill.enums.PageNavigation.ILASSO;
 import static com.griffinhill.site.pages.LoginPage.login;
 import static testdata.LoginDetails.loginCredentials;
-import static utils.DriverUtils.waitUntilPageIsLoaded;
 
 public class IlassoTest extends TestsInit {
 
@@ -149,8 +148,8 @@ public class IlassoTest extends TestsInit {
     @Test
     /* Test Case: Add Step - Delay Timer - Email - Manual (Cadence Record -> Add Step) */
     public void Ilasso_TC_015() {
-       // ilassoPage.addCadence("New", "AutomationTest-Cadence");
-       // ilassoPage.verifySuccessMsg();
+        // ilassoPage.addCadence("New", "AutomationTest-Cadence");
+        // ilassoPage.verifySuccessMsg();
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
         ilassoPage.writeNotes("Timer: Delay | Step type: Email | Step Action: Manual");
