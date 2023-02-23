@@ -282,4 +282,26 @@ public class IlassoTest extends TestsInit {
                 "Compose Message here");
         ilassoPage.verifySuccessMsg();
     }
+
+    @Test
+    /* Test Case: Add Step - Field Timer - Text Message - Manual (Cadence Record -> Add Step) */
+    public void Ilasso_TC_023() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Field timer");
+        ilassoPage.selectStepType("Text Message");
+        ilassoPage.selectStepAction("Manual");
+        ilassoPage.clickNext();
+    }
+
+    @Test
+    /* Test Case: Add Step - Field Timer - Text Message - Automatic (Cadence Record -> Add Step) */
+    public void Ilasso_TC_024() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Field timer");
+        ilassoPage.selectStepType("Text Message");
+        ilassoPage.selectStepAction("Automatic");
+        ilassoPage.clickNext();
+    }
 }
