@@ -4,8 +4,7 @@ import com.griffinhill.entities.LoginInfo;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static com.griffinhill.site.pages.BasePageObject.click;
-import static com.griffinhill.site.pages.BasePageObject.sendKeys;
+import static com.griffinhill.site.pages.BasePageObject.*;
 import static com.griffinhill.utils.PageUtils.checkElementsEnabled;
 
 public class LoginPage {
@@ -34,5 +33,7 @@ public class LoginPage {
         sendKeys(username, loginInfo.getEmail());
         sendKeys(password, loginInfo.getPassword());
         click(login);
+
+        waitUntilPageIsLoaded();
     }
 }

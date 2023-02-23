@@ -51,7 +51,7 @@ public class TestsInit extends BasePageObject {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.navigate().refresh();
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 10);
         driver.get(GRIFFIN_HILL_URL);
     }

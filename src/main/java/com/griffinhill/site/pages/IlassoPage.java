@@ -38,6 +38,8 @@ public class IlassoPage {
     private static WebElement searchButton;
     @FindBy(css = "div.GriffinTable ")
     private static WebElement searchTable;
+    @FindBy(xpath = "//table")
+    private static WebElement cadenceTable;
     @FindBy(css = "table p.GriffinText span")
     private static List<WebElement> searchResults;
     @FindBy(xpath = "//button[contains(text(), 'Load All Data')]")
@@ -78,6 +80,8 @@ public class IlassoPage {
     private static WebElement optionDeleteCadence;
     @FindBy(css = "button.CadenceStatusBtn")
     private static List<WebElement> cadenceStatusIndicator;
+    @FindBy(css = "button.CadenceStatusBtn")
+    private static WebElement cadenceStatusIndicator_Element;
     @FindBy(xpath = "//span[text()='Add Step']/parent::div/parent::button")
     private static WebElement addStep;
     @FindBy(css = "div.AddStepModalForm")
@@ -186,6 +190,12 @@ public class IlassoPage {
         }
     }
 
+    public Boolean validateSearchResultTableIsNotEmpty() {
+        verifyElementDisplayed(cadenceTable);
+        return cadenceTable.findElements(By.xpath("tbody/tr")).size() >= 1;
+
+    }
+
     public void showCadenceList(int numberOfData) {
         Select showDataDropdown = new Select(selectShowData);
         showDataDropdown.selectByValue(String.valueOf(numberOfData));
@@ -193,7 +203,7 @@ public class IlassoPage {
 
     public void verifySearchResults(int numberOfExpectedData) {
         waitForVisibilityOfAllElements(searchResults);
-        boolean isTrue = searchResults.size() <= numberOfExpectedData ? true : false;
+        boolean isTrue = searchResults.size() <= numberOfExpectedData;
         Assert.assertTrue(isTrue);
     }
 
@@ -232,6 +242,7 @@ public class IlassoPage {
     }
 
     public void activateCadence() {
+        verifyElementDisplayed(cadenceStatusIndicator_Element);
         waitForVisibilityOfAllElements(cadenceStatusIndicator);
         for (WebElement e : cadenceStatusIndicator) {
             String status = e.getText();
@@ -244,6 +255,7 @@ public class IlassoPage {
 
     public boolean validateCadenceStatus(String statusValue) {
         boolean isActive = false;
+        verifyElementDisplayed(cadenceStatusIndicator_Element);
         waitForVisibilityOfAllElements(cadenceStatusIndicator);
         for (WebElement e : cadenceStatusIndicator) {
             String status = e.getText();

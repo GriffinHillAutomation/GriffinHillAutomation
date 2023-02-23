@@ -21,6 +21,9 @@ public class IlassoTest extends TestsInit {
         ilassoPage.checkOpenedPage();
         ilassoPage.navigateTo(CADENCES);
         waitUntilPageIsLoaded();
+        if (!ilassoPage.validateSearchResultTableIsNotEmpty()) {
+            ilassoPage.addCadence("New", "AutomationTest-Cadence");
+        }
     }
 
     @Test
@@ -148,6 +151,9 @@ public class IlassoTest extends TestsInit {
     @Test
     /* Test Case: Add Step - Delay Timer - Email - Manual (Cadence Record -> Add Step) */
     public void Ilasso_TC_015() {
+
+        ilassoPage.addCadence("New", "AutomationTest-Cadence");
+
         // ilassoPage.addCadence("New", "AutomationTest-Cadence");
         // ilassoPage.verifySuccessMsg();
         ilassoPage.clickCadence("AutomationTest-Cadence");
@@ -164,6 +170,8 @@ public class IlassoTest extends TestsInit {
     @Test
     /* Test Case: Add Step - Date Timer - Email - Manual (Cadence Record -> Add Step) */
     public void Ilasso_TC_016() {
+        ilassoPage.addCadence("New", "AutomationTest-Cadence");
+
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
         ilassoPage.selectTimer("Date timer");
@@ -179,6 +187,8 @@ public class IlassoTest extends TestsInit {
     @Test
     /* Test Case: Add Step - Field Timer - Email - Manual (Cadence Record -> Add Step) */
     public void Ilasso_TC_017() {
+        ilassoPage.addCadence("New", "AutomationTest-Cadence");
+
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
         ilassoPage.selectTimer("Field timer");
@@ -189,6 +199,8 @@ public class IlassoTest extends TestsInit {
     @Test
     /* Test Case: Add Step - Delay Timer - Email - Automatic (Cadence Record -> Add Step) */
     public void Ilasso_TC_018() {
+        ilassoPage.addCadence("New", "AutomationTest-Cadence");
+
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
         ilassoPage.selectStepAction("Automatic");
@@ -204,6 +216,8 @@ public class IlassoTest extends TestsInit {
     @Test
     /* Test Case: Add Step - Delay Timer - Text Message - Manual (Cadence Record -> Add Step) */
     public void Ilasso_TC_019() {
+        ilassoPage.addCadence("New", "AutomationTest-Cadence");
+
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
         ilassoPage.selectStepType("Text Message");
@@ -219,6 +233,8 @@ public class IlassoTest extends TestsInit {
     @Test
     /* Test Case: Add Step - Delay Timer - Text Message - Automatic (Cadence Record -> Add Step) */
     public void Ilasso_TC_020() {
+        ilassoPage.addCadence("New", "AutomationTest-Cadence");
+
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
         ilassoPage.selectStepType("Text Message");
@@ -234,6 +250,8 @@ public class IlassoTest extends TestsInit {
     @Test
     /* Test Case: Add Step - Date Timer - Text Message - Manual (Cadence Record -> Add Step) */
     public void Ilasso_TC_021() {
+        ilassoPage.addCadence("New", "AutomationTest-Cadence");
+
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
         ilassoPage.selectTimer("Date timer");
@@ -250,6 +268,8 @@ public class IlassoTest extends TestsInit {
     @Test
     /* Test Case: Add Step - Date Timer - Text Message - Automatic (Cadence Record -> Add Step) */
     public void Ilasso_TC_022() {
+        ilassoPage.addCadence("New", "AutomationTest-Cadence");
+
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
         ilassoPage.selectTimer("Date timer");

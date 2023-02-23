@@ -3,8 +3,6 @@ package com.griffinhill.modals;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static com.griffinhill.site.pages.BasePageObject.click;
-import static com.griffinhill.site.pages.BasePageObject.sendKeys;
 import static com.griffinhill.utils.PageUtils.checkElementsEnabled;
 
 public class OrganizeStepsModal {
@@ -17,7 +15,7 @@ public class OrganizeStepsModal {
     private static WebElement save;
 
 
-    public static void checkOrganizeStepsModal() {
+    public void checkOrganizeStepsModal() {
         organizeStepsModal.isDisplayed();
         checkElementsEnabled(cancel, save);
     }

@@ -28,11 +28,11 @@ public class ViewCadencePage {
     @FindBy(css = "div.FloatingButton.circle")
     private static WebElement needHelp;
 
-    public static void checkOpenedPage() {
+    public void checkOpenedPage() {
         checkElementsEnabled(cadenceFlow, reports, contacts, integration, settings);
     }
 
-    public static void validateViewCadenceButtons() {
+    public void validateViewCadenceButtons() {
         checkElementsEnabled(steps, days, prospects, addStep, needHelp);
     }
 }

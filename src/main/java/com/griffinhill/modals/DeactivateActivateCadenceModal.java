@@ -3,7 +3,8 @@ package com.griffinhill.modals;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static com.griffinhill.site.pages.BasePageObject.*;
+import static com.griffinhill.site.pages.BasePageObject.click;
+import static com.griffinhill.site.pages.BasePageObject.verifyContent;
 import static com.griffinhill.utils.PageUtils.checkElementsEnabled;
 
 public class DeactivateActivateCadenceModal {
@@ -18,13 +19,17 @@ public class DeactivateActivateCadenceModal {
     private static WebElement confirm;
 
 
-    public static void checkCadenceStatusModal(String message) {
+    public void checkCadenceStatusModal(String message) {
         deactivateActivateCadence.isDisplayed();
         checkElementsEnabled(cancel, confirm);
         verifyContent(deactivateActivateCadenceReminder, message);
     }
 
-    public void confirm() { click(confirm); }
+    public void confirm() {
+        click(confirm);
+    }
 
-    public void cancel() { click(cancel); }
+    public void cancel() {
+        click(cancel);
+    }
 }

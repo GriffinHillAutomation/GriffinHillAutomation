@@ -44,9 +44,10 @@ public class BasePageObject {
 
     public static void verifyElementDisplayed(WebElement element) {
         try {
-            wait.until(waitForElementVisibility(element)).isDisplayed();
+            Assert.assertTrue(wait.until(waitForElementVisibility(element)).isDisplayed());
+            //    return true;
         } catch (Exception e) {
-
+            //    return false;
         }
     }
 

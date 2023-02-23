@@ -18,7 +18,7 @@ public class EditCadenceNameModal {
     private static WebElement save;
 
 
-    public static void checkEditCadenceModal() {
+    public void checkEditCadenceModal() {
         editCadenceForm.isDisplayed();
         checkElementsEnabled(cadenceName, cancel, save);
     }
