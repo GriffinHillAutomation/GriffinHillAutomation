@@ -108,6 +108,8 @@ public class IlassoPage {
     private static WebElement subject;
     @FindBy(xpath = "//div[@role='textbox']")
     private static WebElement textbox;
+    @FindBy(css = "input[label='Step/task name']")
+    private static WebElement otherTaskName;
 
 
     public void checkOpenedPage() {
@@ -328,6 +330,18 @@ public class IlassoPage {
         sendKeys(templateName, templateNameValue);
         sendKeys(textbox, emailValue);
         this.clickSave();
+    }
+
+    public void fillLinkedTemplate(String templateNameValue, String emailValue) {
+        waitForVisibilityOfAllElement(textMessageTemplate);
+        sendKeys(templateName, templateNameValue);
+        sendKeys(textbox, emailValue);
+        this.clickSave();
+    }
+
+    public void inputOtherTaskName(String otherTaskNameValue) {
+        waitForVisibilityOfAllElement(otherTaskName);
+        sendKeys(otherTaskName, otherTaskNameValue);
     }
 
 
