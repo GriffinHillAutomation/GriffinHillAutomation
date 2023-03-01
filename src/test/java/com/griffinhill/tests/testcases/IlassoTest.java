@@ -373,4 +373,30 @@ public class IlassoTest extends TestsInit {
         ilassoPage.selectStepAction("Demo Call");
         ilassoPage.writeNotes("Timer: Field | Step type: Phone Call | Step Action: Demo Call");
     }
+
+    @Test
+    /* Test Case: Add Step - Delay Timer - Phone Call - Follow-up Call (Cadence Record -> Add Step) */
+    public void Ilasso_TC_031() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Delay timer");
+        ilassoPage.selectStepType("Phone Call");
+        ilassoPage.selectStepAction("Follow-up Call");
+        ilassoPage.writeNotes("Timer: Delay | Step type: Phone Call | Step Action: Follow-up Call");
+        ilassoPage.clickSave();
+        ilassoPage.verifySuccessMsg();
+    }
+
+    @Test
+    /* Test Case: Add Step - Date Timer - Phone Call - Follow-up Call (Cadence Record -> Add Step) */
+    public void Ilasso_TC_032() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Date timer");
+        ilassoPage.selectStepType("Phone Call");
+        ilassoPage.selectStepAction("Follow-up Call");
+        ilassoPage.writeNotes("Timer: Date | Step type: Phone Call | Step Action: Follow-up Call");
+        ilassoPage.clickSave();
+        ilassoPage.verifySuccessMsg();
+    }
 }
