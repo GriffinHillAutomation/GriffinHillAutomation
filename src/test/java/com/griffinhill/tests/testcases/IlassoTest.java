@@ -423,4 +423,28 @@ public class IlassoTest extends TestsInit {
         ilassoPage.clickSave();
         ilassoPage.verifySuccessMsg();
     }
+
+    @Test
+    /* Test Case: Add Step - Date Timer - Phone Call - Supporting Call (Cadence Record -> Add Step) */
+    public void Ilasso_TC_035() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Date timer");
+        ilassoPage.selectStepType("Phone Call");
+        ilassoPage.selectStepAction("Supporting Call");
+        ilassoPage.writeNotes("Timer: Date | Step type: Phone Call | Step Action: Supporting Call");
+        ilassoPage.clickSave();
+        ilassoPage.verifySuccessMsg();
+    }
+
+    @Test
+    /* Test Case: Add Step - Field Timer - Phone Call - Supporting Call (Cadence Record -> Add Step) */
+    public void Ilasso_TC_036() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Field timer");
+        ilassoPage.selectStepType("Phone Call");
+        ilassoPage.selectStepAction("Supporting Call");
+        ilassoPage.writeNotes("Timer: Field | Step type: Phone Call | Step Action: Supporting Call");
+    }
 }
