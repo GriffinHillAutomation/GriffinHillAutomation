@@ -2,56 +2,46 @@ package com.griffinhill.tests.testcases;
 
 import com.griffinhill.entities.LoginInfo;
 import com.griffinhill.tests.TestsInit;
-import io.qameta.allure.Description;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import reports.AllureListener;
 
 import static com.griffinhill.enums.PageNavigation.CADENCES;
 import static com.griffinhill.enums.PageNavigation.ILASSO;
 import static com.griffinhill.site.pages.LoginPage.login;
 import static testdata.LoginDetails.loginCredentials;
 
-
-@Listeners({AllureListener.class})
 public class IlassoTest extends TestsInit {
 
     LoginInfo user = loginCredentials();
 
     @BeforeMethod
     public void before() {
-        try {
-            login(user);
-            achievementHubPage.navigateTo(ILASSO);
-            //ilassoPage.checkOpenedPage();
-            ilassoPage.navigateTo(CADENCES);
-            waitUntilPageIsLoaded();
-            if (!ilassoPage.validateSearchResultTableIsNotEmpty()) {
-                ilassoPage.addCadence("New", "AutomationTest-Cadence");
-            }
+        login(user);
+        achievementHubPage.navigateTo(ILASSO);
+        ilassoPage.checkOpenedPage();
+        ilassoPage.navigateTo(CADENCES);
+        waitUntilPageIsLoaded();
+        if (!ilassoPage.validateSearchResultTableIsNotEmpty()) {
+            ilassoPage.addCadence("New", "AutomationTest-Cadence");
         }
-        catch (Exception e)
-        {}
     }
 
     @Test
-    @Description("Test Case: Search functionality in Cadence Page (iLasso -> Cadences)")
+    /* Test Case: Search functionality in Cadence Page (iLasso -> Cadences) */
     public void Ilasso_TC_001() {
         ilassoPage.searchCadence("Test-CadenceNew");
-        ilassoPage.verifySearchResult("AutomationTest-Cadence");
+        ilassoPage.verifySearchResult("Test-CadenceNew");
     }
 
     @Test
-    @Description("Test Case: Load all data function in Cadence Page (iLasso -> Cadences)")
+    /* Test Case: Load all data function in Cadence Page (iLasso -> Cadences) */
     public void Ilasso_TC_002() {
         ilassoPage.loadAllData();
         ilassoPage.verifySearchResultTableIsNotEmpty();
     }
 
     @Test
-    @Description("Test Case: Show # of Rows function in Cadence Page (iLasso -> Cadences) ")
+    /* Test Case: Show # of Rows function in Cadence Page (iLasso -> Cadences) */
     public void Ilasso_TC_003() {
         ilassoPage.showCadenceList(10);
         ilassoPage.verifySearchResults(10);
@@ -66,7 +56,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Add New Cadence (iLasso -> Cadence) ")
+    /* Test Case: Add New Cadence (iLasso -> Cadence) */
     public void Ilasso_TC_004() {
         ilassoPage.addCadence("New", "AutomationTest-Cadence");
         ilassoPage.verifySuccessMsg();
@@ -74,14 +64,14 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Delete Cadence (iLasso -> Cadence) ")
+    /* Test Case: Delete Cadence (iLasso -> Cadence) */
     public void Ilasso_TC_005() {
         ilassoPage.deleteLatestCadenceRecord();
         ilassoPage.verifySuccessMsg();
     }
 
     @Test
-    @Description("Test Case: Cadence Record - Arrow button - View Cadence")
+    /* Test Case: Cadence Record - Arrow button - View Cadence */
     public void Ilasso_TC_006() {
         ilassoPage.clickCadenceViewOption("VIEW_CADENCE");
         viewCadencePage.checkOpenedPage();
@@ -89,7 +79,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Cadence Record - Arrow button - Edit Cadence Name")
+    /* Test Case: Cadence Record - Arrow button - Edit Cadence Name */
     public void Ilasso_TC_007() {
         ilassoPage.clickCadenceViewOption("EDIT_CADENCE_NAME");
         editCadenceName.checkEditCadenceModal();
@@ -97,14 +87,14 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Cadence Record - Arrow button - Organize Steps")
+    /* Test Case: Cadence Record - Arrow button - Organize Steps */
     public void Ilasso_TC_008() {
         ilassoPage.clickCadenceViewOption("ORGANIZE_STEP");
         organizeSteps.checkOrganizeStepsModal();
     }
 
     @Test
-    @Description("Test Case: Cadence Record - Arrow button - Deactivate Cadence")
+    /* Test Case: Cadence Record - Arrow button - Deactivate Cadence */
     public void Ilasso_TC_009() {
         ilassoPage.clickCadenceViewOption("DEACTIVATE_CADENCE");
         cadenceStatus.checkCadenceStatusModal("Deactivating a Cadence will pause all steps and activities within the Cadence. You will be able to turn it back to active once you've set it as inactive.");
@@ -113,7 +103,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Cadence Record - Arrow button - Activate Cadence")
+    /* Test Case: Cadence Record - Arrow button - Activate Cadence */
     public void Ilasso_TC_010() {
         ilassoPage.activateCadence();
         cadenceStatus.checkCadenceStatusModal("Turning a Cadence to active will resume all steps and activities within the Cadence. You will be able to turn it back to inactive once you've set it as active.");
@@ -122,7 +112,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Cadence Record - Arrow button - Delete Cadence")
+    /* Test Case: Cadence Record - Arrow button - Delete Cadence */
     public void Ilasso_TC_011() {
         ilassoPage.clickCadenceViewOption("DELETE_CADENCE");
         cadenceStatus.confirm();
@@ -130,7 +120,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Cadence Record - Inactive Status")
+    /* Test Case: Cadence Record - Inactive Status */
     public void Ilasso_TC_012() {
         ilassoPage.clickCadenceViewOption("DEACTIVATE_CADENCE");
         cadenceStatus.checkCadenceStatusModal("Deactivating a Cadence will pause all steps and activities within the Cadence. You will be able to turn it back to active once you've set it as inactive.");
@@ -140,7 +130,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Cadence Record - Active Status")
+    /* Test Case: Cadence Record - Active Status */
     public void Ilasso_TC_013() {
         ilassoPage.clickCadenceViewOption("DEACTIVATE_CADENCE");
         cadenceStatus.checkCadenceStatusModal("Turning a Cadence to active will resume all steps and activities within the Cadence. You will be able to turn it back to inactive once you've set it as active.");
@@ -150,7 +140,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Edit Cadence (Cadence Record -> Edit)")
+    /* Test Case: Edit Cadence (Cadence Record -> Edit) */
     public void Ilasso_TC_014() {
         ilassoPage.clickCadenceViewOption("EDIT_CADENCE_NAME");
         editCadenceName.checkEditCadenceModal();
@@ -159,7 +149,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Add Step - Delay Timer - Email - Manual (Cadence Record -> Add Step)")
+    /* Test Case: Add Step - Delay Timer - Email - Manual (Cadence Record -> Add Step) */
     public void Ilasso_TC_015() {
 
         ilassoPage.addCadence("New", "AutomationTest-Cadence");
@@ -178,7 +168,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Add Step - Date Timer - Email - Manual (Cadence Record -> Add Step)")
+    /* Test Case: Add Step - Date Timer - Email - Manual (Cadence Record -> Add Step) */
     public void Ilasso_TC_016() {
         ilassoPage.addCadence("New", "AutomationTest-Cadence");
 
@@ -195,7 +185,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Add Step - Field Timer - Email - Manual (Cadence Record -> Add Step)")
+    /* Test Case: Add Step - Field Timer - Email - Manual (Cadence Record -> Add Step) */
     public void Ilasso_TC_017() {
         ilassoPage.addCadence("New", "AutomationTest-Cadence");
 
@@ -207,7 +197,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Add Step - Delay Timer - Email - Automatic (Cadence Record -> Add Step)")
+    /* Test Case: Add Step - Delay Timer - Email - Automatic (Cadence Record -> Add Step) */
     public void Ilasso_TC_018() {
         ilassoPage.addCadence("New", "AutomationTest-Cadence");
 
@@ -224,7 +214,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Add Step - Delay Timer - Text Message - Manual (Cadence Record -> Add Step)")
+    /* Test Case: Add Step - Delay Timer - Text Message - Manual (Cadence Record -> Add Step) */
     public void Ilasso_TC_019() {
         ilassoPage.addCadence("New", "AutomationTest-Cadence");
 
@@ -241,7 +231,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Add Step - Delay Timer - Text Message - Automatic (Cadence Record -> Add Step)")
+    /* Test Case: Add Step - Delay Timer - Text Message - Automatic (Cadence Record -> Add Step) */
     public void Ilasso_TC_020() {
         ilassoPage.addCadence("New", "AutomationTest-Cadence");
 
@@ -258,7 +248,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Add Step - Date Timer - Text Message - Manual (Cadence Record -> Add Step)")
+    /* Test Case: Add Step - Date Timer - Text Message - Manual (Cadence Record -> Add Step) */
     public void Ilasso_TC_021() {
         ilassoPage.addCadence("New", "AutomationTest-Cadence");
 
@@ -276,7 +266,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Add Step - Date Timer - Text Message - Automatic (Cadence Record -> Add Step)")
+    /* Test Case: Add Step - Date Timer - Text Message - Automatic (Cadence Record -> Add Step) */
     public void Ilasso_TC_022() {
         ilassoPage.addCadence("New", "AutomationTest-Cadence");
 
@@ -294,7 +284,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Add Step - Field Timer - Text Message - Manual (Cadence Record -> Add Step)")
+    /* Test Case: Add Step - Field Timer - Text Message - Manual (Cadence Record -> Add Step) */
     public void Ilasso_TC_023() {
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
@@ -305,7 +295,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Add Step - Field Timer - Text Message - Automatic (Cadence Record -> Add Step)")
+    /* Test Case: Add Step - Field Timer - Text Message - Automatic (Cadence Record -> Add Step) */
     public void Ilasso_TC_024() {
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
@@ -316,7 +306,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Add Step - Delay Timer - Phone Call - Introductory Call (Cadence Record -> Add Step)")
+    /* Test Case: Add Step - Delay Timer - Phone Call - Introductory Call (Cadence Record -> Add Step) */
     public void Ilasso_TC_025() {
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
@@ -327,7 +317,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Add Step - Date Timer - Phone Call - Introductory Call (Cadence Record -> Add Step)")
+    /* Test Case: Add Step - Date Timer - Phone Call - Introductory Call (Cadence Record -> Add Step) */
     public void Ilasso_TC_026() {
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
@@ -339,7 +329,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Add Step - Field Timer - Phone Call - Introductory Call (Cadence Record -> Add Step)")
+    /* Test Case: Add Step - Field Timer - Phone Call - Introductory Call (Cadence Record -> Add Step) */
     public void Ilasso_TC_027() {
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
@@ -349,7 +339,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Add Step - Delay Timer - Phone Call - Demo Call (Cadence Record -> Add Step)")
+    /* Test Case: Add Step - Delay Timer - Phone Call - Demo Call (Cadence Record -> Add Step) */
     public void Ilasso_TC_028() {
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
@@ -361,7 +351,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Add Step - Date Timer - Phone Call - Demo Call (Cadence Record -> Add Step)")
+    /* Test Case: Add Step - Date Timer - Phone Call - Demo Call (Cadence Record -> Add Step) */
     public void Ilasso_TC_029() {
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
@@ -374,7 +364,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Add Step - Field Timer - Phone Call - Demo Call (Cadence Record -> Add Step)")
+    /* Test Case: Add Step - Field Timer - Phone Call - Demo Call (Cadence Record -> Add Step) */
     public void Ilasso_TC_030() {
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
@@ -385,7 +375,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Add Step - Delay Timer - Phone Call - Follow-up Call (Cadence Record -> Add Step)")
+    /* Test Case: Add Step - Delay Timer - Phone Call - Follow-up Call (Cadence Record -> Add Step) */
     public void Ilasso_TC_031() {
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
@@ -398,7 +388,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Add Step - Date Timer - Phone Call - Follow-up Call (Cadence Record -> Add Step)")
+    /* Test Case: Add Step - Date Timer - Phone Call - Follow-up Call (Cadence Record -> Add Step) */
     public void Ilasso_TC_032() {
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
@@ -411,7 +401,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Add Step - Field Timer - Phone Call - Follow-up Call (Cadence Record -> Add Step)")
+    /* Test Case: Add Step - Field Timer - Phone Call - Follow-up Call (Cadence Record -> Add Step) */
     public void Ilasso_TC_033() {
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
@@ -422,7 +412,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    @Description("Test Case: Add Step - Delay Timer - Phone Call - Supporting Call (Cadence Record -> Add Step)")
+    /* Test Case: Add Step - Delay Timer - Phone Call - Supporting Call (Cadence Record -> Add Step) */
     public void Ilasso_TC_034() {
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
@@ -456,5 +446,42 @@ public class IlassoTest extends TestsInit {
         ilassoPage.selectStepType("Phone Call");
         ilassoPage.selectStepAction("Supporting Call");
         ilassoPage.writeNotes("Timer: Field | Step type: Phone Call | Step Action: Supporting Call");
+    }
+
+    @Test
+    /* Test Case: Add Step - Delay Timer - Phone Call - Others (Cadence Record -> Add Step) */
+    public void Ilasso_TC_037() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Delay timer");
+        ilassoPage.selectStepType("Phone Call");
+        ilassoPage.selectStepAction("Others");
+        ilassoPage.writeNotes("Timer: Delay | Step type: Phone Call | Step Action: Others");
+        ilassoPage.clickSave();
+        ilassoPage.verifySuccessMsg();
+    }
+
+    @Test
+    /* Test Case: Add Step - Date Timer - Phone Call - Others (Cadence Record -> Add Step) */
+    public void Ilasso_TC_038() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Date timer");
+        ilassoPage.selectStepType("Phone Call");
+        ilassoPage.selectStepAction("Others");
+        ilassoPage.writeNotes("Timer: Date | Step type: Phone Call | Step Action: Others");
+        ilassoPage.clickSave();
+        ilassoPage.verifySuccessMsg();
+    }
+
+    @Test
+    /* Test Case: Add Step - Field Timer - Phone Call - Others (Cadence Record -> Add Step) */
+    public void Ilasso_TC_039() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Date timer");
+        ilassoPage.selectStepType("Phone Call");
+        ilassoPage.selectStepAction("Others");
+        ilassoPage.writeNotes("Timer: Field | Step type: Phone Call | Step Action: Others");
     }
 }
