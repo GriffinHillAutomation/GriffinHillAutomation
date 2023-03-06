@@ -1,5 +1,6 @@
 package com.griffinhill.site.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -32,6 +33,7 @@ public class BasePageObject {
         waitForPageLoad();
     }
 
+    @Step("Send keys")
     public static void sendKeys(WebElement element, String data) {
         verifyElementDisplayed(element);
         element.clear();
@@ -43,20 +45,11 @@ public class BasePageObject {
     }
 
     public static void verifyElementDisplayed(WebElement element) {
-        try {
-            Assert.assertTrue(wait.until(waitForElementVisibility(element)).isDisplayed());
-            //    return true;
-        } catch (Exception e) {
-            //    return false;
-        }
+        Assert.assertTrue(wait.until(waitForElementVisibility(element)).isDisplayed());
     }
 
     public static void verifyElementClickable(WebElement element) {
-        try {
-            wait.until(ExpectedConditions.elementToBeClickable(element));
-        } catch (Exception e) {
-
-        }
+        wait.until(ExpectedConditions.elementToBeClickable(element));
 
     }
 
@@ -122,5 +115,9 @@ public class BasePageObject {
                     .valueOf(((JavascriptExecutor) driver).executeScript("return document.readyState"))
                     .equals("complete");
         });
+    }
+
+    public WebDriver getDriver() {
+        return driver;
     }
 }

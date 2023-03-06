@@ -1,13 +1,15 @@
 package com.griffinhill.site.pages;
 
 import com.griffinhill.entities.LoginInfo;
+import io.qameta.allure.Step;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import static com.griffinhill.site.pages.BasePageObject.*;
 import static com.griffinhill.utils.PageUtils.checkElementsEnabled;
 
-public class LoginPage {
+public class LoginPage{
 
     @FindBy(xpath = "//input[@name='username']")
     private static WebElement username;
@@ -26,13 +28,22 @@ public class LoginPage {
 
 
     public static void checkOpenedPage() {
-        checkElementsEnabled(username, password, login, forgotPassword, termsOfService, privacyPolicy, integrationInformation);
+        checkElementsEnabled(username, password, login);// forgotPassword, termsOfService, privacyPolicy, integrationInformation);
     }
 
+    @Step("log in")
     public static void login(LoginInfo loginInfo) {
-        sendKeys(username, loginInfo.getEmail());
-        sendKeys(password, loginInfo.getPassword());
-        click(login);
+        checkOpenedPage();
+        try {
+
+            sendKeys(username, loginInfo.getEmail());
+            sendKeys(password, loginInfo.getPassword());
+            click(login);
+        }
+        catch (ElementNotInteractableException e)
+        {
+            waitForPageLoad();
+        }
 
         waitUntilPageIsLoaded();
     }

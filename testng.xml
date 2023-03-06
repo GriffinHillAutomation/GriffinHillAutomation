@@ -3,12 +3,13 @@
 <suite name="Griffin Hill - Illaso Automation Test Suite">
 
     <listeners>
-        <listener class-name="com.griffinhill.reports.ExtentReporterNG" />
+        <listener class-name="reports.AllureListener"/>
     </listeners>
 
     <test name="Griffin Hill - Illaso Regression Testing">
         <classes>
             <class name="com.griffinhill.tests.testcases.LoginTest"></class>
+            <class name="com.griffinhill.tests.testcases.IlassoTest"></class>
         </classes>
     </test>
 </suite>

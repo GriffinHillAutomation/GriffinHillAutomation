@@ -1,10 +1,12 @@
 package com.griffinhill.site.pages;
 
 import com.griffinhill.enums.PageNavigation;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import static com.griffinhill.site.pages.BasePageObject.click;
+import static com.griffinhill.site.pages.BasePageObject.waitUntilPageIsLoaded;
 import static com.griffinhill.utils.PageUtils.checkElementsEnabled;
 
 public class AchievementHubPage {
@@ -41,7 +43,13 @@ public class AchievementHubPage {
                 click(goalAchiever);
                 break;
             case ILASSO:
-                click(iLasso);
+                //try {
+                    click(iLasso);
+                //}
+                //catch (NoSuchElementException e){
+                //    waitUntilPageIsLoaded();
+                //}
+
                 break;
             case SCORE_CARD:
                 click(scoreCard);

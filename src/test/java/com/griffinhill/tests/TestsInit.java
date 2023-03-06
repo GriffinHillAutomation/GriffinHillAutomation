@@ -5,14 +5,18 @@ import com.griffinhill.modals.EditCadenceNameModal;
 import com.griffinhill.modals.OrganizeStepsModal;
 import com.griffinhill.site.pages.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import java.util.concurrent.TimeUnit;
+
+import static org.testng.CommandLineArgs.CONFIG_FAILURE_POLICY;
 
 public class TestsInit extends BasePageObject {
 
@@ -30,7 +34,7 @@ public class TestsInit extends BasePageObject {
     public EditCadenceNameModal editCadenceName;
     public OrganizeStepsModal organizeSteps;
     public DeactivateActivateCadenceModal cadenceStatus;
-    public BasePageObject basePageObject;
+    //public BasePageObject basePageObject;
 
 
     @BeforeMethod(alwaysRun = true)
@@ -42,13 +46,17 @@ public class TestsInit extends BasePageObject {
 
     @AfterMethod(alwaysRun = true)
     public void afterMethodTestsInit() {
-        driver.close();
+        //driver.close();
         driver.quit();
     }
 
     private void setup() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.setCapability(CONFIG_FAILURE_POLICY, "continue");
+        //configfailurepolicy
+        //	skip|continue
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.navigate().refresh();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

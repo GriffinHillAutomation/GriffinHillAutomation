@@ -1,6 +1,7 @@
 package com.griffinhill.site.pages;
 
 import com.griffinhill.enums.PageNavigation;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -116,6 +117,7 @@ public class IlassoPage {
         checkElementsEnabled(tasks, contacts, calendar, reports, phoneLogs, cadences, scoreCard);
     }
 
+    @Step("Navigate To")
     public void navigateTo(PageNavigation page) {
         checkOpenedPage();
         switch (page) {
