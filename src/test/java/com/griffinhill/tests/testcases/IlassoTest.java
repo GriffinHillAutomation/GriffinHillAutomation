@@ -484,4 +484,44 @@ public class IlassoTest extends TestsInit {
         ilassoPage.selectStepAction("Others");
         ilassoPage.writeNotes("Timer: Field | Step type: Phone Call | Step Action: Others");
     }
+
+    @Test
+    /* Test Case: Add Step - Delay Timer - LinkedIn - Send a Connection Request (Cadence Record -> Add Step) */
+    public void Ilasso_TC_040() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Delay timer");
+        ilassoPage.selectStepType("LinkedIn - Send a Connection Request");
+        ilassoPage.writeNotes("Timer: Delay | Step type: LinkedIn - Send a Connection Request");
+        ilassoPage.clickSave();
+        ilassoPage.fillLinkedTemplate(
+                "Test-Automation-LinkedIn",
+                "Compose Message here");
+        ilassoPage.verifySuccessMsg();
+    }
+
+    @Test
+    /* Test Case: Add Step - Field Timer - LinkedIn - Send a Connection Request (Cadence Record -> Add Step) */
+    public void Ilasso_TC_041() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Field timer");
+        ilassoPage.selectStepType("LinkedIn - Send a Connection Request");
+        ilassoPage.writeNotes("Timer: Field | Step type: LinkedIn - Send a Connection Request");
+    }
+
+    @Test
+    /* Test Case: Add Step - Delay Timer - LinkedIn - Send Message (Cadence Record -> Add Step) */
+    public void Ilasso_TC_042() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Delay timer");
+        ilassoPage.selectStepType("LinkedIn - Send Message");
+        ilassoPage.writeNotes("Timer: Delay | Step type: LinkedIn - Send Message");
+        ilassoPage.clickSave();
+        ilassoPage.fillLinkedTemplate(
+                "Test-Automation-LinkedIn - Send Message",
+                "Compose Message here");
+        ilassoPage.verifySuccessMsg();
+    }
 }
