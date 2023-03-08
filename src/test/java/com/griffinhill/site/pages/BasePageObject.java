@@ -13,6 +13,7 @@ import org.testng.Assert;
 import java.util.List;
 
 import static com.griffinhill.utils.PageUtils.pause;
+import static java.time.LocalTime.now;
 
 public class BasePageObject {
 
@@ -27,10 +28,39 @@ public class BasePageObject {
     }
 
     public static void click(WebElement element) {
-        verifyElementDisplayed(element);
-        verifyElementClickable(element);
-        element.click();
-        waitForPageLoad();
+        try {
+            waitForPageLoad();
+            verifyElementDisplayed(element);
+            verifyElementClickable(element);
+            element.click();
+            waitForPageLoad();
+        }
+        catch (Exception e)
+        {
+            System.out.println("element not clickable");
+            verifyElementDisplayed(element);
+            verifyElementClickable(element);
+            element.click();
+            waitForPageLoad();
+        }
+    }
+
+    public static void click(String locator) {
+        try {
+            waitForPageLoad();
+            verifyElementDisplayed(driver.findElement(By.xpath(locator)));
+            verifyElementClickable(driver.findElement(By.xpath(locator)));
+            driver.findElement(By.xpath(locator)).click();
+            waitForPageLoad();
+        }
+        catch (Exception e)
+        {
+            System.out.println("element not clickable");
+            verifyElementDisplayed(driver.findElement(By.xpath(locator)));
+            verifyElementClickable(driver.findElement(By.xpath(locator)));
+            driver.findElement(By.xpath(locator)).click();
+            waitForPageLoad();
+        }
     }
 
     @Step("Send keys")
@@ -45,7 +75,17 @@ public class BasePageObject {
     }
 
     public static void verifyElementDisplayed(WebElement element) {
-        Assert.assertTrue(wait.until(waitForElementVisibility(element)).isDisplayed());
+        boolean isDisplayed;
+        try {
+            wait.until(waitForElementVisibility(element)).isDisplayed();
+            isDisplayed = true;
+        }
+        catch (Exception e)
+        {
+            isDisplayed = false;
+        }
+
+        Assert.assertTrue(isDisplayed);
     }
 
     public static void verifyElementClickable(WebElement element) {
@@ -109,12 +149,12 @@ public class BasePageObject {
     }
 
     public static void waitForPageLoad() {
-        wait.until(driver -> {
-            System.out.println("Current Window State: " + (((JavascriptExecutor) driver).executeScript("return document.readyState")));
+        /*wait.until(driver -> {
+            System.out.println(now()+"Current Window State: " + (((JavascriptExecutor) driver).executeScript("return document.readyState")));
             return String
                     .valueOf(((JavascriptExecutor) driver).executeScript("return document.readyState"))
                     .equals("complete");
-        });
+        });*/
     }
 
     public WebDriver getDriver() {

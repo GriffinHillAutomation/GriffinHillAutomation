@@ -19,8 +19,13 @@ import java.util.concurrent.TimeUnit;
 import static org.testng.CommandLineArgs.CONFIG_FAILURE_POLICY;
 
 public class TestsInit extends BasePageObject {
+    /*legacy tools
+    boyddev.griffinhill.com (staging) -> beta-legacy.griffinhill.com (beta) -> members.griffinhill.com (prod)
 
-    private final String GRIFFIN_HILL_URL = "https://beta-legacy.griffinhill.com/";
+    v2 tools
+    phplaravel-144553-1687977.cloudwaysapps.com (staging) -> beta.griffinhill.com (beta)  -> member.griffinhill.com (prod)*/
+
+    private final String GRIFFIN_HILL_URL = "https://beta-legacy.griffinhill.com/login/";
     //private final String GRIFFIN_HILL_URL = "https://beta.griffinhill.com/";
     //private final String GRIFFIN_HILL_URL = "https://members.griffinhill.com/";
 
@@ -46,7 +51,7 @@ public class TestsInit extends BasePageObject {
 
     @AfterMethod(alwaysRun = true)
     public void afterMethodTestsInit() {
-        //driver.close();
+        driver.close();
         driver.quit();
     }
 

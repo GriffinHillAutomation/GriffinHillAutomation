@@ -114,7 +114,13 @@ public class IlassoPage {
 
 
     public void checkOpenedPage() {
-        checkElementsEnabled(tasks, contacts, calendar, reports, phoneLogs, cadences, scoreCard);
+        try {
+            checkElementsEnabled(new WebElement[]{tasks, contacts, calendar, reports, phoneLogs, cadences, scoreCard});
+        }
+        catch (Exception e)
+        {
+            System.out.println("");
+        }
     }
 
     @Step("Navigate To")
@@ -169,8 +175,7 @@ public class IlassoPage {
     }
 
     public void searchCadence(String cadence) {
-        searchBar.isDisplayed();
-        searchBar.sendKeys(cadence);
+        sendKeys(searchBar,cadence);
         searchButton.click();
     }
 

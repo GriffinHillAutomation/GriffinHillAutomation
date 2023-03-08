@@ -5,7 +5,7 @@ import org.testng.Assert;
 
 public class PageUtils {
 
-    public static void checkElementsEnabled(WebElement... elements) {
+    public static void checkElementsEnabled(WebElement[] elements) {
         for (WebElement element : elements) {
             element.isDisplayed();
             element.isEnabled();

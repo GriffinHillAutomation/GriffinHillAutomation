@@ -17,6 +17,6 @@ public class OrganizeStepsModal {
 
     public void checkOrganizeStepsModal() {
         organizeStepsModal.isDisplayed();
-        checkElementsEnabled(cancel, save);
+        checkElementsEnabled(new WebElement[]{cancel, save});
     }
 }

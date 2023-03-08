@@ -28,14 +28,13 @@ public class LoginPage{
 
 
     public static void checkOpenedPage() {
-        checkElementsEnabled(username, password, login);// forgotPassword, termsOfService, privacyPolicy, integrationInformation);
+        checkElementsEnabled(new WebElement[]{username, password, login});// forgotPassword, termsOfService, privacyPolicy, integrationInformation);
     }
 
     @Step("log in")
     public static void login(LoginInfo loginInfo) {
-        checkOpenedPage();
         try {
-
+            checkOpenedPage();
             sendKeys(username, loginInfo.getEmail());
             sendKeys(password, loginInfo.getPassword());
             click(login);

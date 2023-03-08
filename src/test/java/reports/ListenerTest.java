@@ -71,7 +71,11 @@ public abstract class ListenerTest extends BasePageObject implements ITestListen
     public abstract void afterTestFinish(ITestResult testResult);
 
     public void takeScreenshot(WebDriver driver) {
-        Allure.addAttachment("Screenshot", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+        try {
+            Allure.addAttachment("Screenshot", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+        }
+        catch (Exception e)
+        {}
     }
 
    /* @Attachment(value = "Page screenshot", type = "image/png")

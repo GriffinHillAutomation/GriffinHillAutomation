@@ -20,7 +20,7 @@ public class EditCadenceNameModal {
 
     public void checkEditCadenceModal() {
         editCadenceForm.isDisplayed();
-        checkElementsEnabled(cadenceName, cancel, save);
+        checkElementsEnabled(new WebElement[]{cadenceName, cancel, save});
     }
 
     public void editCadenceName(String cadenceNameValue) {

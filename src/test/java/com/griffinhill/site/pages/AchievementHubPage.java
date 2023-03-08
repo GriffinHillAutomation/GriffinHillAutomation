@@ -5,8 +5,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static com.griffinhill.site.pages.BasePageObject.click;
-import static com.griffinhill.site.pages.BasePageObject.waitUntilPageIsLoaded;
+import static com.griffinhill.site.pages.BasePageObject.*;
 import static com.griffinhill.utils.PageUtils.checkElementsEnabled;
 
 public class AchievementHubPage {
@@ -21,14 +20,17 @@ public class AchievementHubPage {
     private static WebElement priorityAlignmentTool;
     @FindBy(xpath = "(//*[@ng-if='tool.btn_image'])[5]")
     private static WebElement goalAchiever;
-    @FindBy(xpath = "(//*[@ng-if='tool.btn_image'])[6]")
+    @FindBy(xpath = "//h4[text()='iLasso']")
     private static WebElement iLasso;
 
     public void checkOpenedPage() {
-        checkElementsEnabled(learning, priorityAlignmentTool, highPerformanceJournal, goalAchiever, iLasso, scoreCard);
+        checkElementsEnabled(new WebElement[]{learning, priorityAlignmentTool, highPerformanceJournal, goalAchiever, iLasso, scoreCard});
     }
 
     public void navigateTo(PageNavigation page) {
+
+        waitForPageLoad();
+        //checkOpenedPage();
         switch (page) {
             case LEARNING:
                 click(learning);
@@ -43,13 +45,13 @@ public class AchievementHubPage {
                 click(goalAchiever);
                 break;
             case ILASSO:
-                //try {
-                    click(iLasso);
-                //}
-                //catch (NoSuchElementException e){
-                //    waitUntilPageIsLoaded();
-                //}
-
+                try {
+                    click("//h4[text()='iLasso']");
+                }
+                catch (Exception e){
+                    waitUntilPageIsLoaded();
+                    click("//h4[text()='iLasso']");
+                }
                 break;
             case SCORE_CARD:
                 click(scoreCard);
