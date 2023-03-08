@@ -529,4 +529,41 @@ public class IlassoTest extends TestsInit {
                 "Compose Message here");
         ilassoPage.verifySuccessMsg();
     }
+
+    @Test
+    /* Test Case: Add Step - Date Timer - LinkedIn - Send Message (Cadence Record -> Add Step) */
+    public void Ilasso_TC_043() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Date timer");
+        ilassoPage.selectStepType("LinkedIn - Send Message");
+        ilassoPage.writeNotes("Timer: Date | Step type: LinkedIn - Send Message");
+        ilassoPage.clickSave();
+        ilassoPage.fillLinkedTemplate(
+                "Test-Automation-LinkedIn - Send Message",
+                "Compose Message here");
+        ilassoPage.verifySuccessMsg();
+    }
+
+    @Test
+    /* Test Case: Add Step - Field Timer - LinkedIn - Send Message (Cadence Record -> Add Step) */
+    public void Ilasso_TC_044() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Field timer");
+        ilassoPage.selectStepType("LinkedIn - Send Message");
+        ilassoPage.writeNotes("Timer: Field | Step type: LinkedIn - Send Message");
+    }
+
+    @Test
+    /* Test Case: Add Step - Delay Timer - LinkedIn - View Profile (Cadence Record -> Add Step) */
+    public void Ilasso_TC_045() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Delay timer");
+        ilassoPage.selectStepType("LinkedIn - View Profile");
+        ilassoPage.writeNotes("Timer: Delay | Step type: LinkedIn - View Profile");
+        ilassoPage.clickSave();
+        ilassoPage.verifySuccessMsg();
+    }
 }
