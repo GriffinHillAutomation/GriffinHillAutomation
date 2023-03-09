@@ -29,10 +29,10 @@ public class ViewCadencePage {
     private static WebElement needHelp;
 
     public void checkOpenedPage() {
-        checkElementsEnabled(cadenceFlow, reports, contacts, integration, settings);
+        checkElementsEnabled(new WebElement[]{cadenceFlow, reports, contacts, integration, settings});
     }
 
     public void validateViewCadenceButtons() {
-        checkElementsEnabled(steps, days, prospects, addStep, needHelp);
+        checkElementsEnabled(new WebElement[]{steps, days, prospects, addStep, needHelp});
     }
 }

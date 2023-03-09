@@ -4,13 +4,16 @@ import com.griffinhill.entities.LoginInfo;
 import com.griffinhill.tests.TestsInit;
 import io.qameta.allure.Description;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import reports.AllureListener;
 
 import static com.griffinhill.enums.PageNavigation.CADENCES;
 import static com.griffinhill.enums.PageNavigation.ILASSO;
 import static com.griffinhill.site.pages.LoginPage.login;
 import static testdata.LoginDetails.loginCredentials;
 
+@Listeners({AllureListener.class})
 public class IlassoTest extends TestsInit {
 
     LoginInfo user = loginCredentials();
@@ -20,22 +23,33 @@ public class IlassoTest extends TestsInit {
         try {
             login(user);
             achievementHubPage.navigateTo(ILASSO);
-            //ilassoPage.checkOpenedPage();
+            ilassoPage.checkOpenedPage();
             ilassoPage.navigateTo(CADENCES);
             waitUntilPageIsLoaded();
+        }
+       catch (Exception e)
+        {
+            //driver.close();
+            //driver.quit();
+            System.out.println("FAIL");
+       }
+        /*try {
             if (!ilassoPage.validateSearchResultTableIsNotEmpty()) {
                 ilassoPage.addCadence("New", "AutomationTest-Cadence");
             }
         }
         catch (Exception e)
-        {}
+        {
+            ilassoPage.addCadence("New", "AutomationTest-Cadence");
+        }*/
+
     }
 
     @Test
     @Description("Test Case: Search functionality in Cadence Page (iLasso -> Cadences)")
     public void Ilasso_TC_001() {
         ilassoPage.searchCadence("Test-CadenceNew");
-        ilassoPage.verifySearchResult("AutomationTest-Cadence");
+        ilassoPage.verifySearchResult("Test-CadenceNew");
     }
 
     @Test

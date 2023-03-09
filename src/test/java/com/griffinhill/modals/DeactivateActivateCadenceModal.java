@@ -21,7 +21,7 @@ public class DeactivateActivateCadenceModal {
 
     public void checkCadenceStatusModal(String message) {
         deactivateActivateCadence.isDisplayed();
-        checkElementsEnabled(cancel, confirm);
+        checkElementsEnabled(new WebElement[]{cancel, confirm});
         verifyContent(deactivateActivateCadenceReminder, message);
     }
 
