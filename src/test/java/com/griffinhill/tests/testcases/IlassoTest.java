@@ -580,5 +580,39 @@ public class IlassoTest extends TestsInit {
         ilassoPage.clickSave();
         ilassoPage.verifySuccessMsg();
     }
+
+    @Test
+    /* Test Case: Add Step - Date Timer - LinkedIn - View Profile (Cadence Record -> Add Step) */
+    public void Ilasso_TC_046() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Date timer");
+        ilassoPage.selectStepType("LinkedIn - View Profile");
+        ilassoPage.writeNotes("Timer: Date | Step type: LinkedIn - View Profile");
+        ilassoPage.clickSave();
+        ilassoPage.verifySuccessMsg();
+    }
+
+    @Test
+    /* Test Case: Add Step - Field Timer - LinkedIn - View Profile (Cadence Record -> Add Step) */
+    public void Ilasso_TC_047() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Field timer");
+        ilassoPage.selectStepType("LinkedIn - View Profile");
+        ilassoPage.writeNotes("Timer: Field | Step type: LinkedIn - View Profile");
+    }
+
+    @Test
+    /* Test Case: Add Step - Delay Timer - LinkedIn - Interaction (Cadence Record -> Add Step) */
+    public void Ilasso_TC_048() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Delay timer");
+        ilassoPage.selectStepType("LinkedIn - Interaction");
+        ilassoPage.writeNotes("Timer: Delay | Step type: LinkedIn - Interaction");
+        ilassoPage.clickSave();
+        ilassoPage.verifySuccessMsg();
+    }
     
 }
