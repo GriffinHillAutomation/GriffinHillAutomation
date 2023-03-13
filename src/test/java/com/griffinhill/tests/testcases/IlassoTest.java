@@ -614,5 +614,40 @@ public class IlassoTest extends TestsInit {
         ilassoPage.clickSave();
         ilassoPage.verifySuccessMsg();
     }
+
+    @Test
+    /* Test Case: Add Step - Date Timer - LinkedIn - Interaction (Cadence Record -> Add Step) */
+    public void Ilasso_TC_049() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Date timer");
+        ilassoPage.selectStepType("LinkedIn - Interaction");
+        ilassoPage.writeNotes("Timer: Date | Step type: LinkedIn - Interaction");
+        ilassoPage.clickSave();
+        ilassoPage.verifySuccessMsg();
+    }
+
+    @Test
+    /* Test Case: Add Step - Field Timer - LinkedIn - Interaction (Cadence Record -> Add Step) */
+    public void Ilasso_TC_050() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Field timer");
+        ilassoPage.selectStepType("LinkedIn - Interaction");
+        ilassoPage.writeNotes("Timer: Field | Step type: LinkedIn - Interaction");
+    }
+
+    @Test
+    /* Test Case: Add Step - Delay Timer - Other Task (Cadence Record -> Add Step) */
+    public void Ilasso_TC_051() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Delay timer");
+        ilassoPage.selectStepType("Other Task");
+        ilassoPage.inputOtherTaskName("Other Task - Delay");
+        ilassoPage.writeNotes("Timer: Delay | Step type: Other Task");
+        ilassoPage.clickSave();
+        ilassoPage.verifySuccessMsg();
+    }
     
 }
