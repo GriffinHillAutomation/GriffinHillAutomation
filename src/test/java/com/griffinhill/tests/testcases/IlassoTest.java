@@ -649,5 +649,29 @@ public class IlassoTest extends TestsInit {
         ilassoPage.clickSave();
         ilassoPage.verifySuccessMsg();
     }
+
+    @Test
+    /* Test Case: Add Step - Date Timer - Other Task (Cadence Record -> Add Step) */
+    public void Ilasso_TC_052() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Date timer");
+        ilassoPage.selectStepType("Other Task");
+        ilassoPage.inputOtherTaskName("Other Task - Date");
+        ilassoPage.writeNotes("Timer: Date | Step type: Other Task");
+        ilassoPage.clickSave();
+        ilassoPage.verifySuccessMsg();
+    }
+
+    @Test
+    /* Test Case: Add Step - Field Timer - Other Task (Cadence Record -> Add Step) */
+    public void Ilasso_TC_053() {
+        ilassoPage.clickCadence("AutomationTest-Cadence");
+        ilassoPage.clickAddStep();
+        ilassoPage.selectTimer("Field timer");
+        ilassoPage.selectStepType("Other Task");
+        ilassoPage.inputOtherTaskName("Other Task - Field");
+        ilassoPage.writeNotes("Timer: Field | Step type: Other Task");
+    }
     
 }
