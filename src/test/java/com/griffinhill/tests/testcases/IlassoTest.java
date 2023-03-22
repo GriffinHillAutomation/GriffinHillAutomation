@@ -33,15 +33,6 @@ public class IlassoTest extends TestsInit {
             //driver.quit();
             System.out.println("FAIL");
        }
-        /*try {
-            if (!ilassoPage.validateSearchResultTableIsNotEmpty()) {
-                ilassoPage.addCadence("New", "AutomationTest-Cadence");
-            }
-        }
-        catch (Exception e)
-        {
-            ilassoPage.addCadence("New", "AutomationTest-Cadence");
-        }*/
 
     }
 
@@ -520,7 +511,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    /* Test Case: Add Step - Field Timer - LinkedIn - Send a Connection Request (Cadence Record -> Add Step) */
+    @Description("Test Case: Add Step - Field Timer - LinkedIn - Send a Connection Request (Cadence Record -> Add Step)")
     public void Ilasso_TC_041() {
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
@@ -530,7 +521,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    /* Test Case: Add Step - Delay Timer - LinkedIn - Send Message (Cadence Record -> Add Step) */
+    @Description("Test Case: Add Step - Delay Timer - LinkedIn - Send Message (Cadence Record -> Add Step)")
     public void Ilasso_TC_042() {
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
@@ -545,7 +536,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    /* Test Case: Add Step - Date Timer - LinkedIn - Send Message (Cadence Record -> Add Step) */
+    @Description("Test Case: Add Step - Date Timer - LinkedIn - Send Message (Cadence Record -> Add Step)")
     public void Ilasso_TC_043() {
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
@@ -560,7 +551,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    /* Test Case: Add Step - Field Timer - LinkedIn - Send Message (Cadence Record -> Add Step) */
+    @Description("Test Case: Add Step - Field Timer - LinkedIn - Send Message (Cadence Record -> Add Step)")
     public void Ilasso_TC_044() {
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
@@ -570,7 +561,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    /* Test Case: Add Step - Delay Timer - LinkedIn - View Profile (Cadence Record -> Add Step) */
+            @Description("Test Case: Add Step - Delay Timer - LinkedIn - View Profile (Cadence Record -> Add Step)")
     public void Ilasso_TC_045() {
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
@@ -582,7 +573,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    /* Test Case: Add Step - Date Timer - LinkedIn - View Profile (Cadence Record -> Add Step) */
+    @Description("Test Case: Add Step - Date Timer - LinkedIn - View Profile (Cadence Record -> Add Step)")
     public void Ilasso_TC_046() {
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
@@ -594,7 +585,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    /* Test Case: Add Step - Field Timer - LinkedIn - View Profile (Cadence Record -> Add Step) */
+    @Description("Test Case: Add Step - Field Timer - LinkedIn - View Profile (Cadence Record -> Add Step)")
     public void Ilasso_TC_047() {
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
@@ -604,7 +595,7 @@ public class IlassoTest extends TestsInit {
     }
 
     @Test
-    /* Test Case: Add Step - Delay Timer - LinkedIn - Interaction (Cadence Record -> Add Step) */
+    @Description("Test Case: Add Step - Delay Timer - LinkedIn - Interaction (Cadence Record -> Add Step)")
     public void Ilasso_TC_048() {
         ilassoPage.clickCadence("AutomationTest-Cadence");
         ilassoPage.clickAddStep();
@@ -673,5 +664,25 @@ public class IlassoTest extends TestsInit {
         ilassoPage.inputOtherTaskName("Other Task - Field");
         ilassoPage.writeNotes("Timer: Field | Step type: Other Task");
     }
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

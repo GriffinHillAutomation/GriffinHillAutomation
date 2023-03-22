@@ -5,7 +5,6 @@ import com.griffinhill.modals.EditCadenceNameModal;
 import com.griffinhill.modals.OrganizeStepsModal;
 import com.griffinhill.site.pages.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -14,6 +13,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import static org.testng.CommandLineArgs.CONFIG_FAILURE_POLICY;
@@ -25,21 +27,34 @@ public class TestsInit extends BasePageObject {
     v2 tools
     phplaravel-144553-1687977.cloudwaysapps.com (staging) -> beta.griffinhill.com (beta)  -> member.griffinhill.com (prod)*/
 
-    private final String GRIFFIN_HILL_URL = "https://beta-legacy.griffinhill.com/login/";
+    //private final String GRIFFIN_HILL_URL = "https://beta-legacy.griffinhill.com/login/";
     //private final String GRIFFIN_HILL_URL = "https://beta.griffinhill.com/";
     //private final String GRIFFIN_HILL_URL = "https://members.griffinhill.com/";
+    private String GRIFFIN_HILL_URL;
+    private String env;
 
     public TestsInit() {
+
+        Properties prop = new Properties();
+        try (InputStream resourceAsStream = getClass().getClassLoader().getResourceAsStream("config.properties")) {
+            prop.load(resourceAsStream);
+            GRIFFIN_HILL_URL = (String) prop.get("url");
+            env = (String) prop.get("env");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
+
     public LoginPage loginPage;
+
     public AchievementHubPage achievementHubPage;
     public IlassoPage ilassoPage;
     public ViewCadencePage viewCadencePage;
     public EditCadenceNameModal editCadenceName;
     public OrganizeStepsModal organizeSteps;
     public DeactivateActivateCadenceModal cadenceStatus;
-    public ScorecardPage scorecardPage;
     //public BasePageObject basePageObject;
 
 
@@ -73,25 +88,36 @@ public class TestsInit extends BasePageObject {
     public WebDriver getDriver() {
         return this.driver;
     }
-
     private void initPage() {
+
         //driver = getDriver();
         //basePageObject = new BasePageObject();
-        loginPage = new LoginPage();
-        PageFactory.initElements(driver, loginPage);
-        achievementHubPage = new AchievementHubPage();
-        PageFactory.initElements(driver, achievementHubPage);
-        ilassoPage = new IlassoPage();
-        PageFactory.initElements(driver, ilassoPage);
-        viewCadencePage = new ViewCadencePage();
-        PageFactory.initElements(driver, viewCadencePage);
-        editCadenceName = new EditCadenceNameModal();
+        if(env.equals("beta-legacy")) {
+            loginPage = new LoginPage();
+            achievementHubPage = new com.griffinhill.site.pages.AchievementHubPage();
+            ilassoPage = new com.griffinhill.site.pages.IlassoPage();
+            viewCadencePage = new com.griffinhill.site.pages.ViewCadencePage();
+            PageFactory.initElements(driver, loginPage);
+            PageFactory.initElements(driver, achievementHubPage);
+            PageFactory.initElements(driver, ilassoPage);
+            PageFactory.initElements(driver, viewCadencePage);
+            //loginPage.getClass().newInstance().
+
+        } else if (env.equals("beta")) {
+            loginPage= new com.griffinhill.site.pages.LoginPage();
+            achievementHubPage = new com.griffinhill.site.pages.AchievementHubPage();
+            ilassoPage = new com.griffinhill.site.pages.IlassoPage();
+            viewCadencePage = new com.griffinhill.site.pages.ViewCadencePage();
+            PageFactory.initElements(driver, loginPage);
+            PageFactory.initElements(driver, achievementHubPage);
+            PageFactory.initElements(driver, ilassoPage);
+            PageFactory.initElements(driver, viewCadencePage);
+        }
+        editCadenceName = new com.griffinhill.modals.EditCadenceNameModal();
+        organizeSteps = new com.griffinhill.modals.OrganizeStepsModal();
+        cadenceStatus = new com.griffinhill.modals.DeactivateActivateCadenceModal();
         PageFactory.initElements(driver, editCadenceName);
-        organizeSteps = new OrganizeStepsModal();
-        PageFactory.initElements(getDriver(), organizeSteps);
-        cadenceStatus = new DeactivateActivateCadenceModal();
-        PageFactory.initElements(getDriver(), cadenceStatus);
-        scorecardPage = new ScorecardPage();
-        PageFactory.initElements(getDriver(), scorecardPage);
+        PageFactory.initElements(driver, organizeSteps);
+        PageFactory.initElements(driver, cadenceStatus);
     }
 }

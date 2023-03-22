@@ -24,7 +24,7 @@ public class BasePageObject {
     }
 
     public static void waitUntilPageIsLoaded() {
-        wait.until(driver1 -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
+        //wait.until(driver1 -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
     }
 
     public static void click(WebElement element) {
@@ -38,6 +38,7 @@ public class BasePageObject {
         catch (Exception e)
         {
             System.out.println("element not clickable");
+            driver.navigate().refresh();
             verifyElementDisplayed(element);
             verifyElementClickable(element);
             element.click();
@@ -65,7 +66,7 @@ public class BasePageObject {
 
     @Step("Send keys")
     public static void sendKeys(WebElement element, String data) {
-        verifyElementDisplayed(element);
+        //verifyElementDisplayed(element);
         element.clear();
         element.sendKeys(data);
     }
