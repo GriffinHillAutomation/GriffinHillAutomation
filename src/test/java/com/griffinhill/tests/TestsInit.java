@@ -39,6 +39,7 @@ public class TestsInit extends BasePageObject {
     public EditCadenceNameModal editCadenceName;
     public OrganizeStepsModal organizeSteps;
     public DeactivateActivateCadenceModal cadenceStatus;
+    public ScorecardPage scorecardPage;
     //public BasePageObject basePageObject;
 
 
@@ -90,5 +91,7 @@ public class TestsInit extends BasePageObject {
         PageFactory.initElements(getDriver(), organizeSteps);
         cadenceStatus = new DeactivateActivateCadenceModal();
         PageFactory.initElements(getDriver(), cadenceStatus);
+        scorecardPage = new ScorecardPage();
+        PageFactory.initElements(getDriver(), scorecardPage);
     }
 }
