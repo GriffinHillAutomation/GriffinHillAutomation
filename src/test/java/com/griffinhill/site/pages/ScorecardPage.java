@@ -23,6 +23,8 @@ public class ScorecardPage {
     private static WebElement contacts;
     @FindBy(xpath = "//button[text()='Add Suspect']")
     private static WebElement addSuspect;
+    @FindBy(xpath = "//button[text()='Add Lead']")
+    private static WebElement addLead;
     @FindBy(xpath = "//li/a[text()='Reports']")
     private static WebElement reports;
     @FindBy(xpath = "//li/a[text()='Attempts']")
@@ -83,6 +85,56 @@ public class ScorecardPage {
     private static WebElement dealsClosedProduct;
     @FindBy(xpath = "//a[text()='Options']")
     private static WebElement dealsClosedOptions;
+    @FindBy(xpath = "//li/a[text()='Prospects']")
+    private static WebElement contactsProspects;
+    @FindBy(xpath = "//li/a[text()='Suspects']")
+    private static WebElement contactsSuspects;
+    @FindBy(xpath = "//li/a[text()='Leads']")
+    private static WebElement contactsLeads;
+    @FindBy(xpath = "//li/a[text()='All']")
+    private static WebElement contactsAll;
+    @FindBy(xpath = "//li/a[text()='Productivity']")
+    private static WebElement reportsProductivity;
+    @FindBy(xpath = "//canvas[@name='chartCAP_Productivity']")
+    private static WebElement reportsChartProductivity;
+    @FindBy(xpath = "//button[text()='Attempts and Points']")
+    private static WebElement productivityAttemptsAndPoints;
+    @FindBy(xpath = "//button[text()='Demo']")
+    private static WebElement productivityDemo;
+    @FindBy(xpath = "//button[text()='Points by Events']")
+    private static WebElement productivityPointsByEvents;
+    @FindBy(xpath = "//button[text()='Active Cases Count']")
+    private static WebElement productivityActiveCasesCount;
+    @FindBy(xpath = "//button[text()='Active Cases Percent']")
+    private static WebElement productivityActiveCasesPercent;
+    @FindBy(xpath = "//button[text()='Point Trends by Week']")
+    private static WebElement productivityPointTrendsByWeek;
+    @FindBy(xpath = "//button[text()='Points Trend by Day of Week']")
+    private static WebElement productivityPointTrendsDayByWeek;
+    @FindBy(xpath = "//li/a[text()='Proficiency']")
+    private static WebElement reportsProficiency;
+    @FindBy(xpath = "//canvas[@name='chartRNA_Proficiency']")
+    private static WebElement reportsChartRNAProficiency;
+    @FindBy(xpath = "//button[text()='Ratios - By NA']")
+    private static WebElement proficiencyRatiosByNa;
+    @FindBy(xpath = "//button[text()='Ratios - By SP']")
+    private static WebElement proficiencyRatiosBySp;
+    @FindBy(xpath = "//button[text()='Ratios - By AS']")
+    private static WebElement proficiencyRatiosByAs;
+    @FindBy(xpath = "//button[text()='Ratios - By CL']")
+    private static WebElement proficiencyRatiosByCl;
+    @FindBy(xpath = "//button[text()='Pipeline Advancement Counts']")
+    private static WebElement proficiencyPipelineAdvancementCounts;
+    @FindBy(xpath = "//button[text()='Pipeline Advancement Percent']")
+    private static WebElement proficiencyPipelineAdvancementPercent;
+    @FindBy(xpath = "//li/a[text()='Performance']")
+    private static WebElement reportsPerformance;
+    @FindBy(xpath = "//canvas[@name='chartGA_Performance']")
+    private static WebElement reportsChartGAPerformance;
+    @FindBy(xpath = "//button[text()='Goal Analysis']")
+    private static WebElement reportsGoalAnalysis;
+    @FindBy(xpath = "//button[text()='Closes']")
+    private static WebElement reportsCloses;
 
 
     public void checkOpenedPage() {
@@ -188,7 +240,7 @@ public class ScorecardPage {
     }
 
     public void clickPipelineArchived() {
-        click(all);
+        click(archived);
     }
 
     public void validatePipelineArchived() {
@@ -199,6 +251,63 @@ public class ScorecardPage {
                 dealsClosedClosingInteractions, dealsClosedHeader,
                 dealsClosedFulfilled, dealsClosedFulfillmentFollowUp,
                 dealsClosedProduct, dealsClosedOptions
+        });
+    }
+
+    public void validateContactsProspect() {
+        checkElementsEnabled(new WebElement[]{
+                addSuspect
+        });
+    }
+
+    public void validateContactsSuspect() {
+        click(contactsSuspects);
+        checkElementsEnabled(new WebElement[]{
+                addSuspect
+        });
+    }
+
+    public void validateContactsLead() {
+        click(contactsLeads);
+        checkElementsEnabled(new WebElement[]{
+                addLead, addSuspect
+        });
+    }
+
+    public void validateContactsAll() {
+        click(contactsLeads);
+        checkElementsEnabled(new WebElement[]{
+                addSuspect
+        });
+    }
+
+    public void validateReportsProductivity() {
+        click(reportsProductivity);
+        checkElementsEnabled(new WebElement[]{
+                reportsProductivity, reportsChartProductivity,
+                productivityAttemptsAndPoints, productivityDemo,
+                productivityPointsByEvents, productivityActiveCasesCount,
+                productivityActiveCasesPercent, productivityPointTrendsByWeek,
+                productivityPointTrendsDayByWeek
+        });
+    }
+
+    public void validateReportsProficiency() {
+        click(reportsProficiency);
+        checkElementsEnabled(new WebElement[]{
+                reportsChartRNAProficiency, proficiencyRatiosByNa,
+                proficiencyRatiosBySp, proficiencyRatiosByAs,
+                proficiencyRatiosByCl, proficiencyPipelineAdvancementCounts,
+                proficiencyPipelineAdvancementPercent
+        });
+    }
+
+    public void validateReportsPerformance() {
+        click(reportsPerformance);
+        checkElementsEnabled(new WebElement[]{
+                reportsChartGAPerformance,
+                reportsGoalAnalysis,
+                reportsCloses
         });
     }
 }

@@ -55,6 +55,7 @@ public class TestsInit extends BasePageObject {
     public EditCadenceNameModal editCadenceName;
     public OrganizeStepsModal organizeSteps;
     public DeactivateActivateCadenceModal cadenceStatus;
+    public ScorecardPage scorecardPage;
     //public BasePageObject basePageObject;
 
 
@@ -97,10 +98,12 @@ public class TestsInit extends BasePageObject {
             achievementHubPage = new com.griffinhill.site.pages.AchievementHubPage();
             ilassoPage = new com.griffinhill.site.pages.IlassoPage();
             viewCadencePage = new com.griffinhill.site.pages.ViewCadencePage();
+            scorecardPage = new com.griffinhill.site.pages.ScorecardPage();
             PageFactory.initElements(driver, loginPage);
             PageFactory.initElements(driver, achievementHubPage);
             PageFactory.initElements(driver, ilassoPage);
             PageFactory.initElements(driver, viewCadencePage);
+            PageFactory.initElements(driver, scorecardPage);
             //loginPage.getClass().newInstance().
 
         } else if (env.equals("beta")) {

@@ -78,4 +78,46 @@ public class ScorecardTest extends TestsInit{
         scorecardPage.clickPipelineArchived();
         scorecardPage.validatePipelineArchived();
     }
+
+    @Test
+    public void Scorecard_TC_009() {
+        scorecardPage.clickContacts();
+        scorecardPage.validateContactsProspect();
+    }
+
+    @Test
+    public void Scorecard_TC_010() {
+        scorecardPage.clickContacts();
+        scorecardPage.validateContactsSuspect();
+    }
+
+    @Test
+    public void Scorecard_TC_011() {
+        scorecardPage.clickContacts();
+        scorecardPage.validateContactsLead();
+    }
+
+    @Test
+    public void Scorecard_TC_012() {
+        scorecardPage.clickContacts();
+        scorecardPage.validateContactsAll();
+    }
+
+    @Test
+    public void Scorecard_TC_013() {
+        scorecardPage.clickReports();
+        scorecardPage.validateReportsProductivity();
+    }
+
+    @Test
+    public void Scorecard_TC_014() {
+        scorecardPage.clickReports();
+        scorecardPage.validateReportsProficiency();
+    }
+
+    @Test
+    public void Scorecard_TC_015() {
+        scorecardPage.clickReports();
+        scorecardPage.validateReportsPerformance();
+    }
 }
