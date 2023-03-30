@@ -12,7 +12,7 @@ public class AchievementHubPage {
 
     @FindBy(xpath = "(//*[@ng-if='tool.btn_image'])[1]")
     private static WebElement learning;
-    @FindBy(xpath = "(//*[@ng-if='tool.btn_image'])[2]")
+    @FindBy(xpath = "//h4[text()='ScoreCard']|//div[*[text()='ScoreCard']]")
     private static WebElement scoreCard;
     @FindBy(xpath = "(//*[@ng-if='tool.btn_image'])[3]")
     private static WebElement highPerformanceJournal;
@@ -29,7 +29,7 @@ public class AchievementHubPage {
 
     public void navigateTo(PageNavigation page) {
 
-        waitForPageLoad();
+        //waitForPageLoad();
         //checkOpenedPage();
         switch (page) {
             case LEARNING:

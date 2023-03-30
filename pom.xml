@@ -12,14 +12,14 @@
             <id>Beta Legacy</id>
             <properties>
                 <env>beta-legacy</env>
-                <url>https://boyddev.griffinhill.com/login/</url>
+                <url>https://beta-legacy.griffinhill.com/login/</url>
             </properties>
         </profile>
         <profile>
             <id>Beta</id>
             <properties>
                 <env>beta</env>
-                <url>https://phplaravel-144553-1687977.cloudwaysapps.com/login</url>
+                <url>https://beta.griffinhill.com/login</url>
             </properties>
         </profile>
     </profiles>
