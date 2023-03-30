@@ -4,3 +4,9 @@ target/
 src/main/java/com/griffinhill/reports/ExtentReporterNG.java
 /target
 /target/
+.idea/compiler.xml
+.idea/encodings.xml
+target/test-classes/com/griffinhill/tests/TestsInit.class
+target/test-classes/com/griffinhill/tests/testcases/IlassoTest.class
+/allure-results/
+allure-results/
