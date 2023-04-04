@@ -45,4 +45,22 @@ public class ScorecardBetaTest extends TestsInit{
         scorecardBetaPage.clickCalendar();
         scorecardBetaPage.validateCalendar();
     }
+
+    @Test
+    public void TCSC_004() {
+        scorecardBetaPage.clickReports();
+        scorecardBetaPage.validateReportsOverview();
+    }
+
+    @Test
+    public void TCSC_005() {
+        scorecardBetaPage.clickPitchAndMiss();
+        scorecardBetaPage.validatePiplelinePitchAndMiss();
+    }
+
+    @Test
+    public void TCSC_006() {
+        scorecardBetaPage.clickClosedDeals();
+        scorecardBetaPage.validatePiplelineClosedDeals();
+    }
 }
