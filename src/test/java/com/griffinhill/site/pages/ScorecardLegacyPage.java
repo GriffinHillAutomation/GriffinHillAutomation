@@ -1,21 +1,16 @@
 package com.griffinhill.site.pages;
 
-import com.griffinhill.enums.PageNavigation;
-import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.griffinhill.site.pages.BasePageObject.*;
 import static com.griffinhill.utils.PageUtils.checkElementsEnabled;
 import static com.griffinhill.utils.PageUtils.validateActualAndExpected;
 
-public class ScorecardPage {
+public class ScorecardLegacyPage {
 
     @FindBy(xpath = "//li/a[text()='Pipeline']")
     private static WebElement pipeline;

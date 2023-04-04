@@ -9,7 +9,7 @@ import static com.griffinhill.enums.PageNavigation.*;
 import static com.griffinhill.site.pages.LoginPage.login;
 import static testdata.LoginDetails.loginCredentials;
 
-public class ScorecardTest extends TestsInit{
+public class ScorecardLegacyTest extends TestsInit{
 
     LoginInfo user = loginCredentials();
 
