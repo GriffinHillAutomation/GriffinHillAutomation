@@ -63,4 +63,37 @@ public class ScorecardBetaTest extends TestsInit{
         scorecardBetaPage.clickClosedDeals();
         scorecardBetaPage.validatePiplelineClosedDeals();
     }
+
+    @Test
+    public void TCSC_007() {
+        scorecardBetaPage.clickPipelineAll();
+        scorecardBetaPage.validatePiplelineAll();
+    }
+
+    @Test
+    public void TCSC_008() {
+        scorecardBetaPage.clickArchived();
+        scorecardBetaPage.validatePipelineArchived();
+    }
+
+    @Test
+    public void TCSC_009() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.clickProspects();
+        scorecardBetaPage.validateContactsProspects();
+    }
+
+    @Test
+    public void TCSC_010() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.clickSuspects();
+        scorecardBetaPage.validateContactsSuspects();
+    }
+
+    @Test
+    public void TCSC_011() {
+        scorecardBetaPage.clickReports();
+        scorecardBetaPage.clickProductivity();
+        scorecardBetaPage.validateReportsProductivity();
+    }
 }
