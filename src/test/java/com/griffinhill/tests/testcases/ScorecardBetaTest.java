@@ -96,4 +96,18 @@ public class ScorecardBetaTest extends TestsInit{
         scorecardBetaPage.clickProductivity();
         scorecardBetaPage.validateReportsProductivity();
     }
+
+    @Test
+    public void TCSC_012() {
+        scorecardBetaPage.clickReports();
+        scorecardBetaPage.clickProficiency();
+        scorecardBetaPage.validateReportsProficiency();
+    }
+
+    @Test
+    public void TCSC_013() {
+        scorecardBetaPage.clickReports();
+        scorecardBetaPage.clickPerformance();
+        scorecardBetaPage.validateReportsPerfomance();
+    }
 }
