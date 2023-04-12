@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="griffin-hill" />
+        <module name="GriffinHillAutomation" />
         <module name="jupiter-cloud" />
         <module name="jupiter-cloud-pb" />
         <module name="griffin-hill-automation" />

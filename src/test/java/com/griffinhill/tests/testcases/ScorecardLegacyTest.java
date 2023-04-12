@@ -127,11 +127,4 @@ public class ScorecardLegacyTest extends TestsInit{
         scorecardPage.clickPerformance();
         scorecardPage.validateReportsPerfomance();
     }
-
-    @Test
-    public void TCSC_017() {
-        scorecardPage.clickReports();
-        scorecardPage.clickPerformance();
-        scorecardPage.validateReportsPerfomance();
-    }
 }

@@ -124,11 +124,40 @@ public class ScorecardBetaTest extends TestsInit{
     @Test
     public void Scorecard_TC_017() {
         scorecardBetaPage.clickAddContact();
-        scorecardBetaPage.fillContact("Test", "20230407");
+        scorecardBetaPage.fillContact("Auto", "Test");
         scorecardBetaPage.clickAddNewCase();
-        scorecardBetaPage.inputCaseName("Case 20230407");
+        scorecardBetaPage.inputCaseName("Case Automation");
         scorecardBetaPage.clickAddNewContactSave();
         scorecardBetaPage.verifyAddNewContactSuccess();
         scorecardBetaPage.confirmAddContact();
+    }
+
+    @Test
+    public void Scorecard_TC_018() {
+        scorecardBetaPage.clickCaseNameDropdown("Case Automation");
+        scorecardBetaPage.clickEditCaseDetails();
+        scorecardBetaPage.editCaseName("Case Test Automation");
+        scorecardBetaPage.clickEditCaseSave();
+        scorecardBetaPage.verifyCaseNewName("Case Test Automation");
+    }
+
+    @Test
+    public void Scorecard_TC_019() {
+        scorecardBetaPage.clickCaseNameDropdown("Case Test Automation");
+        scorecardBetaPage.clickViewCaseDetails();
+        scorecardBetaPage.verifyCaseDetailsName("Case Test Automation");
+    }
+
+    @Test
+    public void Scorecard_TC_020() {
+        scorecardBetaPage.clickAddContact();
+        scorecardBetaPage.fillContact("Auto", "Test");
+        scorecardBetaPage.clickAddNewCase();
+        scorecardBetaPage.inputCaseName("Case Auto Test");
+        scorecardBetaPage.clickAddNewContactSave();
+        scorecardBetaPage.verifyAddNewContactSuccess();
+        scorecardBetaPage.confirmAddContact();
+        scorecardBetaPage.clickCaseNameDropdown("Case Auto Test");
+        scorecardBetaPage.verifyContactRecordDetails("Auto", "Test");
     }
 }
