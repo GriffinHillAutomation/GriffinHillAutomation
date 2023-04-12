@@ -19,7 +19,7 @@ public class ScorecardBetaTest extends TestsInit{
             login(user);
             achievementHubPage.navigateTo(SCORE_CARD);
             waitUntilPageIsLoaded();
-            scorecardPage.checkOpenedPage();
+            scorecardBetaPage.checkOpenedPage();
         }
         catch (Exception e)
         {
@@ -30,84 +30,105 @@ public class ScorecardBetaTest extends TestsInit{
     }
 
     @Test
-    public void TCSC_001() {
-        scorecardBetaPage.validateScorecardPiplelineActive();
+    public void Scorecard_TC_001() {
+        scorecardBetaPage.quickAdd();
+        scorecardBetaPage.fillProspect("TestFirst", "TestLast", "TestCompanyName");
+        scorecardBetaPage.clickSaveProspect();
     }
 
     @Test
-    public void TCSC_002() {
+    public void Scorecard_TC_002() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.fillProspect("TestFirst", "TestLast", "TestCompanyName");
+        scorecardBetaPage.clickSaveProspect();
+    }
+
+    @Test
+    public void Scorecard_TC_003() {
+        scorecardBetaPage.clickReports();
+        scorecardBetaPage.validateReportsView();
+    }
+
+    @Test
+    public void Scorecard_TC_004() {
+        scorecardBetaPage.clickAttempts();
+        scorecardBetaPage.validateAttemptForm();
+    }
+
+    @Test
+    public void Scorecard_TC_005() {
+        scorecardBetaPage.clickPipelineDealsClosed();
+        scorecardBetaPage.validateDealsClosedView();
+    }
+
+    @Test
+    public void Scorecard_TC_006() {
+        scorecardBetaPage.clickPipelinePitchAndMiss();
+        scorecardBetaPage.validatePitchAndMiss();
+    }
+
+    @Test
+    public void Scorecard_TC_007() {
+        scorecardBetaPage.validatePipelineAll();
+        scorecardBetaPage.validatePitchAndMiss();
+    }
+
+    @Test
+    public void Scorecard_TC_008() {
+        scorecardBetaPage.clickPipelineArchived();
+        scorecardBetaPage.validatePipelineArchived();
+    }
+
+    @Test
+    public void Scorecard_TC_009() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsProspect();
+    }
+
+    @Test
+    public void Scorecard_TC_010() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsSuspect();
+    }
+
+    @Test
+    public void Scorecard_TC_011() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsLead();
+    }
+
+    @Test
+    public void Scorecard_TC_012() {
         scorecardBetaPage.clickContacts();
         scorecardBetaPage.validateContactsAll();
     }
 
     @Test
-    public void TCSC_003() {
-        scorecardBetaPage.clickCalendar();
-        scorecardBetaPage.validateCalendar();
-    }
-
-    @Test
-    public void TCSC_004() {
+    public void Scorecard_TC_013() {
         scorecardBetaPage.clickReports();
-        scorecardBetaPage.validateReportsOverview();
-    }
-
-    @Test
-    public void TCSC_005() {
-        scorecardBetaPage.clickPitchAndMiss();
-        scorecardBetaPage.validatePiplelinePitchAndMiss();
-    }
-
-    @Test
-    public void TCSC_006() {
-        scorecardBetaPage.clickClosedDeals();
-        scorecardBetaPage.validatePiplelineClosedDeals();
-    }
-
-    @Test
-    public void TCSC_007() {
-        scorecardBetaPage.clickPipelineAll();
-        scorecardBetaPage.validatePiplelineAll();
-    }
-
-    @Test
-    public void TCSC_008() {
-        scorecardBetaPage.clickArchived();
-        scorecardBetaPage.validatePipelineArchived();
-    }
-
-    @Test
-    public void TCSC_009() {
-        scorecardBetaPage.clickContacts();
-        scorecardBetaPage.clickProspects();
-        scorecardBetaPage.validateContactsProspects();
-    }
-
-    @Test
-    public void TCSC_010() {
-        scorecardBetaPage.clickContacts();
-        scorecardBetaPage.clickSuspects();
-        scorecardBetaPage.validateContactsSuspects();
-    }
-
-    @Test
-    public void TCSC_011() {
-        scorecardBetaPage.clickReports();
-        scorecardBetaPage.clickProductivity();
         scorecardBetaPage.validateReportsProductivity();
     }
 
     @Test
-    public void TCSC_012() {
+    public void Scorecard_TC_014() {
         scorecardBetaPage.clickReports();
-        scorecardBetaPage.clickProficiency();
         scorecardBetaPage.validateReportsProficiency();
     }
 
     @Test
-    public void TCSC_013() {
+    public void Scorecard_TC_015() {
         scorecardBetaPage.clickReports();
-        scorecardBetaPage.clickPerformance();
-        scorecardBetaPage.validateReportsPerfomance();
+        scorecardBetaPage.validateReportsPerformance();
+    }
+
+    @Test
+    public void Scorecard_TC_017() {
+        scorecardBetaPage.clickAddContact();
+        scorecardBetaPage.fillContact("Test", "20230407");
+        scorecardBetaPage.clickAddNewCase();
+        scorecardBetaPage.inputCaseName("Case 20230407");
+        scorecardBetaPage.clickAddNewContactSave();
+        scorecardBetaPage.verifyAddNewContactSuccess();
+        scorecardBetaPage.confirmAddContact();
     }
 }

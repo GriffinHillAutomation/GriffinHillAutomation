@@ -30,94 +30,108 @@ public class ScorecardLegacyTest extends TestsInit{
     }
 
     @Test
-    public void Scorecard_TC_001() {
-        scorecardPage.quickAdd();
-        scorecardPage.fillProspect("TestFirst", "TestLast", "TestCompanyName");
-        scorecardPage.clickSaveProspect();
+    public void TCSC_001() {
+        scorecardPage.validateScorecardPiplelineActive();
     }
 
     @Test
-    public void Scorecard_TC_002() {
-        scorecardPage.clickContacts();
-        scorecardPage.fillProspect("TestFirst", "TestLast", "TestCompanyName");
-        scorecardPage.clickSaveProspect();
-    }
-
-    @Test
-    public void Scorecard_TC_003() {
-        scorecardPage.clickReports();
-        scorecardPage.validateReportsView();
-    }
-
-    @Test
-    public void Scorecard_TC_004() {
-        scorecardPage.clickAttempts();
-        scorecardPage.validateAttemptForm();
-    }
-
-    @Test
-    public void Scorecard_TC_005() {
-        scorecardPage.clickPipelineDealsClosed();
-        scorecardPage.validateDealsClosedView();
-    }
-
-    @Test
-    public void Scorecard_TC_006() {
-        scorecardPage.clickPipelinePitchAndMiss();
-        scorecardPage.validatePitchAndMiss();
-    }
-
-    @Test
-    public void Scorecard_TC_007() {
-        scorecardPage.validatePipelineAll();
-        scorecardPage.validatePitchAndMiss();
-    }
-
-    @Test
-    public void Scorecard_TC_008() {
-        scorecardPage.clickPipelineArchived();
-        scorecardPage.validatePipelineArchived();
-    }
-
-    @Test
-    public void Scorecard_TC_009() {
-        scorecardPage.clickContacts();
-        scorecardPage.validateContactsProspect();
-    }
-
-    @Test
-    public void Scorecard_TC_010() {
-        scorecardPage.clickContacts();
-        scorecardPage.validateContactsSuspect();
-    }
-
-    @Test
-    public void Scorecard_TC_011() {
-        scorecardPage.clickContacts();
-        scorecardPage.validateContactsLead();
-    }
-
-    @Test
-    public void Scorecard_TC_012() {
+    public void TCSC_002() {
         scorecardPage.clickContacts();
         scorecardPage.validateContactsAll();
     }
 
     @Test
-    public void Scorecard_TC_013() {
+    public void TCSC_003() {
+        scorecardPage.clickCalendar();
+        scorecardPage.validateCalendar();
+    }
+
+    @Test
+    public void TCSC_004() {
         scorecardPage.clickReports();
+        scorecardPage.validateReportsOverview();
+    }
+
+    @Test
+    public void TCSC_005() {
+        scorecardPage.validateScorecardPiplelineActive();
+    }
+
+    @Test
+    public void TCSC_006() {
+        scorecardPage.clickPitchAndMiss();
+        scorecardPage.validatePiplelinePitchAndMiss();
+    }
+
+    @Test
+    public void TCSC_007() {
+        scorecardPage.clickClosedDeals();
+        scorecardPage.validatePiplelineClosedDeals();
+    }
+
+    @Test
+    public void TCSC_008() {
+        scorecardPage.clickPipelineAll();
+        scorecardPage.validatePiplelineAll();
+    }
+
+    @Test
+    public void TCSC_009() {
+        scorecardPage.clickArchived();
+        scorecardPage.validatePipelineArchived();
+    }
+
+    @Test
+    public void TCSC_010() {
+        scorecardPage.clickContacts();
+        scorecardPage.validateContactsAll();
+    }
+
+    @Test
+    public void TCSC_011() {
+        scorecardPage.clickContacts();
+        scorecardPage.clickProspects();
+        scorecardPage.validateContactsProspects();
+    }
+
+    @Test
+    public void TCSC_012() {
+        scorecardPage.clickContacts();
+        scorecardPage.clickSuspects();
+        scorecardPage.validateContactsSuspects();
+    }
+
+    @Test
+    public void TCSC_013() {
+        scorecardPage.clickReports();
+        scorecardPage.validateReportsOverview();
+    }
+
+    @Test
+    public void TCSC_014() {
+        scorecardPage.clickReports();
+        scorecardPage.clickProductivity();
         scorecardPage.validateReportsProductivity();
     }
 
     @Test
-    public void Scorecard_TC_014() {
+    public void TCSC_015() {
         scorecardPage.clickReports();
+        scorecardPage.clickProficiency();
         scorecardPage.validateReportsProficiency();
     }
 
     @Test
-    public void Scorecard_TC_015() {
+    public void TCSC_016() {
         scorecardPage.clickReports();
-        scorecardPage.validateReportsPerformance();
+        scorecardPage.clickPerformance();
+        scorecardPage.validateReportsPerfomance();
+    }
+
+    @Test
+    public void TCSC_017() {
+        scorecardPage.clickReports();
+        scorecardPage.clickPerformance();
+        scorecardPage.validateReportsPerfomance();
     }
 }
