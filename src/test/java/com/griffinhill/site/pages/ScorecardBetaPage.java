@@ -9,6 +9,7 @@ import java.util.List;
 
 import static com.griffinhill.site.pages.BasePageObject.*;
 import static com.griffinhill.utils.PageUtils.checkElementsEnabled;
+import static com.griffinhill.utils.PageUtils.pause;
 
 public class ScorecardBetaPage {
 
@@ -68,6 +69,24 @@ public class ScorecardBetaPage {
     private static WebElement addContactSuccessHeader;
     @FindBy(xpath = "//div[@class='modal-content']//button[text()='Done']")
     private static WebElement addContactModalDone;
+    @FindBy(xpath = "//div[@class='dropdown-menu show dropdown-menu-right']")
+    private static WebElement caseViewDropdown;
+    @FindBy(xpath = "//span[text()='Edit Case Details']/parent::a")
+    private static WebElement editCaseDetails;
+    @FindBy(xpath = "//span[text()='View Case Details']/parent::a")
+    private static WebElement viewCaseDetails;
+    @FindBy(xpath = "//span[text()='View Contact Record']/parent::a")
+    private static WebElement viewContactRecord;
+    @FindBy(xpath = "//div[@class='ContactBasicInfo']//div[@class='GriffinLabel  row'][1]//div[@class='right col-md-9']/p")
+    private static WebElement viewContactRecordFirstName;
+    @FindBy(xpath = "//div[@class='ContactBasicInfo']//div[@class='GriffinLabel  row'][2]//div[@class='right col-md-9']/p")
+    private static WebElement viewContactRecordLastName;
+    @FindBy(xpath = "//input[@label='Case Name']")
+    private static WebElement editCaseName;
+    @FindBy(xpath = "//div[@class='action-wrapper SaveCancel']//button[text()='Save']")
+    private static WebElement editCaseDetailsSave;
+    @FindBy(xpath = "//div[@class='CaseDetail']//h3")
+    private static WebElement viewCaseDetailsNameHeader;
     @FindBy(css = "input[name='position']")
     private static WebElement addPosition;
     @FindBy(xpath = "//*[@id='suspectModal']/div/div/div[3]/div/div/button[2]")
@@ -352,5 +371,52 @@ public class ScorecardBetaPage {
 
     public void confirmAddContact() {
         click(addContactModalDone);
+        pause(5000);
+    }
+
+    public void clickCaseNameDropdown(String caseName) {
+        driver.findElement(By.xpath("//a[text()='"+ caseName +"']/parent::span/parent::div/parent::div/parent::td/parent::tr//button[@class='dropdown-toggle dropdown-toggle-split btn btn-griffin btn-sm']")).click();
+        caseViewDropdown.isDisplayed();
+    }
+
+    public void clickEditCaseDetails() {
+        click(editCaseDetails);
+    }
+
+    public void clickViewCaseDetails() {
+        click(viewCaseDetails);
+    }
+
+    public void clickViewContactRecord() {
+        click(viewContactRecord);
+    }
+
+    public void editCaseName(String name) {
+        editCaseName.clear();
+        sendKeys(editCaseName, name);
+    }
+
+    public void clickEditCaseSave() {
+        click(editCaseDetailsSave);
+    }
+
+    public void verifyCaseNewName(String caseNewName) {
+        List<WebElement> caseNames = driver.findElements(By.xpath("//div[@class='CaseLabel']//span/a"));
+
+        for (WebElement caseName : caseNames) {
+            if (caseName.getText().equalsIgnoreCase(caseNewName)) {
+                Assert.assertTrue(caseName.getText().equalsIgnoreCase(caseNewName));
+                break;
+            }
+        }
+    }
+
+    public void verifyCaseDetailsName(String caseNewName) {
+        Assert.assertTrue(viewCaseDetailsNameHeader.getText().equalsIgnoreCase(caseNewName));
+    }
+
+    public void verifyContactRecordDetails(String firstName, String lastName) {
+        Assert.assertTrue(viewContactRecordFirstName.getText().equalsIgnoreCase(firstName));
+        Assert.assertTrue(viewContactRecordLastName.getText().equalsIgnoreCase(lastName));
     }
 }
