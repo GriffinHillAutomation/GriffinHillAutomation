@@ -257,6 +257,7 @@ public class ScorecardBetaTest extends TestsInit{
         scorecardBetaPage.verifyAddNewContactSuccess();
         scorecardBetaPage.confirmAddContact();
         scorecardBetaPage.clickCaseNameDropdown("Case Auto Test");
+        scorecardBetaPage.clickViewContactRecord();
         scorecardBetaPage.verifyContactRecordDetails("Auto", "Test");
     }
 }

@@ -85,7 +85,7 @@ public class ScorecardBetaPage {
     private static WebElement editCaseName;
     @FindBy(xpath = "//div[@class='action-wrapper SaveCancel']//button[text()='Save']")
     private static WebElement editCaseDetailsSave;
-    @FindBy(xpath = "//div[@class='CaseDetail']//h3")
+    @FindBy(xpath = "//div[@class='CaseDetail']//div[@class='detail-title']/h3")
     private static WebElement viewCaseDetailsNameHeader;
     @FindBy(css = "input[name='position']")
     private static WebElement addPosition;
@@ -153,6 +153,38 @@ public class ScorecardBetaPage {
     private static WebElement proficiencyPipelineAdvancementCounts;
     @FindBy(xpath = "//button[text()='Pipeline Advancement Percent']")
     private static WebElement proficiencyPipelineAdvancementPercent;
+    @FindBy(css = "input[name='filters[0].from']")
+    private static WebElement filterDateFrom;
+    @FindBy(css = "input[name='filters[0].to']")
+    private static WebElement filterDateTo;
+    @FindBy(xpath = "//button[text()='Year to Date']")
+    private static WebElement yearToDate;
+    @FindBy(xpath = "//button[text()='Month to Date']")
+    private static WebElement monthToDate;
+    @FindBy(xpath = "//button[text()='Last Year']")
+    private static WebElement lastYear;
+    @FindBy(xpath = "//button[text()='Last Quarter']")
+    private static WebElement lastQuarter;
+    @FindBy(xpath = "//button[text()='Last Month']")
+    private static WebElement lastMonth;
+    @FindBy(xpath = "//button[text()='Last Week']")
+    private static WebElement lastWeek;
+    @FindBy(xpath = "//button[text()='Yesterday']")
+    private static WebElement yesterday;
+    @FindBy(xpath = "//button[text()='Submit']")
+    private static WebElement submit;
+    @FindBy(css = "label.InputTag")
+    private static WebElement filterByLabel;
+    @FindBy(xpath = "//button[text()='Apply']")
+    private static WebElement apply;
+    @FindBy(xpath = "//button[text()='Export Sheet']")
+    private static WebElement exportSheet;
+    @FindBy(xpath = "//button[text()='Export PDF']")
+    private static WebElement exportPdf;
+    @FindBy(xpath = "//button[text()='Compare']")
+    private static WebElement compare;
+    @FindBy(xpath = "//div[@class='chart-container undefined']")
+    private static WebElement reportsChart;
     @FindBy(xpath = "//li/a[text()='Performance']")
     private static WebElement reportsPerformance;
     @FindBy(xpath = "//canvas[@name='chartGA_Performance']")
@@ -324,13 +356,13 @@ public class ScorecardBetaPage {
     }
 
     public void validateReportsProficiency() {
-        click(reportsProficiency);
-        checkElementsEnabled(new WebElement[]{
-                reportsChartRNAProficiency, proficiencyRatiosByNa,
-                proficiencyRatiosBySp, proficiencyRatiosByAs,
+        checkElementsEnabled(new WebElement[]{proficiencyRatiosByNa ,proficiencyRatiosBySp, proficiencyRatiosByAs,
                 proficiencyRatiosByCl, proficiencyPipelineAdvancementCounts,
-                proficiencyPipelineAdvancementPercent
-        });
+                proficiencyPipelineAdvancementPercent, filterDateFrom,
+                filterDateTo, yearToDate, monthToDate, lastYear,
+                lastQuarter, lastMonth, lastWeek, yesterday,
+                submit, filterByLabel, apply, exportSheet, exportPdf, compare,
+                reportsChart});
     }
 
     public void validateReportsPerformance() {
@@ -417,10 +449,12 @@ public class ScorecardBetaPage {
     }
 
     public void verifyCaseDetailsName(String caseNewName) {
+        pause(5000);
         Assert.assertTrue(viewCaseDetailsNameHeader.getText().equalsIgnoreCase(caseNewName));
     }
 
     public void verifyContactRecordDetails(String firstName, String lastName) {
+        pause(3000);
         Assert.assertTrue(viewContactRecordFirstName.getText().equalsIgnoreCase(firstName));
         Assert.assertTrue(viewContactRecordLastName.getText().equalsIgnoreCase(lastName));
     }
