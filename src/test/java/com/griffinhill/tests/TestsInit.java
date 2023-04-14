@@ -94,37 +94,24 @@ public class TestsInit extends BasePageObject {
 
         //driver = getDriver();
         //basePageObject = new BasePageObject();
-        if(env.equals("beta-legacy")) {
             loginPage = new LoginPage();
             achievementHubPage = new com.griffinhill.site.pages.AchievementHubPage();
             ilassoPage = new com.griffinhill.site.pages.IlassoPage();
             viewCadencePage = new com.griffinhill.site.pages.ViewCadencePage();
             scorecardPage = new ScorecardLegacyPage();
-            scorecardBetaPage = new ScorecardBetaPage();
+        scorecardBetaPage = new ScorecardBetaPage();
             PageFactory.initElements(driver, loginPage);
             PageFactory.initElements(driver, achievementHubPage);
             PageFactory.initElements(driver, ilassoPage);
             PageFactory.initElements(driver, viewCadencePage);
             PageFactory.initElements(driver, scorecardPage);
-            //loginPage.getClass().newInstance().
 
-        } else if (env.equals("beta")) {
-            loginPage= new com.griffinhill.site.pages.LoginPage();
-            achievementHubPage = new com.griffinhill.site.pages.AchievementHubPage();
-            ilassoPage = new com.griffinhill.site.pages.IlassoPage();
-            viewCadencePage = new com.griffinhill.site.pages.ViewCadencePage();
-            PageFactory.initElements(driver, loginPage);
-            PageFactory.initElements(driver, achievementHubPage);
-            PageFactory.initElements(driver, ilassoPage);
-            PageFactory.initElements(driver, viewCadencePage);
             PageFactory.initElements(driver, scorecardBetaPage);
-        }
         editCadenceName = new com.griffinhill.modals.EditCadenceNameModal();
         organizeSteps = new com.griffinhill.modals.OrganizeStepsModal();
         cadenceStatus = new com.griffinhill.modals.DeactivateActivateCadenceModal();
         PageFactory.initElements(driver, editCadenceName);
         PageFactory.initElements(driver, organizeSteps);
         PageFactory.initElements(driver, cadenceStatus);
-        PageFactory.initElements(driver, scorecardBetaPage);
     }
 }

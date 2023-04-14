@@ -46,7 +46,7 @@ public class ScorecardLegacyPage {
     private static WebElement activePipelineTable;
     @FindBy(xpath = "//input[@placeholder='Search for...']")
     private static WebElement searchBar;
-    @FindBy(xpath = "//div[@class='Table']//button[text()='Search']")
+    @FindBy(xpath = "//button[text()='Search']")
     private static WebElement searchButton;
     @FindBy(css = "div.Table img.add-new-prospect-case")
     private static WebElement pipelineActiveAddButton;
@@ -54,7 +54,7 @@ public class ScorecardLegacyPage {
     private static WebElement loadAllData;
     @FindBy(css = "div.ColumnFilter")
     private static WebElement pipelineActiveColumn;
-    @FindBy(css = "div.active.btn-view")
+    @FindBy(xpath = "//div[@class=\"active btn-view\"]")
     private static WebElement pipelineActiveView;
     @FindBy(css = "div.Contact table")
     private static WebElement contactsTable;
@@ -112,7 +112,7 @@ public class ScorecardLegacyPage {
     private static WebElement overviewTotalPointsByEvents;
     @FindBy(xpath = "//div[@class='ReportCard']//div[text()='Total Closed Revenue']")
     private static WebElement overviewTotalClosedRevenue;
-    @FindBy(xpath = "div.col-lg-12:nth-child(2) div.OverviewCharts")
+    @FindBy(xpath = "(//div[@class=\"OverviewCharts\"])[1]")
     private static WebElement overviewGoalAnalysis;
     @FindBy(xpath = "//div[@class='ReportCard']//div[text()='Points per Close']")
     private static WebElement pointsPerClose;
@@ -202,7 +202,7 @@ public class ScorecardLegacyPage {
     private static WebElement reportChartRevenuePerPoint;
 
     public void checkOpenedPage() {
-        checkElementsEnabled(new WebElement[]{pipeline, contacts, calendar, reports});
+        checkElementsEnabled(new WebElement[]{pipeline, contacts, calendar,reports});
     }
 
     public void validateScorecardPiplelineActive() {
@@ -246,10 +246,15 @@ public class ScorecardLegacyPage {
         click(pitchAndMiss);
     }
 
-    public void validatePiplelinePitchAndMiss() {
+    public void validatePiplelinePitchAndMissLegacy() {
         checkElementsEnabled(new WebElement[]{activePipelineTable, searchBar, searchButton,
                 pipelineActiveAddButton, loadAllData,
                 pipelineActiveColumn, pipelineActiveView, pagination});
+    }
+    public void validatePiplelinePitchAndMiss() {
+        checkElementsEnabled(new WebElement[]{activePipelineTable, searchBar, searchButton,
+                pipelineActiveAddButton, loadAllData,
+                pipelineActiveColumn, pagination});
     }
 
     public void clickClosedDeals() {
@@ -259,7 +264,7 @@ public class ScorecardLegacyPage {
     public void validatePiplelineClosedDeals() {
         checkElementsEnabled(new WebElement[]{activePipelineTable, searchBar, searchButton,
                 pipelineActiveAddButton, loadAllData,
-                pipelineActiveColumn, pipelineActiveView, pagination});
+                pipelineActiveColumn, pagination});
     }
 
     public void clickPipelineAll() {
@@ -269,7 +274,7 @@ public class ScorecardLegacyPage {
     public void validatePiplelineAll() {
         checkElementsEnabled(new WebElement[]{activePipelineTable, searchBar, searchButton,
                 pipelineActiveAddButton, loadAllData,
-                pipelineActiveColumn, pipelineActiveView, pagination});
+                pipelineActiveColumn, pagination});
     }
 
     public void clickArchived() {
@@ -279,7 +284,7 @@ public class ScorecardLegacyPage {
     public void validatePipelineArchived() {
         checkElementsEnabled(new WebElement[]{activePipelineTable, searchBar, searchButton,
                 pipelineActiveAddButton, loadAllData,
-                pipelineActiveColumn, pipelineActiveView, pagination});
+                pipelineActiveColumn, pagination});
     }
 
     public void clickProspects() {
