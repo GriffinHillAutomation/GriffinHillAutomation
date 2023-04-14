@@ -35,11 +35,11 @@ public class ScorecardBetaPage {
     private static WebElement attemptModalAddAttempts;
     @FindBy(xpath = "//h4[text()='Attempts']/parent::div/parent::div//button[text()='Save']")
     private static WebElement attemptModalSave;
-    @FindBy(xpath = "//li/a[text()='Quick Add']")
-    private static WebElement quickAdd;
+    @FindBy(xpath = "//div[@class=\"search-form-container\"]/*[@class=\"add-new-prospect-case\"]")
+    private WebElement quickAdd;
     @FindBy(xpath = "//li/a[text()='Active']")
     private static WebElement active;
-    @FindBy(xpath = "//li/a[text()='Deals Closed']")
+    @FindBy(xpath = "//li/a[text()='Closed Deals']")
     private static WebElement dealsClosed;
     @FindBy(xpath = "//li/a[text()='Pitch & Miss']")
     private static WebElement pitchAndMiss;
@@ -52,11 +52,11 @@ public class ScorecardBetaPage {
     @FindBy(id = "suspectModal")
     private static WebElement addProspectModal;
     @FindBy(css = "input[name='first_name']")
-    private static WebElement addFirstName;
+    private WebElement addFirstName;
     @FindBy(css = "input[name='last_name']")
-    private static WebElement addLastName;
-    @FindBy(css = "div[class='modal-content'] input[name='company']")
-    private static WebElement addCompanyName;
+    private WebElement addLastName;
+    @FindBy(css = "//input[@name='company_name']")
+    private WebElement addCompanyName;
     @FindBy(xpath = "//button[text()='+ Add a new Case']")
     private static WebElement addNewCase;
     @FindBy(css = "input[name='case_name']")
@@ -89,8 +89,8 @@ public class ScorecardBetaPage {
     private static WebElement viewCaseDetailsNameHeader;
     @FindBy(css = "input[name='position']")
     private static WebElement addPosition;
-    @FindBy(xpath = "//*[@id='suspectModal']/div/div/div[3]/div/div/button[2]")
-    private static WebElement addProspectSaveBtn;
+    @FindBy(xpath = "//*[@id='suspectModal']/div/div/div[3]/div/div/button[2]|//button[text()='Save']")
+    private WebElement addProspectSaveBtn;
     @FindBy(xpath = "//a[text()='Case']")
     private static WebElement dealsClosedCase;
     @FindBy(xpath = "//a[text()='Needs Audit']")
@@ -169,7 +169,12 @@ public class ScorecardBetaPage {
 
     public void quickAdd() {
         click(quickAdd);
-        addProspectModal.isDisplayed();
+        checkElementsEnabled(new WebElement[]{
+                addFirstName,
+                addLastName,
+                addNewCase
+        });
+        //addProspectModal.isDisplayed();
     }
 
     public void clickContacts() {

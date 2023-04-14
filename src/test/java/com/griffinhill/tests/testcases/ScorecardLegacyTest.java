@@ -15,18 +15,10 @@ public class ScorecardLegacyTest extends TestsInit{
 
     @BeforeMethod
     public void before() {
-        try {
             login(user);
             achievementHubPage.navigateTo(SCORE_CARD);
             waitUntilPageIsLoaded();
             scorecardPage.checkOpenedPage();
-        }
-        catch (Exception e)
-        {
-            //driver.close();
-            //driver.quit();
-            System.out.println("FAIL");
-        }
     }
 
     @Test

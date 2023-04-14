@@ -2,6 +2,7 @@ package com.griffinhill.tests.testcases;
 
 import com.griffinhill.entities.LoginInfo;
 import com.griffinhill.tests.TestsInit;
+import io.qameta.allure.Description;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -15,31 +16,129 @@ public class ScorecardBetaTest extends TestsInit{
 
     @BeforeMethod
     public void before() {
-        try {
+        //try {
             login(user);
             achievementHubPage.navigateTo(SCORE_CARD);
             waitUntilPageIsLoaded();
-            scorecardBetaPage.checkOpenedPage();
-        }
-        catch (Exception e)
-        {
+            scorecardPage.checkOpenedPage();
+        //}
+        //catch (Exception e)
+        //{
             //driver.close();
             //driver.quit();
-            System.out.println("FAIL");
-        }
+            //System.out.println("FAIL");
+        //}//
+    }
+    @Test
+    public void TCSC_001() {
+        scorecardPage.validateScorecardPiplelineActive();
+    }
+    @Test
+    public void TCSC_002() {
+        scorecardPage.clickContacts();
+        scorecardPage.validateContactsAll();
     }
 
     @Test
+    public void TCSC_003() {
+        scorecardPage.clickCalendar();
+        scorecardPage.validateCalendar();
+    }
+
+    @Test
+    public void TCSC_004() {
+        scorecardPage.clickReports();
+        scorecardPage.validateReportsOverview();
+    }
+
+    @Test
+    public void TCSC_005() {
+        scorecardPage.validateScorecardPiplelineActive();
+    }
+
+    @Test
+    public void TCSC_006() {
+        scorecardPage.clickPitchAndMiss();
+        scorecardPage.validatePiplelinePitchAndMiss();
+    }
+
+    @Test
+    public void TCSC_007() {
+        scorecardPage.clickClosedDeals();
+        scorecardPage.validatePiplelineClosedDeals();
+    }
+
+    @Test
+    public void TCSC_008() {
+        scorecardPage.clickPipelineAll();
+        scorecardPage.validatePiplelineAll();
+    }
+
+    @Test
+    public void TCSC_009() {
+        scorecardPage.clickArchived();
+        scorecardPage.validatePipelineArchived();
+    }
+
+    @Test
+    public void TCSC_010() {
+        scorecardPage.clickContacts();
+        scorecardPage.validateContactsAll();
+    }
+
+    @Test
+    public void TCSC_011() {
+        scorecardPage.clickContacts();
+        scorecardPage.clickProspects();
+        scorecardPage.validateContactsProspects();
+    }
+
+    @Test
+    public void TCSC_012() {
+        scorecardPage.clickContacts();
+        scorecardPage.clickSuspects();
+        scorecardPage.validateContactsSuspects();
+    }
+
+    @Test
+    public void TCSC_013() {
+        scorecardPage.clickReports();
+        scorecardPage.validateReportsOverview();
+    }
+
+    @Test
+    public void TCSC_014() {
+        scorecardPage.clickReports();
+        scorecardPage.clickProductivity();
+        scorecardPage.validateReportsProductivity();
+    }
+
+    @Test
+    public void TCSC_015() {
+        scorecardPage.clickReports();
+        scorecardPage.clickProficiency();
+        scorecardPage.validateReportsProficiency();
+    }
+
+    @Test
+    public void TCSC_016() {
+        scorecardPage.clickReports();
+        scorecardPage.clickPerformance();
+        scorecardPage.validateReportsPerfomance();
+    }
+ /*   @Test
+    @Description("TCSC_001 - Verify Access in Scorecard Pipelines")
     public void Scorecard_TC_001() {
         scorecardBetaPage.quickAdd();
-        scorecardBetaPage.fillProspect("TestFirst", "TestLast", "TestCompanyName");
+        scorecardBetaPage.fillProspect("TestFirst", "TestLast", "");
         scorecardBetaPage.clickSaveProspect();
     }
 
     @Test
+    @Description("TCSC_002 - Verify Access in Scorecard Contacts")
     public void Scorecard_TC_002() {
         scorecardBetaPage.clickContacts();
-        scorecardBetaPage.fillProspect("TestFirst", "TestLast", "TestCompanyName");
+        scorecardBetaPage.fillProspect("TestFirst", "TestLast", "");
         scorecardBetaPage.clickSaveProspect();
     }
 
@@ -119,7 +218,7 @@ public class ScorecardBetaTest extends TestsInit{
     public void Scorecard_TC_015() {
         scorecardBetaPage.clickReports();
         scorecardBetaPage.validateReportsPerformance();
-    }
+    }*/
 
     @Test
     public void Scorecard_TC_017() {
