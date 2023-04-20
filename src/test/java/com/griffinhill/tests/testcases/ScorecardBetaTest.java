@@ -221,7 +221,7 @@ public class ScorecardBetaTest extends TestsInit{
     }*/
 
     @Test
-    public void Scorecard_TC_017() {
+    public void TCSC_017() {
         scorecardBetaPage.clickAddContact();
         scorecardBetaPage.fillContact("Auto", "Test");
         scorecardBetaPage.clickAddNewCase();
@@ -232,7 +232,7 @@ public class ScorecardBetaTest extends TestsInit{
     }
 
     @Test
-    public void Scorecard_TC_018() {
+    public void TCSC_018() {
         scorecardBetaPage.clickCaseNameDropdown("Case Automation");
         scorecardBetaPage.clickEditCaseDetails();
         scorecardBetaPage.editCaseName("Case Test Automation");
@@ -241,14 +241,14 @@ public class ScorecardBetaTest extends TestsInit{
     }
 
     @Test
-    public void Scorecard_TC_019() {
+    public void TCSC_019() {
         scorecardBetaPage.clickCaseNameDropdown("Case Test Automation");
         scorecardBetaPage.clickViewCaseDetails();
         scorecardBetaPage.verifyCaseDetailsName("Case Test Automation");
     }
 
     @Test
-    public void Scorecard_TC_020() {
+    public void TCSC_020() {
         scorecardBetaPage.clickAddContact();
         scorecardBetaPage.fillContact("Auto", "Test");
         scorecardBetaPage.clickAddNewCase();
@@ -260,4 +260,92 @@ public class ScorecardBetaTest extends TestsInit{
         scorecardBetaPage.clickViewContactRecord();
         scorecardBetaPage.verifyContactRecordDetails("Auto", "Test");
     }
+
+    @Test
+    public void TCSC_021() {
+        scorecardBetaPage.clickAddContact();
+        scorecardBetaPage.fillContact("Auto21a", "Test21b");
+        scorecardBetaPage.clickAddNewCase();
+        scorecardBetaPage.inputCaseName("Case Auto Test21b");
+        scorecardBetaPage.clickAddNewContactSave();
+        scorecardBetaPage.verifyAddNewContactSuccess();
+        scorecardBetaPage.confirmAddContact();
+        scorecardBetaPage.clickCaseNameDropdown("Case Auto Test21b");
+        scorecardBetaPage.clickAddToScoreCardCalendar();
+        scorecardBetaPage.clickAddToScoreCardCalendarConfirm();
+        scorecardBetaPage.clickCalendar();
+        scorecardBetaPage.verifyScorecardAddedToDate("2023-04-18", "Case Auto Test21b");
+    }
+
+    @Test
+    public void TCSC_022() {
+        scorecardBetaPage.clickAddContact();
+        scorecardBetaPage.fillContact("Auto22", "Test22");
+        scorecardBetaPage.clickAddNewCase();
+        scorecardBetaPage.inputCaseName("Case Auto Test22");
+        scorecardBetaPage.clickAddNewContactSave();
+        scorecardBetaPage.verifyAddNewContactSuccess();
+        scorecardBetaPage.confirmAddContact();
+        scorecardBetaPage.clickCaseNameDropdown("Case Auto Test22");
+        scorecardBetaPage.clickAddNotes();
+        scorecardBetaPage.inputNotes("Case Automation Test 22");
+        scorecardBetaPage.saveNotes();
+        scorecardBetaPage.clickCaseNameDropdown("Case Auto Test22");
+        scorecardBetaPage.clickViewCaseDetails();
+        scorecardBetaPage.verifySavedCaseNote();
+    }
+
+    @Test
+    public void TCSC_023() {
+        scorecardBetaPage.clickAddContact();
+        scorecardBetaPage.fillContact("Auto23", "Test23");
+        scorecardBetaPage.clickAddNewCase();
+        scorecardBetaPage.inputCaseName("Case Auto Test23");
+        scorecardBetaPage.clickAddNewContactSave();
+        scorecardBetaPage.verifyAddNewContactSuccess();
+        scorecardBetaPage.confirmAddContact();
+        scorecardBetaPage.clickCaseNameDropdown("Case Auto Test23");
+        scorecardBetaPage.clickSendToPitchAndMiss();
+        scorecardBetaPage.clickConfirm();
+        scorecardBetaPage.clickPipelinePitchAndMiss();
+        scorecardBetaPage.verifyCaseNewName("Case Auto Test23");
+    }
+
+    @Test
+    public void TCSC_024() {
+        scorecardBetaPage.clickAddContact();
+        scorecardBetaPage.fillContact("Auto24", "Test24");
+        scorecardBetaPage.clickAddNewCase();
+        scorecardBetaPage.inputCaseName("Case Auto Test24");
+        scorecardBetaPage.clickAddNewContactSave();
+        scorecardBetaPage.verifyAddNewContactSuccess();
+        scorecardBetaPage.confirmAddContact();
+        scorecardBetaPage.clickCaseNameDropdown("Case Auto Test24");
+        scorecardBetaPage.clickCloseCase();
+        scorecardBetaPage.inputProduct("Test Automation");
+        scorecardBetaPage.clickSave();
+        scorecardBetaPage.clickPipelineDealsClosed();
+        scorecardBetaPage.verifyClosedDeals("Case Auto Test24");
+    }
+
+    @Test
+    public void TCSC_025() {
+        scorecardBetaPage.clickAddContact();
+        scorecardBetaPage.fillContact("Auto25", "Test25");
+        scorecardBetaPage.clickAddNewCase();
+        scorecardBetaPage.inputCaseName("Case Auto Test25");
+        scorecardBetaPage.clickAddNewContactSave();
+        scorecardBetaPage.verifyAddNewContactSuccess();
+        scorecardBetaPage.confirmAddContact();
+        scorecardBetaPage.clickCaseNameDropdown("Case Auto Test25");
+        scorecardBetaPage.clickArchivedCase();
+        scorecardBetaPage.clickConfirm();
+        scorecardBetaPage.clickPipelineArchived();
+        scorecardBetaPage.verifyArchivedDeals("Case Auto Test25");
+    }
+
+//    @Test
+//    public void Bug_049() {
+//        scorecardBetaPage.test();
+//    }
 }

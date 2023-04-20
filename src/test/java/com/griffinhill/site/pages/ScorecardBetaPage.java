@@ -13,6 +13,8 @@ import static com.griffinhill.utils.PageUtils.pause;
 
 public class ScorecardBetaPage {
 
+    String savedNotes;
+
     @FindBy(xpath = "//li/a[text()='Pipeline']")
     private static WebElement pipeline;
     @FindBy(xpath = "//li/a[text()='Contacts']")
@@ -77,6 +79,12 @@ public class ScorecardBetaPage {
     private static WebElement viewCaseDetails;
     @FindBy(xpath = "//span[text()='View Contact Record']/parent::a")
     private static WebElement viewContactRecord;
+    @FindBy(xpath = "//span[text()='Send to Pitch & Miss']/parent::a")
+    private static WebElement sendToPitchAndMiss;
+    @FindBy(xpath = "//span[text()='Close Case']/parent::a")
+    private static WebElement closeCase;
+    @FindBy(xpath = "//span[text()='Archive Case']/parent::a")
+    private static WebElement archiveCase;
     @FindBy(xpath = "//div[@class='ContactBasicInfo']//div[@class='GriffinLabel  row'][1]//div[@class='right col-md-9']/p")
     private static WebElement viewContactRecordFirstName;
     @FindBy(xpath = "//div[@class='ContactBasicInfo']//div[@class='GriffinLabel  row'][2]//div[@class='right col-md-9']/p")
@@ -193,6 +201,24 @@ public class ScorecardBetaPage {
     private static WebElement reportsGoalAnalysis;
     @FindBy(xpath = "//button[text()='Closes']")
     private static WebElement reportsCloses;
+    @FindBy(xpath = "//span[text()='Add to ScoreCard Calendar']/parent::a")
+    private static WebElement addToScoreCardCalendar;
+    @FindBy(xpath = "//button[text()='Confirm']")
+    private static WebElement confirm;
+    @FindBy(xpath = "//input[@name='product_name']")
+    private static WebElement productName;
+    @FindBy(xpath = "//li/a[text()='Calendar']")
+    private static WebElement calendar;
+    @FindBy(xpath = "//span[text()='Add Notes']/parent::a")
+    private static WebElement addNotes;
+    @FindBy(xpath = "//div[@class='input-group']//textarea")
+    private static WebElement addNotesTextfield;
+    @FindBy(xpath = "//button[text()='Save']")
+    private static WebElement save;
+    @FindBy(xpath = "//div[@class='note']")
+    private static WebElement viewCaseNoteValue;
+    @FindBy(xpath = "//div[@class='Pagination']/span")
+    private static WebElement test2;
 
 
     public void checkOpenedPage() {
@@ -260,6 +286,18 @@ public class ScorecardBetaPage {
 
     public void clickPipelineDealsClosed() {
         click(dealsClosed);
+    }
+
+    public void verifyClosedDeals(String closedDealsValue) {
+        pause(3000);
+        WebElement closedDeals = driver.findElement(By.xpath("//a[text()='"+ closedDealsValue +"']"));
+        Assert.assertTrue(closedDeals.isDisplayed());
+    }
+
+    public void verifyArchivedDeals(String archivedDealsValue) {
+        pause(3000);
+        WebElement archivedDeals = driver.findElement(By.xpath("//a[text()='"+ archivedDealsValue +"']"));
+        Assert.assertTrue(archivedDeals.isDisplayed());
     }
 
     public void validateDealsClosedView() {
@@ -437,6 +475,32 @@ public class ScorecardBetaPage {
         click(editCaseDetailsSave);
     }
 
+    public void clickSendToPitchAndMiss() {
+        click(sendToPitchAndMiss);
+    }
+
+    public void clickCloseCase() {
+        click(closeCase);
+    }
+
+    public void clickArchivedCase() {
+        click(archiveCase);
+    }
+
+    public void clickSave() {
+        click(save);
+    }
+
+    public void clickConfirm() {
+        click(confirm);
+        pause(3000);
+    }
+
+    public void inputProduct(String productNameValue) {
+        sendKeys(productName, productNameValue);
+        pause(3000);
+    }
+
     public void verifyCaseNewName(String caseNewName) {
         List<WebElement> caseNames = driver.findElements(By.xpath("//div[@class='CaseLabel']//span/a"));
 
@@ -457,5 +521,52 @@ public class ScorecardBetaPage {
         pause(3000);
         Assert.assertTrue(viewContactRecordFirstName.getText().equalsIgnoreCase(firstName));
         Assert.assertTrue(viewContactRecordLastName.getText().equalsIgnoreCase(lastName));
+    }
+
+    public void clickAddToScoreCardCalendar() {
+        click(addToScoreCardCalendar);
+    }
+
+    public void clickAddToScoreCardCalendarConfirm() {
+        click(confirm);
+        pause(3000);
+    }
+
+    public void clickCalendar() {
+        click(calendar);
+    }
+
+    public void verifyScorecardAddedToDate(String date, String scorecardName) {
+        WebElement scorecardSchedule = driver.findElement(By.xpath("//td[@data-date='"+ date +"']//span"));
+        Assert.assertTrue(scorecardSchedule.getText().equalsIgnoreCase(scorecardName));
+    }
+
+    public void clickAddNotes() {
+        click(addNotes);
+    }
+
+    public void inputNotes(String notes) {
+        sendKeys(addNotesTextfield, notes);
+        savedNotes = notes;
+    }
+
+    public void saveNotes() {
+        click(save);
+        pause(3000);
+    }
+
+    public void verifySavedCaseNote() {
+        pause(3000);
+        Assert.assertTrue(viewCaseNoteValue.getText().equalsIgnoreCase(savedNotes));
+    }
+
+    public void test() {
+        pause(1000);
+        System.out.println(test2.getText());
+        System.out.println("SIZE: " + test2.getSize());
+        String s = test2.getText();
+        String[] split = s.split(" rows");
+        String firstSubString = split[0];
+        System.out.println("TEST: " + firstSubString);
     }
 }
