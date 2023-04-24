@@ -7,8 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 import static com.griffinhill.site.pages.BasePageObject.*;
-import static com.griffinhill.utils.PageUtils.checkElementsEnabled;
-import static com.griffinhill.utils.PageUtils.validateActualAndExpected;
+import static com.griffinhill.utils.PageUtils.*;
 
 public class ScorecardLegacyPage {
 
@@ -174,7 +173,7 @@ public class ScorecardLegacyPage {
     private static WebElement exportPdf;
     @FindBy(xpath = "//button[text()='Compare']")
     private static WebElement compare;
-    @FindBy(xpath = "//div[@class='chart-container undefined']")
+    @FindBy(xpath = "//div[@class='ReportCharts']")
     private static WebElement reportsChart;
     @FindBy(xpath = "//span[text()='Ratios - By NA']/parent::div/parent::a")
     private static WebElement proficiencyRatiosByNa;
@@ -321,10 +320,11 @@ public class ScorecardLegacyPage {
     }
 
     public void clickProficiency() {
-        click(productivity);
+        click(proficiency);
     }
 
     public void validateReportsProficiency() {
+        pause(5000);
         checkElementsEnabled(new WebElement[]{proficiencyRatiosByNa ,proficiencyRatiosBySp, proficiencyRatiosByAs,
                 proficiencyRatiosByCl, proficiencyPipelineAdvancementCounts,
                 proficiencyPipelineAdvancementPercent, filterDateFrom,
