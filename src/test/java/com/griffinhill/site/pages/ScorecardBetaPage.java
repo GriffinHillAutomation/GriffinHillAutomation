@@ -29,6 +29,10 @@ public class ScorecardBetaPage {
     private static WebElement attempts;
     @FindBy(css = "span.spanCaption")
     private static WebElement addCaseHereLink;
+    @FindBy(xpath = "//span[text()='Add Case']/parent::div/parent::button")
+    private static WebElement contactViewAddCase;
+    @FindBy(xpath = "//button[text()='Add New Case']")
+    private static WebElement caseDetailsAddCase;
     @FindBy(xpath = "//span[text()='Attempts']/parent::div")
     private static WebElement contactViewRecordAttempts;
     @FindBy(xpath = "//span[text()='Cadences']/parent::div")
@@ -73,12 +77,20 @@ public class ScorecardBetaPage {
     private WebElement advanceSearchBar;
     @FindBy(css = "input[name='first_name']")
     private WebElement addFirstName;
+    @FindBy(css = "div.AddProspectCaseModalForm input[name='first_name']")
+    private WebElement contactsAddFirstName;
     @FindBy(css = "input[name='last_name']")
     private WebElement addLastName;
-    @FindBy(css = "//input[@name='company_name']")
+    @FindBy(css = "div.AddProspectCaseModalForm input[name='last_name']")
+    private WebElement contactsAddLastName;
+    @FindBy(xpath = "//input[@name='company_name']")
     private WebElement addCompanyName;
+    @FindBy(xpath = "//div[@class='AddProspectCaseModalForm']//input[@name='company_name']")
+    private WebElement contactsAddCompanyName;
     @FindBy(xpath = "//input[@name='email']")
     private WebElement addEmail;
+    @FindBy(xpath = "//div[@class='AddProspectCaseModalForm']//input[@name='email']")
+    private WebElement contactsAddEmail;
     @FindBy(xpath = "//button[text()='+ Add a new Case']")
     private static WebElement addNewCase;
     @FindBy(css = "input[name='case_name']")
@@ -93,10 +105,18 @@ public class ScorecardBetaPage {
     private static WebElement addContactModalDone;
     @FindBy(xpath = "//div[@class='dropdown-menu show dropdown-menu-right']")
     private static WebElement caseViewDropdown;
+    @FindBy(xpath = "//button[text()='Transfer Case']")
+    private static WebElement transferCase;
+    @FindBy(css = "div.modal-content")
+    private static WebElement transferCaseModal;
+    @FindBy(xpath = "//button[text()='Transfer']")
+    private static WebElement transfer;
     @FindBy(xpath = "//span[text()='Edit Case Details']/parent::a")
     private static WebElement editCaseDetails;
     @FindBy(xpath = "//span[text()='View Case Details']/parent::a")
     private static WebElement viewCaseDetails;
+    @FindBy(css = "div.CaseDetail")
+    private static WebElement contactViewCaseDetails;
     @FindBy(xpath = "//span[text()='View Contact Record']/parent::a")
     private static WebElement viewContactRecord;
     @FindBy(css = "div.ContactBasicInfo")
@@ -227,6 +247,8 @@ public class ScorecardBetaPage {
     private static WebElement yesterday;
     @FindBy(xpath = "//button[text()='Submit']")
     private static WebElement submit;
+    @FindBy(xpath = "//button[text()='Search']")
+    private static WebElement search;
     @FindBy(xpath = "//div[@class='right col-md-5']//div[contains(@class, 'IndicatorsContainer')]")
     private static WebElement tagsDropdown;
     @FindBy(css = "ul.input-tag-lists")
@@ -269,6 +291,8 @@ public class ScorecardBetaPage {
     private static WebElement addNotesTextfield;
     @FindBy(xpath = "//button[text()='Save']")
     private static WebElement save;
+    @FindBy(xpath = "//button[text()='Add']")
+    private static WebElement add;
     @FindBy(xpath = "//div[@class='note']")
     private static WebElement viewCaseNoteValue;
     @FindBy(xpath = "//div[@class='Pagination']/span")
@@ -291,6 +315,10 @@ public class ScorecardBetaPage {
 
     public void clickContacts() {
         click(contacts);
+    }
+
+    public void clickContactsAddSuspect() {
+        click(contacts);
         click(addSuspect);
         addProspectModal.isDisplayed();
     }
@@ -309,28 +337,28 @@ public class ScorecardBetaPage {
         click(contacts);
         click(advanced);
         sendKeys(addFirstName, firstName);
-        click(submit);
+        click(search);
     }
 
     public void searchContactLastName(String lastName) {
         click(contacts);
         click(advanced);
         sendKeys(addLastName, lastName);
-        click(submit);
+        click(search);
     }
 
     public void searchContactCompanyName(String companyName) {
         click(contacts);
         click(advanced);
         sendKeys(addCompanyName, companyName);
-        click(submit);
+        click(search);
     }
 
     public void searchContactEmail(String email) {
         click(contacts);
         click(advanced);
         sendKeys(addEmail, email);
-        click(submit);
+        click(search);
     }
 
     public void selectTags(String tagName) {
@@ -351,14 +379,14 @@ public class ScorecardBetaPage {
             tagOption = driver.findElement(By.id("react-select-6-option-3"));
             tagOption.click();
         }
-        click(submit);
+        click(search);
     }
 
     public void selectTagsCategory(String tagCategory) {
         click(tags);
         WebElement tagOption = driver.findElement(By.xpath("//p[text()='"+ tagCategory +"']/parent::li"));
         click(tagOption);
-        click(submit);
+        click(search);
     }
 
     public Boolean validateSearchResultTableIsNotEmpty() {
@@ -539,9 +567,10 @@ public class ScorecardBetaPage {
 
     public void clickAddContact() {
         click(addContact);
+        pause(1000);
         checkElementsEnabled(new WebElement[]{
-                addFirstName,
-                addLastName,
+                contactsAddFirstName,
+                contactsAddLastName,
                 addNewCase
         });
     }
@@ -579,12 +608,27 @@ public class ScorecardBetaPage {
         caseViewDropdown.isDisplayed();
     }
 
+    public void clickContactCaseNameDropdown(String caseName) {
+        pause(5000);
+        WebElement contactCaseNameElement = driver.findElement(By.xpath("//td[text()='"+ caseName +"']/..//button[@class='dropdown-toggle dropdown-toggle-split btn btn-griffin btn-sm']"));
+        contactCaseNameElement.click();
+        caseViewDropdown.isDisplayed();
+    }
+
+    public void selectCaseOption(String option) {
+        driver.findElement(By.xpath("//span[text()='"+ option +"']/parent::a")).click();
+    }
+
     public void clickEditCaseDetails() {
         click(editCaseDetails);
     }
 
     public void clickViewCaseDetails() {
         click(viewCaseDetails);
+    }
+
+    public void validateCaseDetailView() {
+        Assert.assertTrue(contactViewCaseDetails.isDisplayed());
     }
 
     public void clickViewContactRecord() {
@@ -598,6 +642,10 @@ public class ScorecardBetaPage {
 
     public void clickAddCaseHereLink() {
         click(addCaseHereLink);
+    }
+
+    public void clickContactViewAddCase() {
+        click(contactViewAddCase);
     }
 
     public void validateContactRecordCasesView() {
@@ -723,6 +771,25 @@ public class ScorecardBetaPage {
         pause(3000);
     }
 
+    public void clickTransferCase() {
+        click(transferCase);
+        transferCaseModal.isDisplayed();
+    }
+
+    public void clickCaseDetailsAddCase() {
+        pause(2000);
+        click(caseDetailsAddCase);
+    }
+
+    public void selectSalesPerson(String salesPerson) {
+        WebElement salesPersonElement = driver.findElement(By.xpath("//span[text()='"+ salesPerson +"']/parent::div"));
+        salesPersonElement.click();
+    }
+
+    public void clickTransfer() {
+        click(transfer);
+    }
+
     public void clickCalendar() {
         click(calendar);
     }
@@ -747,6 +814,11 @@ public class ScorecardBetaPage {
 
     public void saveNotes() {
         click(save);
+        pause(3000);
+    }
+
+    public void addNotes() {
+        click(add);
         pause(3000);
     }
 
