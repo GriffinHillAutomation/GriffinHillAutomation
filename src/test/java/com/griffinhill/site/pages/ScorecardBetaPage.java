@@ -3,6 +3,7 @@ package com.griffinhill.site.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import java.util.List;
@@ -29,6 +30,12 @@ public class ScorecardBetaPage {
     private static WebElement attempts;
     @FindBy(css = "span.spanCaption")
     private static WebElement addCaseHereLink;
+    @FindBy(css = "input[name='made_on']")
+    private static WebElement attemptDate;
+    @FindBy(xpath = "//div[@class='AddAttemptModalForm']//div[@class='Select css-2b097c-container']")
+    private static WebElement attemptType;
+    @FindBy(xpath = "//span[text()='Add Attempt']/parent::div/parent::button")
+    private static WebElement addAttempt;
     @FindBy(xpath = "//span[text()='Add Case']/parent::div/parent::button")
     private static WebElement contactViewAddCase;
     @FindBy(xpath = "//button[text()='Add New Case']")
@@ -617,6 +624,7 @@ public class ScorecardBetaPage {
 
     public void selectCaseOption(String option) {
         driver.findElement(By.xpath("//span[text()='"+ option +"']/parent::a")).click();
+        pause(5000);
     }
 
     public void clickEditCaseDetails() {
@@ -640,8 +648,63 @@ public class ScorecardBetaPage {
         contactViewRecord.click();
     }
 
+    public boolean validateContactCaseExists(String contactName) {
+        boolean recordExist = false;
+        List<WebElement> caseNames = driver.findElements(By.xpath("//table//tbody/tr/td[1]"));
+        for (WebElement caseName : caseNames) {
+            if (caseName.getText().equalsIgnoreCase(contactName)) {
+                recordExist = true;
+            } else {
+                recordExist = false;
+            }
+        }
+        return recordExist;
+    }
+
     public void clickAddCaseHereLink() {
         click(addCaseHereLink);
+    }
+
+    public void clickAddAttempt() {
+        click(addAttempt);
+    }
+
+    public void inputAttemptDate(String date) {
+        sendKeys(attemptDate, date);
+        pause(1000);
+    }
+
+    public void selectAttemptType(String attemptTypeOption) {
+        WebElement attemptOption;
+        click(attemptType);
+        if (attemptTypeOption.equalsIgnoreCase("Manual Email")) {
+            attemptOption = driver.findElement(By.cssSelector("#react-select-7-option-0"));
+            attemptOption.click();
+        } else if (attemptTypeOption.equalsIgnoreCase("Automatic Email")) {
+            attemptOption = driver.findElement(By.cssSelector("#react-select-7-option-1"));
+            attemptOption.click();
+        } else if (attemptTypeOption.equalsIgnoreCase("Phone Call")) {
+            attemptOption = driver.findElement(By.cssSelector("#react-select-7-option-2"));
+            attemptOption.click();
+        } else if (attemptTypeOption.equalsIgnoreCase("LinkedIn - Send a Connection Request")) {
+            attemptOption = driver.findElement(By.cssSelector("#react-select-7-option-3"));
+            attemptOption.click();
+        } else if (attemptTypeOption.equalsIgnoreCase("LinkedIn - Send Message")) {
+            attemptOption = driver.findElement(By.cssSelector("#react-select-7-option-4"));
+            attemptOption.click();
+        } else if (attemptTypeOption.equalsIgnoreCase("LinkedIn - View Profile")) {
+            attemptOption = driver.findElement(By.cssSelector("#react-select-7-option-5"));
+            attemptOption.click();
+        } else if (attemptTypeOption.equalsIgnoreCase("LinkedIn - Interaction")) {
+            attemptOption = driver.findElement(By.cssSelector("#react-select-7-option-6"));
+            attemptOption.click();
+        } else if (attemptTypeOption.equalsIgnoreCase("Text Message")) {
+            attemptOption = driver.findElement(By.cssSelector("#react-select-7-option-7"));
+            attemptOption.click();
+        } else if (attemptTypeOption.equalsIgnoreCase("Other Task")) {
+            attemptOption = driver.findElement(By.cssSelector("#react-select-7-option-8"));
+            attemptOption.click();
+        }
     }
 
     public void clickContactViewAddCase() {
@@ -817,7 +880,7 @@ public class ScorecardBetaPage {
         pause(3000);
     }
 
-    public void addNotes() {
+    public void clickAdd() {
         click(add);
         pause(3000);
     }
