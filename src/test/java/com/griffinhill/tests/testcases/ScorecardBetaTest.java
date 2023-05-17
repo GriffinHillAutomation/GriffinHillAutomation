@@ -344,6 +344,255 @@ public class ScorecardBetaTest extends TestsInit{
         scorecardBetaPage.verifyArchivedDeals("Case Auto Test25");
     }
 
+    @Test
+    public void TCSC_029() {
+        scorecardBetaPage.clickAddContact();
+        scorecardBetaPage.fillContact("Auto29", "Test29");
+        scorecardBetaPage.clickAddNewCase();
+        scorecardBetaPage.inputCaseName("Case Auto Test29");
+        scorecardBetaPage.clickAddNewContactSave();
+        scorecardBetaPage.verifyAddNewContactSuccess();
+        scorecardBetaPage.confirmAddContact();
+        scorecardBetaPage.clickCaseNameDropdown("Case Auto Test29");
+        scorecardBetaPage.clickCloseCase();
+        scorecardBetaPage.inputCloseCaseAmount("150");
+        scorecardBetaPage.inputCloseCaseProduct("Test");
+        scorecardBetaPage.clickSave();
+    }
+
+    @Test
+    public void TCSC_030() {
+        scorecardBetaPage.clickPipelineDealsClosed();
+        scorecardBetaPage.clickLoadAllData();
+    }
+
+    @Test
+    public void TCSC_036() {
+        scorecardBetaPage.validateContactsAdvanced();
+    }
+
+    @Test
+    public void TCSC_037() {
+        scorecardBetaPage.searchContactFirstName("Auto");
+        scorecardBetaPage.validateSearchResultTableIsNotEmpty();
+    }
+
+    @Test
+    public void TCSC_038() {
+        scorecardBetaPage.searchContactLastName("Test");
+        scorecardBetaPage.validateSearchResultTableIsNotEmpty();
+    }
+
+    @Test
+    public void TCSC_039() {
+        scorecardBetaPage.searchContactCompanyName("Auto");
+        scorecardBetaPage.validateSearchResultTableIsNotEmpty();
+    }
+
+    @Test
+    public void TCSC_040() {
+        scorecardBetaPage.searchContactEmail("Auto");
+        scorecardBetaPage.validateSearchResultTableIsNotEmpty();
+    }
+
+    @Test
+    public void TCSC_041() {
+        scorecardBetaPage.selectTags("with any of these tags");
+        scorecardBetaPage.selectTagsCategory("Category: ");
+        scorecardBetaPage.validateSearchResultTableIsNotEmpty();
+    }
+
+    @Test
+    public void TCSC_042() {
+        scorecardBetaPage.selectTags("with all of these tags");
+        scorecardBetaPage.selectTagsCategory("Category: ");
+        scorecardBetaPage.validateSearchResultTableIsNotEmpty();
+    }
+
+    @Test
+    public void TCSC_043() {
+        scorecardBetaPage.selectTags("with all of these tags");
+        scorecardBetaPage.selectTagsCategory("Category: Student");
+        scorecardBetaPage.validateSearchResultTableIsNotEmpty();
+    }
+
+    @Test
+    public void TCSC_044() {
+        scorecardBetaPage.selectTags("doesn't have all of these tags");
+        scorecardBetaPage.selectTagsCategory("Category: Student");
+        scorecardBetaPage.validateSearchResultTableIsNotEmpty();
+    }
+
+    @Test
+    public void TCSC_045() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickAddContact();
+        scorecardBetaPage.fillContact("Auto", "Test");
+        scorecardBetaPage.clickAddNewCase();
+        scorecardBetaPage.inputCaseName("Case Automation");
+        scorecardBetaPage.clickAddNewContactSave();
+        scorecardBetaPage.verifyAddNewContactSuccess();
+        scorecardBetaPage.confirmAddContact();
+    }
+
+    @Test
+    public void TCSC_046() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.validateContactRecordCasesView();
+    }
+
+    @Test
+    public void TCSC_047() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.validateContactRecordCasesView();
+        scorecardBetaPage.clickContactRecordsAttempts();
+        scorecardBetaPage.validateContactRecordAttemptsView();
+    }
+
+    @Test
+    public void TCSC_048() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.validateContactRecordCasesView();
+        scorecardBetaPage.clickContactRecordsCadences();
+        scorecardBetaPage.validateContactRecordCadencesView();
+    }
+
+    @Test
+    public void TCSC_049() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.validateContactRecordCasesView();
+        scorecardBetaPage.clickContactRecordsEmails();
+        scorecardBetaPage.validateContactRecordEmailsView();
+    }
+
+    @Test
+    public void TCSC_050() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.validateContactRecordCasesView();
+        scorecardBetaPage.clickContactRecordsTexts();
+        scorecardBetaPage.validateContactRecordTextsView();
+    }
+
+    @Test
+    public void TCSC_051() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.validateContactRecordCasesView();
+        scorecardBetaPage.clickContactRecordsActivity();
+        scorecardBetaPage.validateContactRecordActivityView();
+    }
+
+    @Test
+    public void TCSC_052() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.validateContactRecordCasesView();
+        scorecardBetaPage.clickContactViewAddCase();
+        scorecardBetaPage.inputCaseName("Case Auto Test2");
+        scorecardBetaPage.clickAddNewContactSave();
+        scorecardBetaPage.verifyAddNewContactSuccess();
+        scorecardBetaPage.confirmAddContact();
+    }
+
+    @Test
+    public void TCSC_053() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.validateContactRecordCasesView();
+        scorecardBetaPage.contactsAdvancedSearch("casenametest");
+        scorecardBetaPage.validateSearchResultTableIsNotEmpty();
+    }
+
+    @Test
+    public void TCSC_054() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.validateContactRecordCasesView();
+        scorecardBetaPage.clickLoadAllData();
+    }
+
+    @Test
+    public void TCSC_055() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.validateContactRecordCasesView();
+        scorecardBetaPage.clickContactViewAddNote();
+        scorecardBetaPage.inputNotes("Test Notes");
+        scorecardBetaPage.addNotes();
+    }
+
+    @Test
+    public void TCSC_056() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.validateContactRecordCasesView();
+        scorecardBetaPage.clickContactCaseNameDropdown("Case Auto Test2");
+        scorecardBetaPage.selectCaseOption("View Case Details");
+        scorecardBetaPage.validateCaseDetailView();
+    }
+
+    @Test
+    public void TCSC_057() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.validateContactRecordCasesView();
+        scorecardBetaPage.clickContactCaseNameDropdown("Case Auto Test2");
+        scorecardBetaPage.selectCaseOption("Edit Case Details");
+        scorecardBetaPage.editCaseName("Case Test Automation");
+        scorecardBetaPage.clickEditCaseSave();
+        scorecardBetaPage.verifyCaseNewName("Case Test Automation");
+    }
+
+    @Test
+    public void TCSC_058() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.validateContactRecordCasesView();
+        scorecardBetaPage.clickContactViewAddCase();
+        scorecardBetaPage.inputCaseName("Case Auto Test4");
+        scorecardBetaPage.clickAddNewContactSave();
+        scorecardBetaPage.verifyAddNewContactSuccess();
+        scorecardBetaPage.confirmAddContact();
+        scorecardBetaPage.clickContactCaseNameDropdown("Case Auto Test4");
+        scorecardBetaPage.selectCaseOption("View Case Details");
+        scorecardBetaPage.clickTransferCase();
+        scorecardBetaPage.selectSalesPerson("Auto Auto");
+        scorecardBetaPage.clickTransfer();
+    }
+
+    @Test
+    public void TCSC_059() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.validateContactRecordCasesView();
+        scorecardBetaPage.clickContactCaseNameDropdown("Case Automation");
+        scorecardBetaPage.selectCaseOption("View Case Details");
+        scorecardBetaPage.clickCaseDetailsAddCase();
+        scorecardBetaPage.inputCaseName("Case Auto Test");
+        scorecardBetaPage.clickAddNewContactSave();
+        scorecardBetaPage.verifyAddNewContactSuccess();
+    }
+
 //    @Test
 //    public void Bug_049() {
 //        scorecardBetaPage.test();
