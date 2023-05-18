@@ -652,6 +652,58 @@ public class ScorecardBetaTest extends TestsInit{
         scorecardBetaPage.clickAdd();
     }
 
+    @Test
+    public void TCSC_064() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("Auto29");
+        scorecardBetaPage.validateContactRecordCasesView();
+        scorecardBetaPage.clickContactRecordsAttempts();
+        scorecardBetaPage.clickAddAttempt();
+        scorecardBetaPage.selectAttemptType("LinkedIn - Send a Connection Request");
+        scorecardBetaPage.inputAttemptDate("05/20/2023");
+        scorecardBetaPage.clickAdd();
+    }
+
+    @Test
+    public void TCSC_065() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("Auto29");
+        scorecardBetaPage.validateContactRecordCasesView();
+        scorecardBetaPage.clickContactRecordsAttempts();
+        scorecardBetaPage.clickAddAttempt();
+        scorecardBetaPage.selectAttemptType("LinkedIn - Send Message");
+        scorecardBetaPage.inputAttemptDate("05/20/2023");
+        scorecardBetaPage.clickAdd();
+    }
+
+    @Test
+    public void TCSC_066() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("Auto29");
+        scorecardBetaPage.validateContactRecordCasesView();
+        scorecardBetaPage.clickContactRecordsAttempts();
+        scorecardBetaPage.clickAddAttempt();
+        scorecardBetaPage.selectAttemptType("LinkedIn - View Profile");
+        scorecardBetaPage.inputAttemptDate("05/20/2023");
+        scorecardBetaPage.clickAdd();
+    }
+
+    @Test
+    public void TCSC_067() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("Auto29");
+        scorecardBetaPage.validateContactRecordCasesView();
+        scorecardBetaPage.clickContactRecordsAttempts();
+        scorecardBetaPage.clickAddAttempt();
+        scorecardBetaPage.selectAttemptType("LinkedIn - Interaction");
+        scorecardBetaPage.inputAttemptDate("05/20/2023");
+        scorecardBetaPage.clickAdd();
+    }
+
 
 //    @Test
 //    public void Bug_049() {
