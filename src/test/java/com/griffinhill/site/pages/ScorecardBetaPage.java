@@ -82,6 +82,10 @@ public class ScorecardBetaPage {
     private WebElement advanced;
     @FindBy(css = "input[placeholder='Search for...']")
     private WebElement advanceSearchBar;
+    @FindBy(xpath = "//span[text()='Toggle dropdown']/parent::button")
+    private WebElement deleteAttemptDropdown;
+    @FindBy(xpath = "//span[text()='Delete']/parent::a")
+    private WebElement deleteAttemptOption;
     @FindBy(css = "input[name='first_name']")
     private WebElement addFirstName;
     @FindBy(css = "div.AddProspectCaseModalForm input[name='first_name']")
@@ -338,6 +342,11 @@ public class ScorecardBetaPage {
 
     public void contactsAdvancedSearch(String searchName) {
         sendKeys(advanceSearchBar, searchName);
+    }
+
+    public void deleteAttempt() {
+        click(deleteAttemptDropdown);
+        click(deleteAttemptOption);
     }
 
     public void searchContactFirstName(String firstName) {
@@ -847,6 +856,11 @@ public class ScorecardBetaPage {
     public void selectSalesPerson(String salesPerson) {
         WebElement salesPersonElement = driver.findElement(By.xpath("//span[text()='"+ salesPerson +"']/parent::div"));
         salesPersonElement.click();
+    }
+
+    public void selectCadenceName(String cadence) {
+        WebElement cadenceElement = driver.findElement(By.xpath("//span[text()='"+ cadence +"']/parent::div"));
+        cadenceElement.click();
     }
 
     public void clickTransfer() {
