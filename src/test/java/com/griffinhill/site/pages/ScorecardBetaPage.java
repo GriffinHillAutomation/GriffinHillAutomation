@@ -617,7 +617,7 @@ public class ScorecardBetaPage {
 
     public void clickContactCaseNameDropdown(String caseName) {
         pause(5000);
-        WebElement contactCaseNameElement = driver.findElement(By.xpath("//td[text()='"+ caseName +"']/..//button[@class='dropdown-toggle dropdown-toggle-split btn btn-griffin btn-sm']"));
+        WebElement contactCaseNameElement = driver.findElement(By.xpath("(//td[text()='"+ caseName +"'])[1]/..//button[@class='dropdown-toggle dropdown-toggle-split btn btn-griffin btn-sm']"));
         contactCaseNameElement.click();
         caseViewDropdown.isDisplayed();
     }
