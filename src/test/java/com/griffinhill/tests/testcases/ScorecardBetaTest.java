@@ -552,9 +552,9 @@ public class ScorecardBetaTest extends TestsInit{
     public void TCSC_057() {
         scorecardBetaPage.clickContacts();
         scorecardBetaPage.validateContactsAdvanced();
-        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
-        scorecardBetaPage.clickContactCaseNameDropdown("Case Auto Test2");
+        scorecardBetaPage.clickContactCaseNameDropdown("Case Auto Test29");
         scorecardBetaPage.selectCaseOption("Edit Case Details");
         scorecardBetaPage.editCaseName("Case Test Automation");
         scorecardBetaPage.clickEditCaseSave();
