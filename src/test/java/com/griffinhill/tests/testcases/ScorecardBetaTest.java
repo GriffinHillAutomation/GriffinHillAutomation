@@ -801,6 +801,52 @@ public class ScorecardBetaTest extends TestsInit{
         scorecardBetaPage.validateContactRecordCadencesView();
     }
 
+    @Test
+    public void TCSC_076() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("Auto29");
+        scorecardBetaPage.validateContactRecordCasesView();
+        scorecardBetaPage.clickContactRecordsCadences();
+        scorecardBetaPage.clickContactCaseNameDropdown("Automation_Test_2");
+        scorecardBetaPage.clickPauseCadence();
+        scorecardBetaPage.clickConfirm();
+    }
+
+    @Test
+    public void TCSC_077() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("Auto29");
+        scorecardBetaPage.validateContactRecordCasesView();
+        scorecardBetaPage.clickContactRecordsCadences();
+        scorecardBetaPage.clickContactCaseNameDropdown("Automation_Test_2");
+        scorecardBetaPage.clickActivateCadence();
+        scorecardBetaPage.clickConfirm();
+    }
+
+    @Test
+    public void TCSC_078() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("Auto29");
+        scorecardBetaPage.validateContactRecordCasesView();
+        scorecardBetaPage.clickContactRecordsCadences();
+        scorecardBetaPage.clickContactCaseNameDropdown("Automation_Test_2");
+        scorecardBetaPage.clickRemoveCadence();
+        scorecardBetaPage.clickConfirm();
+    }
+
+    @Test
+    public void TCSC_079() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAdvanced();
+        scorecardBetaPage.clickContactRecordView("Auto29");
+        scorecardBetaPage.validateContactRecordCasesView();
+        scorecardBetaPage.clickContactRecordsActivity();
+        scorecardBetaPage.validateContactRecordActivityView();
+    }
+
 
 //    @Test
 //    public void Bug_049() {

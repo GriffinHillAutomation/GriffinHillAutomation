@@ -116,6 +116,12 @@ public class ScorecardBetaPage {
     private static WebElement addContactModalDone;
     @FindBy(xpath = "//div[@class='dropdown-menu show dropdown-menu-right']")
     private static WebElement caseViewDropdown;
+    @FindBy(xpath = "//span[text()='Pause cadence']/parent::a")
+    private static WebElement pauseCadence;
+    @FindBy(xpath = "//span[text()='Activate cadence']/parent::a")
+    private static WebElement activateCadence;
+    @FindBy(xpath = "//span[text()='Remove from cadence']/parent::a")
+    private static WebElement removeCadence;
     @FindBy(xpath = "//button[text()='Transfer Case']")
     private static WebElement transferCase;
     @FindBy(css = "div.modal-content")
@@ -622,6 +628,18 @@ public class ScorecardBetaPage {
     public void clickCaseNameDropdown(String caseName) {
         driver.findElement(By.xpath("//a[text()='"+ caseName +"']/parent::span/parent::div/parent::div/parent::td/parent::tr//button[@class='dropdown-toggle dropdown-toggle-split btn btn-griffin btn-sm']")).click();
         caseViewDropdown.isDisplayed();
+    }
+
+    public void clickPauseCadence() {
+        click(pauseCadence);
+    }
+
+    public void clickActivateCadence() {
+        click(activateCadence);
+    }
+
+    public void clickRemoveCadence() {
+        click(removeCadence);
     }
 
     public void clickContactCaseNameDropdown(String caseName) {
