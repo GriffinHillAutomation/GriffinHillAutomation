@@ -2,6 +2,7 @@ package com.griffinhill.tests.testcases;
 
 import com.griffinhill.entities.LoginInfo;
 import com.griffinhill.tests.TestsInit;
+import com.griffinhill.utils.DateUtils;
 import io.qameta.allure.Description;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -264,17 +265,17 @@ public class ScorecardBetaTest extends TestsInit{
     @Test
     public void TCSC_021() {
         scorecardBetaPage.clickAddContact();
-        scorecardBetaPage.fillContact("Auto21a", "Test21b");
+        scorecardBetaPage.fillContact("Auto21E", "Test21F");
         scorecardBetaPage.clickAddNewCase();
-        scorecardBetaPage.inputCaseName("Case Auto Test21b");
+        scorecardBetaPage.inputCaseName("Case Auto Test21D");
         scorecardBetaPage.clickAddNewContactSave();
         scorecardBetaPage.verifyAddNewContactSuccess();
         scorecardBetaPage.confirmAddContact();
-        scorecardBetaPage.clickCaseNameDropdown("Case Auto Test21b");
+        scorecardBetaPage.clickCaseNameDropdown("Case Auto Test21D");
         scorecardBetaPage.clickAddToScoreCardCalendar();
         scorecardBetaPage.clickAddToScoreCardCalendarConfirm();
         scorecardBetaPage.clickCalendar();
-        scorecardBetaPage.verifyScorecardAddedToDate("2023-04-18", "Case Auto Test21b");
+        scorecardBetaPage.verifyScorecardAddedToDate(DateUtils.getCurrentDateAndTime("yyyy-MM-dd"), "Case Auto Test21D");
     }
 
     @Test
@@ -425,8 +426,6 @@ public class ScorecardBetaTest extends TestsInit{
 
     @Test
     public void TCSC_045() {
-        scorecardBetaPage.clickContacts();
-        scorecardBetaPage.validateContactsAdvanced();
         scorecardBetaPage.clickAddContact();
         scorecardBetaPage.fillContact("Auto", "Test");
         scorecardBetaPage.clickAddNewCase();
@@ -543,7 +542,7 @@ public class ScorecardBetaTest extends TestsInit{
         scorecardBetaPage.validateContactsAdvanced();
         scorecardBetaPage.clickContactRecordView("test123");
         scorecardBetaPage.validateContactRecordCasesView();
-        scorecardBetaPage.clickContactCaseNameDropdown("Case Auto Test2");
+        scorecardBetaPage.clickContactCaseNameDropdown("casenametest");
         scorecardBetaPage.selectCaseOption("View Case Details");
         scorecardBetaPage.validateCaseDetailView();
     }
@@ -585,7 +584,7 @@ public class ScorecardBetaTest extends TestsInit{
         scorecardBetaPage.validateContactsAdvanced();
         scorecardBetaPage.clickContactRecordView("test123");
         scorecardBetaPage.validateContactRecordCasesView();
-        scorecardBetaPage.clickContactCaseNameDropdown("Case Automation");
+        scorecardBetaPage.clickContactCaseNameDropdown("casenametest");
         scorecardBetaPage.selectCaseOption("View Case Details");
         scorecardBetaPage.clickCaseDetailsAddCase();
         scorecardBetaPage.inputCaseName("Case Auto Test");
@@ -599,12 +598,12 @@ public class ScorecardBetaTest extends TestsInit{
         scorecardBetaPage.validateContactsAdvanced();
         scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
-        scorecardBetaPage.clickAddCaseHereLink();
-        scorecardBetaPage.inputCaseName("Case Auto Test");
+        scorecardBetaPage.clickContactViewAddCase();
+        scorecardBetaPage.inputCaseName("Case Auto Test3");
         scorecardBetaPage.clickAddNewContactSave();
         scorecardBetaPage.verifyAddNewContactSuccess();
         scorecardBetaPage.confirmAddContact();
-        scorecardBetaPage.clickContactCaseNameDropdown("Case Auto Test");
+        scorecardBetaPage.clickContactCaseNameDropdown("Case Auto Test3");
         scorecardBetaPage.selectCaseOption("View Case Details");
         scorecardBetaPage.clickTransferCase();
         scorecardBetaPage.selectSalesPerson("Auto21a Test21a");
@@ -621,7 +620,7 @@ public class ScorecardBetaTest extends TestsInit{
         scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
         scorecardBetaPage.clickContactRecordsAttempts();
-        scorecardBetaPage.clickAddCaseHereLink();
+        scorecardBetaPage.clickAddAttempt();
         scorecardBetaPage.inputAttemptDate("12/20/2023");
         scorecardBetaPage.clickAdd();
     }
