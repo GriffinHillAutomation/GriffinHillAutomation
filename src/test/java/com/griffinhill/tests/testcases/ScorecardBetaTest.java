@@ -567,11 +567,12 @@ public class ScorecardBetaTest extends TestsInit{
         scorecardBetaPage.clickContactRecordView("test123");
         scorecardBetaPage.validateContactRecordCasesView();
         scorecardBetaPage.clickContactViewAddCase();
-        scorecardBetaPage.inputCaseName("Case Auto Test4");
+        scorecardBetaPage.inputCaseName("Case Auto Test5");
         scorecardBetaPage.clickAddNewContactSave();
         scorecardBetaPage.verifyAddNewContactSuccess();
         scorecardBetaPage.confirmAddContact();
-        scorecardBetaPage.clickContactCaseNameDropdown("Case Auto Test4");
+        scorecardBetaPage.contactsAdvancedSearch("Case Auto Test5");
+        scorecardBetaPage.clickContactCaseNameDropdown("Case Auto Test5");
         scorecardBetaPage.selectCaseOption("View Case Details");
         scorecardBetaPage.clickTransferCase();
         scorecardBetaPage.selectSalesPerson("Auto Auto");
@@ -599,18 +600,20 @@ public class ScorecardBetaTest extends TestsInit{
         scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
         scorecardBetaPage.clickContactViewAddCase();
-        scorecardBetaPage.inputCaseName("Case Auto Test3");
+        scorecardBetaPage.inputCaseName("Case Auto Test4");
         scorecardBetaPage.clickAddNewContactSave();
         scorecardBetaPage.verifyAddNewContactSuccess();
         scorecardBetaPage.confirmAddContact();
-        scorecardBetaPage.clickContactCaseNameDropdown("Case Auto Test3");
+        scorecardBetaPage.contactsAdvancedSearch("Case Auto Test4");
+        scorecardBetaPage.clickContactCaseNameDropdown("Case Auto Test4");
         scorecardBetaPage.selectCaseOption("View Case Details");
         scorecardBetaPage.clickTransferCase();
-        scorecardBetaPage.selectSalesPerson("Auto21a Test21a");
+        scorecardBetaPage.selectSalesPerson("Auto21a Test21b");
         scorecardBetaPage.clickTransfer();
         scorecardBetaPage.clickContacts();
+        scorecardBetaPage.contactsAdvancedSearch("Auto21a");
         scorecardBetaPage.clickContactRecordView("Auto21a");
-        scorecardBetaPage.validateContactCaseExists("Case Auto Test");
+        scorecardBetaPage.validateContactCaseExists("Case Auto Test4");
     }
 
     @Test
