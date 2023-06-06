@@ -46,6 +46,12 @@ public class BasePageObject {
         }
     }
 
+    public static void jsClick(WebElement element) {
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("arguments[0].scrollIntoView(true);", element);
+        executor.executeScript("arguments[0].click();", element);
+    }
+
     public static void click(String locator) {
         try {
             waitForPageLoad();

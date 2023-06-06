@@ -11,6 +11,7 @@ import reports.AllureListener;
 import static com.griffinhill.enums.PageNavigation.CADENCES;
 import static com.griffinhill.enums.PageNavigation.ILASSO;
 import static com.griffinhill.site.pages.LoginPage.login;
+import static com.griffinhill.utils.PageUtils.pause;
 import static testdata.LoginDetails.loginCredentials;
 
 @Listeners({AllureListener.class})
@@ -626,6 +627,8 @@ public class IlassoTest extends TestsInit {
         ilassoPage.selectTimer("Field timer");
         ilassoPage.selectStepType("LinkedIn - Interaction");
         ilassoPage.writeNotes("Timer: Field | Step type: LinkedIn - Interaction");
+        ilassoPage.clickSave();
+        ilassoPage.verifySuccessMsg();
     }
 
     @Test
