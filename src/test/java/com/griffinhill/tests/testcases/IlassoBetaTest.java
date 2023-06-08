@@ -102,4 +102,91 @@ public class IlassoBetaTest extends TestsInit {
         ilassoBetaPage.clickCadenceViewOption("ORGANIZE_STEP");
         organizeSteps.checkOrganizeStepsModal();
     }
+
+    @Test
+    @Description("Test Case: Cadence Record - Arrow button - Deactivate Cadence")
+    public void IlassoBeta_TC_009() {
+        ilassoBetaPage.clickCadenceViewOption("DEACTIVATE_CADENCE");
+        cadenceStatus.checkCadenceStatusModal("Deactivating a Cadence will pause all steps and activities within the Cadence. You will be able to turn it back to active once you've set it as inactive.");
+        cadenceStatus.confirm();
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Cadence Record - Arrow button - Activate Cadence")
+    public void IlassoBeta_TC_010() {
+        ilassoBetaPage.activateCadence();
+        cadenceStatus.checkCadenceStatusModal("Turning a Cadence to active will resume all steps and activities within the Cadence. You will be able to turn it back to inactive once you've set it as active.");
+        cadenceStatus.confirm();
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Cadence Record - Arrow button - Delete Cadence")
+    public void IlassoBeta_TC_011() {
+        ilassoBetaPage.clickCadenceViewOption("DELETE_CADENCE");
+        cadenceStatus.confirm();
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Cadence Record - Inactive Status")
+    public void IlassoBeta_TC_012() {
+        ilassoBetaPage.clickCadenceViewOption("DEACTIVATE_CADENCE");
+        cadenceStatus.checkCadenceStatusModal("Deactivating a Cadence will pause all steps and activities within the Cadence. You will be able to turn it back to active once you've set it as inactive.");
+        cadenceStatus.confirm();
+        ilassoBetaPage.verifySuccessMsg();
+        ilassoBetaPage.validateCadenceStatus("Inactive");
+    }
+
+    @Test
+    @Description("Test Case: Cadence Record - Active Status")
+    public void IlassoBeta_TC_013() {
+        ilassoBetaPage.clickCadenceViewOption("DEACTIVATE_CADENCE");
+        cadenceStatus.checkCadenceStatusModal("Turning a Cadence to active will resume all steps and activities within the Cadence. You will be able to turn it back to inactive once you've set it as active.");
+        cadenceStatus.confirm();
+        ilassoBetaPage.verifySuccessMsg();
+        ilassoBetaPage.validateCadenceStatus("Active");
+    }
+
+    @Test
+    @Description("Test Case: Edit Cadence (Cadence Record -> Edit)")
+    public void IlassoBeta_TC_014() {
+        ilassoBetaPage.clickCadenceViewOption("EDIT_CADENCE_NAME");
+        editCadenceName.checkEditCadenceModal();
+        editCadenceName.editCadenceName("Automation_Test_3");
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Delay Timer - Email - Manual (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_015() {
+        ilassoBetaPage.addCadence("New", "AutomationTest-Cadence");
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.writeNotes("Timer: Delay | Step type: Email | Step Action: Manual");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.fillEmailTemplate(
+                "Test-Automation",
+                "Send Email Testing",
+                "Compose Email here");
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Date Timer - Email - Manual (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_016() {
+        ilassoBetaPage.addCadence("New", "AutomationTest-Cadence");
+
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Date timer");
+        ilassoBetaPage.writeNotes("Timer: Date | Step type: Email | Step Action: Manual");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.fillEmailTemplate(
+                "Test-Automation",
+                "Send Email Testing",
+                "Compose Email here");
+        ilassoBetaPage.verifySuccessMsg();
+    }
 }
