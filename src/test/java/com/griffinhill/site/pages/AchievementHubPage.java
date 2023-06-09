@@ -46,11 +46,11 @@ public class AchievementHubPage {
                 break;
             case ILASSO:
                 try {
-                    click("//h4[text()='iLasso']");
+                    click("//span[text()='iLasso']/parent::div/parent::li");
                 }
                 catch (Exception e){
                     waitUntilPageIsLoaded();
-                    click("//h4[text()='iLasso']");
+                    click("//span[text()='iLasso']/parent::div/parent::li");
                 }
                 break;
             case SCORE_CARD:
