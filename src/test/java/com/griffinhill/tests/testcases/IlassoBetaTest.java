@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import reports.AllureListener;
 
 import static com.griffinhill.enums.PageNavigation.CADENCES;
-import static com.griffinhill.enums.PageNavigation.ILASSO;
+import static com.griffinhill.enums.PageNavigation.ILASSO_BETA;
 import static com.griffinhill.site.pages.LoginPage.login;
 import static testdata.LoginDetails.loginCredentials;
 
@@ -22,7 +22,7 @@ public class IlassoBetaTest extends TestsInit {
     public void before() {
         try {
             login(user);
-            achievementHubPage.navigateTo(ILASSO);
+            achievementHubPage.navigateTo(ILASSO_BETA);
             ilassoBetaPage.checkOpenedPage();
             ilassoBetaPage.navigateTo(CADENCES);
             waitUntilPageIsLoaded();
@@ -188,5 +188,371 @@ public class IlassoBetaTest extends TestsInit {
                 "Send Email Testing",
                 "Compose Email here");
         ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Field Timer - Email - Manual (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_017() {
+        ilassoBetaPage.addCadence("New", "AutomationTest-Cadence");
+
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Field timer");
+        ilassoBetaPage.writeNotes("Timer: Field | Step type: Email | Step Action: Manual");
+        ilassoBetaPage.clickSave();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Delay Timer - Email - Automatic (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_018() {
+        ilassoBetaPage.addCadence("New", "AutomationTest-Cadence");
+
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectStepAction("Automatic");
+        ilassoBetaPage.clickNext();
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.fillEmailTemplate(
+                "Test-Automation",
+                "Send Email Testing",
+                "Compose Email here");
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Delay Timer - Text Message - Manual (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_019() {
+        ilassoBetaPage.addCadence("New", "AutomationTest-Cadence");
+
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectStepType("Text Message");
+        ilassoBetaPage.selectStepAction("Manual");
+        ilassoBetaPage.clickNext();
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.fillTextMessageTemplate(
+                "Test-Automation-TextMessage",
+                "Compose Message here");
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Delay Timer - Text Message - Automatic (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_020() {
+        ilassoBetaPage.addCadence("New", "AutomationTest-Cadence");
+
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectStepType("Text Message");
+        ilassoBetaPage.selectStepAction("Automatic");
+        ilassoBetaPage.clickNext();
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.fillTextMessageTemplate(
+                "Test-Automation-TextMessage-Automatic",
+                "Compose Message here");
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Date Timer - Text Message - Manual (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_021() {
+        ilassoBetaPage.addCadence("New", "AutomationTest-Cadence");
+
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Date timer");
+        ilassoBetaPage.selectStepType("Text Message");
+        ilassoBetaPage.selectStepAction("Manual");
+        ilassoBetaPage.clickNext();
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.fillTextMessageTemplate(
+                "Test-Automation-TextMessage-Automatic",
+                "Compose Message here");
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Date Timer - Text Message - Automatic (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_022() {
+        ilassoBetaPage.addCadence("New", "AutomationTest-Cadence");
+
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Date timer");
+        ilassoBetaPage.selectStepType("Text Message");
+        ilassoBetaPage.selectStepAction("Automatic");
+        ilassoBetaPage.clickNext();
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.fillTextMessageTemplate(
+                "Test-Automation-TextMessage-Automatic",
+                "Compose Message here");
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Field Timer - Text Message - Manual (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_023() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Field timer");
+        ilassoBetaPage.selectStepType("Text Message");
+        ilassoBetaPage.selectStepAction("Manual");
+        ilassoBetaPage.clickNext();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Field Timer - Text Message - Automatic (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_024() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Field timer");
+        ilassoBetaPage.selectStepType("Text Message");
+        ilassoBetaPage.selectStepAction("Automatic");
+        ilassoBetaPage.clickNext();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Delay Timer - Phone Call - Introductory Call (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_025() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectStepType("Phone Call");
+        ilassoBetaPage.writeNotes("Timer: Delay | Step type: Phone Call | Step Action: Introductory Call");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Date Timer - Phone Call - Introductory Call (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_026() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Date timer");
+        ilassoBetaPage.selectStepType("Phone Call");
+        ilassoBetaPage.writeNotes("Timer: Date | Step type: Phone Call | Step Action: Introductory Call");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Field Timer - Phone Call - Introductory Call (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_027() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Field timer");
+        ilassoBetaPage.selectStepType("Phone Call");
+        ilassoBetaPage.writeNotes("Timer: Field | Step type: Phone Call | Step Action: Introductory Call");
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Delay Timer - Phone Call - Demo Call (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_028() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectStepType("Phone Call");
+        ilassoBetaPage.selectStepAction("Demo Call");
+        ilassoBetaPage.writeNotes("Timer: Delay | Step type: Phone Call | Step Action: Demo Call");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Date Timer - Phone Call - Demo Call (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_029() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Date timer");
+        ilassoBetaPage.selectStepType("Phone Call");
+        ilassoBetaPage.selectStepAction("Demo Call");
+        ilassoBetaPage.writeNotes("Timer: Date | Step type: Phone Call | Step Action: Demo Call");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Field Timer - Phone Call - Demo Call (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_030() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Field timer");
+        ilassoBetaPage.selectStepType("Phone Call");
+        ilassoBetaPage.selectStepAction("Demo Call");
+        ilassoBetaPage.writeNotes("Timer: Field | Step type: Phone Call | Step Action: Demo Call");
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Delay Timer - Phone Call - Follow-up Call (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_031() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Delay timer");
+        ilassoBetaPage.selectStepType("Phone Call");
+        ilassoBetaPage.selectStepAction("Follow-up Call");
+        ilassoBetaPage.writeNotes("Timer: Delay | Step type: Phone Call | Step Action: Follow-up Call");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Date Timer - Phone Call - Follow-up Call (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_032() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Date timer");
+        ilassoBetaPage.selectStepType("Phone Call");
+        ilassoBetaPage.selectStepAction("Follow-up Call");
+        ilassoBetaPage.writeNotes("Timer: Date | Step type: Phone Call | Step Action: Follow-up Call");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Field Timer - Phone Call - Follow-up Call (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_033() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Field timer");
+        ilassoBetaPage.selectStepType("Phone Call");
+        ilassoBetaPage.selectStepAction("Follow-up Call");
+        ilassoBetaPage.writeNotes("Timer: Field | Step type: Phone Call | Step Action: Follow-up Call");
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Delay Timer - Phone Call - Supporting Call (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_034() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Delay timer");
+        ilassoBetaPage.selectStepType("Phone Call");
+        ilassoBetaPage.selectStepAction("Supporting Call");
+        ilassoBetaPage.writeNotes("Timer: Delay | Step type: Phone Call | Step Action: Supporting Call");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Date Timer - Phone Call - Supporting Call (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_035() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Date timer");
+        ilassoBetaPage.selectStepType("Phone Call");
+        ilassoBetaPage.selectStepAction("Supporting Call");
+        ilassoBetaPage.writeNotes("Timer: Date | Step type: Phone Call | Step Action: Supporting Call");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Field Timer - Phone Call - Supporting Call (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_036() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Field timer");
+        ilassoBetaPage.selectStepType("Phone Call");
+        ilassoBetaPage.selectStepAction("Supporting Call");
+        ilassoBetaPage.writeNotes("Timer: Field | Step type: Phone Call | Step Action: Supporting Call");
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Delay Timer - Phone Call - Others (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_037() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Delay timer");
+        ilassoBetaPage.selectStepType("Phone Call");
+        ilassoBetaPage.selectStepAction("Others");
+        ilassoBetaPage.writeNotes("Timer: Delay | Step type: Phone Call | Step Action: Others");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Date Timer - Phone Call - Others (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_038() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Date timer");
+        ilassoBetaPage.selectStepType("Phone Call");
+        ilassoBetaPage.selectStepAction("Others");
+        ilassoBetaPage.writeNotes("Timer: Date | Step type: Phone Call | Step Action: Others");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Field Timer - Phone Call - Others (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_039() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Date timer");
+        ilassoBetaPage.selectStepType("Phone Call");
+        ilassoBetaPage.selectStepAction("Others");
+        ilassoBetaPage.writeNotes("Timer: Field | Step type: Phone Call | Step Action: Others");
+    }
+
+    @Test
+    /* Test Case: Add Step - Delay Timer - LinkedIn - Send a Connection Request (Cadence Record -> Add Step) */
+    public void IlassoBeta_TC_040() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Delay timer");
+        ilassoBetaPage.selectStepType("LinkedIn - Send a Connection Request");
+        ilassoBetaPage.writeNotes("Timer: Delay | Step type: LinkedIn - Send a Connection Request");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.fillLinkedTemplate(
+                "Test-Automation-LinkedIn",
+                "Compose Message here");
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Field Timer - LinkedIn - Send a Connection Request (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_041() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Field timer");
+        ilassoBetaPage.selectStepType("LinkedIn - Send a Connection Request");
+        ilassoBetaPage.writeNotes("Timer: Field | Step type: LinkedIn - Send a Connection Request");
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Delay Timer - LinkedIn - Send Message (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_042() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Delay timer");
+        ilassoBetaPage.selectStepType("LinkedIn - Send Message");
+        ilassoBetaPage.writeNotes("Timer: Delay | Step type: LinkedIn - Send Message");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.fillLinkedTemplate(
+                "Test-Automation-LinkedIn - Send Message",
+                "Compose Message here");
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Date Timer - LinkedIn - Send Message (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_043() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Date timer");
+        ilassoBetaPage.selectStepType("LinkedIn - Send Message");
+        ilassoBetaPage.writeNotes("Timer: Date | Step type: LinkedIn - Send Message");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.fillLinkedTemplate(
+                "Test-Automation-LinkedIn - Send Message",
+                "Compose Message here");
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Field Timer - LinkedIn - Send Message (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_044() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Field timer");
+        ilassoBetaPage.selectStepType("LinkedIn - Send Message");
+        ilassoBetaPage.writeNotes("Timer: Field | Step type: LinkedIn - Send Message");
     }
 }

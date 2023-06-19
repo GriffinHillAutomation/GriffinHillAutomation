@@ -14,7 +14,8 @@ public enum PageNavigation {
     REPORTS("Reports"),
     PHONE_LOGS("Phone Logs"),
     CADENCES("Cadences"),
-    SCORECARD("Scorecard");
+    SCORECARD("Scorecard"),
+    ILASSO_BETA("Ilasso Beta");
 
     private String navigation;
 
