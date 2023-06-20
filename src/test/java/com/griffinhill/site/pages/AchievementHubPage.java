@@ -46,12 +46,15 @@ public class AchievementHubPage {
                 break;
             case ILASSO:
                 try {
-                    click("//span[text()='iLasso']/parent::div/parent::li");
+                    click("//h4[text()='iLasso']/parent::div/parent::div/parent::div/parent::div");
                 }
                 catch (Exception e){
                     waitUntilPageIsLoaded();
-                    click("//span[text()='iLasso']/parent::div/parent::li");
+                    click("//h4[text()='iLasso']/parent::div/parent::div/parent::div/parent::div");
                 }
+                break;
+            case ILASSO_BETA:
+                click("//span[text()='iLasso']/parent::div/parent::li");
                 break;
             case SCORE_CARD:
                 click(scoreCard);
