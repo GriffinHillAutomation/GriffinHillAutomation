@@ -555,4 +555,111 @@ public class IlassoBetaTest extends TestsInit {
         ilassoBetaPage.selectStepType("LinkedIn - Send Message");
         ilassoBetaPage.writeNotes("Timer: Field | Step type: LinkedIn - Send Message");
     }
+
+    @Test
+    @Description("Test Case: Add Step - Delay Timer - LinkedIn - View Profile (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_045() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Delay timer");
+        ilassoBetaPage.selectStepType("LinkedIn - View Profile");
+        ilassoBetaPage.writeNotes("Timer: Delay | Step type: LinkedIn - View Profile");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Date Timer - LinkedIn - View Profile (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_046() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Date timer");
+        ilassoBetaPage.selectStepType("LinkedIn - View Profile");
+        ilassoBetaPage.writeNotes("Timer: Date | Step type: LinkedIn - View Profile");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Field Timer - LinkedIn - View Profile (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_047() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Field timer");
+        ilassoBetaPage.selectStepType("LinkedIn - View Profile");
+        ilassoBetaPage.writeNotes("Timer: Field | Step type: LinkedIn - View Profile");
+    }
+
+    @Test
+    @Description("Test Case: Add Step - Delay Timer - LinkedIn - Interaction (Cadence Record -> Add Step)")
+    public void IlassoBeta_TC_048() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Delay timer");
+        ilassoBetaPage.selectStepType("LinkedIn - Interaction");
+        ilassoBetaPage.writeNotes("Timer: Delay | Step type: LinkedIn - Interaction");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    /* Test Case: Add Step - Date Timer - LinkedIn - Interaction (Cadence Record -> Add Step) */
+    public void IlassoBeta_TC_049() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Date timer");
+        ilassoBetaPage.selectStepType("LinkedIn - Interaction");
+        ilassoBetaPage.writeNotes("Timer: Date | Step type: LinkedIn - Interaction");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    /* Test Case: Add Step - Field Timer - LinkedIn - Interaction (Cadence Record -> Add Step) */
+    public void IlassoBeta_TC_050() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Field timer");
+        ilassoBetaPage.selectStepType("LinkedIn - Interaction");
+        ilassoBetaPage.writeNotes("Timer: Field | Step type: LinkedIn - Interaction");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    /* Test Case: Add Step - Delay Timer - Other Task (Cadence Record -> Add Step) */
+    public void IlassoBeta_TC_051() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Delay timer");
+        ilassoBetaPage.selectStepType("Other Task");
+        ilassoBetaPage.inputOtherTaskName("Other Task - Delay");
+        ilassoBetaPage.writeNotes("Timer: Delay | Step type: Other Task");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    /* Test Case: Add Step - Date Timer - Other Task (Cadence Record -> Add Step) */
+    public void IlassoBeta_TC_052() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Date timer");
+        ilassoBetaPage.selectStepType("Other Task");
+        ilassoBetaPage.inputOtherTaskName("Other Task - Date");
+        ilassoBetaPage.writeNotes("Timer: Date | Step type: Other Task");
+        ilassoBetaPage.clickSave();
+        ilassoBetaPage.verifySuccessMsg();
+    }
+
+    @Test
+    /* Test Case: Add Step - Field Timer - Other Task (Cadence Record -> Add Step) */
+    public void IlassoBeta_TC_053() {
+        ilassoBetaPage.clickCadence("AutomationTest-Cadence");
+        ilassoBetaPage.clickAddStep();
+        ilassoBetaPage.selectTimer("Field timer");
+        ilassoBetaPage.selectStepType("Other Task");
+        ilassoBetaPage.inputOtherTaskName("Other Task - Field");
+        ilassoBetaPage.writeNotes("Timer: Field | Step type: Other Task");
+    }
 }
