@@ -1,23 +1,27 @@
-package com.griffinhill.tests.testcases;
+package com.griffinhill.tests.testcases.Beta;
 
 import com.griffinhill.entities.LoginInfo;
 import com.griffinhill.tests.TestsInit;
 import com.griffinhill.utils.DateUtils;
 import io.qameta.allure.Description;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import reports.AllureListener;
 
 import static com.griffinhill.enums.PageNavigation.SCORE_CARD;
 import static com.griffinhill.site.pages.LoginPage.login;
 import static testdata.LoginDetails.loginCredentials;
 
+@Listeners({AllureListener.class})
 public class ScorecardBetaTest extends TestsInit{
 
     LoginInfo user = loginCredentials();
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void before() {
         //try {
+            driver.get("https://beta.griffinhill.com/login");
             login(user);
             achievementHubPage.navigateTo(SCORE_CARD);
             waitUntilPageIsLoaded();
@@ -553,7 +557,7 @@ public class ScorecardBetaTest extends TestsInit{
         scorecardBetaPage.validateContactsAdvanced();
         scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
-        scorecardBetaPage.clickContactCaseNameDropdown("Case Auto Test29");
+        scorecardBetaPage.clickContactCaseNameDropdown("Case Auto Test 29");
         scorecardBetaPage.selectCaseOption("Edit Case Details");
         scorecardBetaPage.editCaseName("Case Test Automation");
         scorecardBetaPage.clickEditCaseSave();

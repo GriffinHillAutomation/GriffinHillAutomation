@@ -62,7 +62,7 @@ public class TestsInit extends BasePageObject {
 
 
     @BeforeMethod(alwaysRun = true)
-    public void beforeMethodTestsInit() {
+    public void beforeMethodTestsInit() throws InterruptedException {
         setup();
         initPage();
         //checkOpenedPage();
@@ -74,7 +74,7 @@ public class TestsInit extends BasePageObject {
         driver.quit();
     }
 
-    private void setup() {
+    private void setup() throws InterruptedException {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.setCapability(CONFIG_FAILURE_POLICY, "continue");
@@ -85,7 +85,8 @@ public class TestsInit extends BasePageObject {
         driver.navigate().refresh();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 10);
-        driver.get(GRIFFIN_HILL_URL);
+        Thread.sleep(2000);
+        //driver.get(GRIFFIN_HILL_URL);
     }
 
     public WebDriver getDriver() {

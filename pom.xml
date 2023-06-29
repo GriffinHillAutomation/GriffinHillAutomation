@@ -7,22 +7,7 @@
     <groupId>org.example</groupId>
     <artifactId>GriffinHill</artifactId>
     <version>1.0.0</version>
-    <profiles>
-        <profile>
-            <id>Beta Legacy</id>
-            <properties>
-                <env>beta-legacy</env>
-                <url>https://beta-legacy.griffinhill.com/login/</url>
-            </properties>
-        </profile>
-        <profile>
-            <id>Beta</id>
-            <properties>
-                <env>beta</env>
-                <url>https://beta.griffinhill.com/login</url>
-            </properties>
-        </profile>
-    </profiles>
+
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

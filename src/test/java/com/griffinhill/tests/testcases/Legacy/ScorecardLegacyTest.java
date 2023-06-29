@@ -1,21 +1,25 @@
-package com.griffinhill.tests.testcases;
+package com.griffinhill.tests.testcases.Legacy;
 
 import com.griffinhill.entities.LoginInfo;
 import com.griffinhill.tests.TestsInit;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import reports.AllureListener;
 
 import static com.griffinhill.enums.PageNavigation.*;
 import static com.griffinhill.site.pages.LoginPage.login;
 import static testdata.LoginDetails.loginCredentials;
 
+@Listeners({AllureListener.class})
 public class ScorecardLegacyTest extends TestsInit{
 
     LoginInfo user = loginCredentials();
 
     @BeforeMethod
     public void before() {
-            login(user);
+        driver.get("https://beta-legacy.griffinhill.com/login/");
+        login(user);
             achievementHubPage.navigateTo(SCORE_CARD);
             waitUntilPageIsLoaded();
             scorecardPage.checkOpenedPage();

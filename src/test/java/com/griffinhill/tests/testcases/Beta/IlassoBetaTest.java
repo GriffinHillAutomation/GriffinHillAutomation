@@ -1,4 +1,4 @@
-package com.griffinhill.tests.testcases;
+package com.griffinhill.tests.testcases.Beta;
 
 import com.griffinhill.entities.LoginInfo;
 import com.griffinhill.tests.TestsInit;
@@ -18,21 +18,36 @@ public class IlassoBetaTest extends TestsInit {
 
     LoginInfo user = loginCredentials();
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void before() {
-        try {
-            login(user);
+        //try {
+        driver.get("https://beta.griffinhill.com/login");
+
+        login(user);
             achievementHubPage.navigateTo(ILASSO_BETA);
             ilassoBetaPage.checkOpenedPage();
-            ilassoBetaPage.navigateTo(CADENCES);
+            try {
+                ilassoBetaPage.navigateTo(CADENCES);
+            }
+            catch (Exception e)
+            {
+                try {
+                    driver.navigate().refresh();
+                    ilassoBetaPage.navigateTo(CADENCES);
+                }
+                catch (Exception ef)
+                {
+                    System.out.println("fak");
+                }
+            }
             waitUntilPageIsLoaded();
-        }
+        /*}
         catch (Exception e)
         {
             //driver.close();
             //driver.quit();
             System.out.println("FAIL");
-        }
+        }*/
 
     }
 

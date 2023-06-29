@@ -1,9 +1,11 @@
+.idea
 target/
 .idea/compiler.xml
 .idea/misc.xml
 src/main/java/com/griffinhill/reports/ExtentReporterNG.java
 /target
 /target/
+target
 .idea/compiler.xml
 .idea/encodings.xml
 target/test-classes/com/griffinhill/tests/TestsInit.class
