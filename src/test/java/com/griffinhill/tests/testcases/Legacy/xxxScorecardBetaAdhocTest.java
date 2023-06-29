@@ -1,4 +1,4 @@
-package com.griffinhill.tests.testcases;
+package com.griffinhill.tests.testcases.Legacy;
 
 import com.griffinhill.entities.LoginInfo;
 import com.griffinhill.tests.TestsInit;
@@ -10,7 +10,7 @@ import static com.griffinhill.enums.PageNavigation.SCORE_CARD;
 import static com.griffinhill.site.pages.LoginPage.login;
 import static testdata.LoginDetails.loginCredentials;
 
-public class ScorecardBetaAdhocTest extends TestsInit{
+public class xxxScorecardBetaAdhocTest extends TestsInit{
 
     LoginInfo user = loginCredentials();
 

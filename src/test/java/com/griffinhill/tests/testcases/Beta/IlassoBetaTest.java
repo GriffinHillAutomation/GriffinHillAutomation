@@ -1,4 +1,4 @@
-package com.griffinhill.tests.testcases;
+package com.griffinhill.tests.testcases.Beta;
 
 import com.griffinhill.entities.LoginInfo;
 import com.griffinhill.tests.TestsInit;

@@ -8,8 +8,6 @@
 
     <test name="Griffin Hill - Illaso Regression Testing">
         <classes>
-            <class name="com.griffinhill.tests.testcases.LoginTest"></class>
-            <class name="com.griffinhill.tests.testcases.IlassoLegacyTest"></class>
         </classes>
     </test>
 </suite>

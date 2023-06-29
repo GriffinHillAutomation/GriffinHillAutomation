@@ -1,16 +1,19 @@
-package com.griffinhill.tests.testcases;
+package com.griffinhill.tests.testcases.Beta;
 
 import com.griffinhill.entities.LoginInfo;
 import com.griffinhill.tests.TestsInit;
 import com.griffinhill.utils.DateUtils;
 import io.qameta.allure.Description;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import reports.AllureListener;
 
 import static com.griffinhill.enums.PageNavigation.SCORE_CARD;
 import static com.griffinhill.site.pages.LoginPage.login;
 import static testdata.LoginDetails.loginCredentials;
 
+@Listeners({AllureListener.class})
 public class ScorecardBetaTest extends TestsInit{
 
     LoginInfo user = loginCredentials();
