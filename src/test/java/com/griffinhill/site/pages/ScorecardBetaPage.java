@@ -617,6 +617,7 @@ public class ScorecardBetaPage {
 
     public void verifyAddNewContactSuccess() {
         addContactSuccessModal.isDisplayed();
+        pause(1000);
         Assert.assertTrue(addContactSuccessHeader.getText().equalsIgnoreCase("Success!"));
         addContactModalDone.isDisplayed();
     }
