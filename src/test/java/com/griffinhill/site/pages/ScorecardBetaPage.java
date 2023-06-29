@@ -60,7 +60,7 @@ public class ScorecardBetaPage {
     private static WebElement attemptModalAddAttempts;
     @FindBy(xpath = "//h4[text()='Attempts']/parent::div/parent::div//button[text()='Save']")
     private static WebElement attemptModalSave;
-    @FindBy(xpath = "//div[@class=\"search-form-container\"]/*[@class=\"add-new-prospect-case\"]")
+    @FindBy(xpath = "//li/a[text()='Quick Add']")
     private WebElement quickAdd;
     @FindBy(xpath = "//li/a[text()='Active']")
     private static WebElement active;
