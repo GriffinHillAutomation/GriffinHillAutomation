@@ -11,30 +11,29 @@ import reports.AllureListener;
 import static com.griffinhill.enums.PageNavigation.CADENCES;
 import static com.griffinhill.enums.PageNavigation.ILASSO;
 import static com.griffinhill.site.pages.LoginPage.login;
-import static com.griffinhill.utils.PageUtils.pause;
 import static testdata.LoginDetails.loginCredentials;
 
 @Listeners({AllureListener.class})
-public class IlassoTest extends TestsInit {
+public class IlassoLegacyTest extends TestsInit {
 
     LoginInfo user = loginCredentials();
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void before() {
-        try {
+        //try {
+            driver.get("https://beta-legacy.griffinhill.com/login/");
             login(user);
             achievementHubPage.navigateTo(ILASSO);
             ilassoPage.checkOpenedPage();
             ilassoPage.navigateTo(CADENCES);
             waitUntilPageIsLoaded();
-        }
+        /*}
        catch (Exception e)
         {
             //driver.close();
             //driver.quit();
             System.out.println("FAIL");
-       }
-
+       }*/
     }
 
     @Test

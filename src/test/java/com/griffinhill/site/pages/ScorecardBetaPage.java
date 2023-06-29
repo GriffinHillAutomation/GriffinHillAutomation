@@ -617,6 +617,7 @@ public class ScorecardBetaPage {
 
     public void verifyAddNewContactSuccess() {
         addContactSuccessModal.isDisplayed();
+        pause(1000);
         Assert.assertTrue(addContactSuccessHeader.getText().equalsIgnoreCase("Success!"));
         addContactModalDone.isDisplayed();
     }
@@ -644,7 +645,7 @@ public class ScorecardBetaPage {
     }
 
     public void clickContactCaseNameDropdown(String caseName) {
-        pause(5000);
+        pause(6000);
         WebElement contactCaseNameElement = driver.findElement(By.xpath("//td[text()='"+ caseName +"']/parent::tr//button[2]"));
         contactCaseNameElement.click();
         caseViewDropdown.isDisplayed();

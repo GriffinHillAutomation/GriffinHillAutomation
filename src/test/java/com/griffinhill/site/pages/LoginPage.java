@@ -11,6 +11,7 @@ import org.testng.TestException;
 
 import static com.griffinhill.site.pages.BasePageObject.*;
 import static com.griffinhill.utils.PageUtils.checkElementsEnabled;
+import static com.griffinhill.utils.PageUtils.pause;
 
 public class LoginPage{
 
@@ -39,6 +40,8 @@ public class LoginPage{
     public static void login(LoginInfo loginInfo) {
         try {
             checkOpenedPage();
+            pause(1000);
+            username.click();
             sendKeys(username, loginInfo.getEmail());
             sendKeys(password, loginInfo.getPassword());
             click(login);

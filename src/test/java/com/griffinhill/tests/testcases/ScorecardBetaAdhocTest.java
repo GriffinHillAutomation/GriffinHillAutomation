@@ -17,7 +17,8 @@ public class ScorecardBetaAdhocTest extends TestsInit{
     @BeforeMethod
     public void before() {
         //try {
-            login(user);
+        driver.get("https://beta-legacy.griffinhill.com/login/");
+        login(user);
             achievementHubPage.navigateTo(SCORE_CARD);
             waitUntilPageIsLoaded();
             scorecardPage.checkOpenedPage();

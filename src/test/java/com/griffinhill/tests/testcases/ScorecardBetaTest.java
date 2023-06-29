@@ -15,9 +15,10 @@ public class ScorecardBetaTest extends TestsInit{
 
     LoginInfo user = loginCredentials();
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void before() {
         //try {
+            driver.get("https://beta.griffinhill.com/login");
             login(user);
             achievementHubPage.navigateTo(SCORE_CARD);
             waitUntilPageIsLoaded();
@@ -553,7 +554,7 @@ public class ScorecardBetaTest extends TestsInit{
         scorecardBetaPage.validateContactsAdvanced();
         scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
-        scorecardBetaPage.clickContactCaseNameDropdown("Case Auto Test29");
+        scorecardBetaPage.clickContactCaseNameDropdown("Case Auto Test 29");
         scorecardBetaPage.selectCaseOption("Edit Case Details");
         scorecardBetaPage.editCaseName("Case Test Automation");
         scorecardBetaPage.clickEditCaseSave();
