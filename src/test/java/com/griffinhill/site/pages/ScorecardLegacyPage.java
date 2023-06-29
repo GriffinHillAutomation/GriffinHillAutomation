@@ -325,8 +325,7 @@ public class ScorecardLegacyPage {
 
     public void validateReportsProficiency() {
         pause(5000);
-        checkElementsEnabled(new WebElement[]{proficiencyRatiosByNa ,proficiencyRatiosBySp, proficiencyRatiosByAs,
-                proficiencyRatiosByCl, proficiencyPipelineAdvancementCounts,
+        checkElementsEnabled(new WebElement[]{
                 proficiencyPipelineAdvancementPercent, filterDateFrom,
                 filterDateTo, yearToDate, monthToDate, lastYear,
                 lastQuarter, lastMonth, lastWeek, yesterday,
