@@ -19,21 +19,23 @@ public class IlassoLegacyTest extends TestsInit {
     LoginInfo user = loginCredentials();
 
     @BeforeMethod(alwaysRun = true)
-    public void before() {
+    public void before() throws Exception {
         //try {
+        try {
             driver.get("https://beta-legacy.griffinhill.com/login/");
             login(user);
             achievementHubPage.navigateTo(ILASSO);
             ilassoPage.checkOpenedPage();
             ilassoPage.navigateTo(CADENCES);
             waitUntilPageIsLoaded();
-        /*}
-       catch (Exception e)
-        {
-            //driver.close();
-            //driver.quit();
-            System.out.println("FAIL");
-       }*/
+        } catch (Exception e) {
+            driver.get("https://beta-legacy.griffinhill.com/login/");
+            login(user);
+            achievementHubPage.navigateTo(ILASSO);
+            ilassoPage.checkOpenedPage();
+            ilassoPage.navigateTo(CADENCES);
+            waitUntilPageIsLoaded();
+        }
     }
 
     @Test
