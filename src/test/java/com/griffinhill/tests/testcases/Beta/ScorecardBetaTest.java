@@ -19,20 +19,19 @@ public class ScorecardBetaTest extends TestsInit{
     LoginInfo user = loginCredentials();
 
     @BeforeMethod(alwaysRun = true)
-    public void before() {
-        //try {
+    public void before() throws Exception {
+        try {
             driver.get("https://beta.griffinhill.com/login");
             login(user);
             achievementHubPage.navigateTo(SCORE_CARD);
             waitUntilPageIsLoaded();
-            scorecardPage.checkOpenedPage();
-        //}
-        //catch (Exception e)
-        //{
-            //driver.close();
-            //driver.quit();
-            //System.out.println("FAIL");
-        //}//
+        }
+        catch (Exception e)
+        {
+            driver.navigate().refresh();
+            achievementHubPage.navigateTo(SCORE_CARD);
+            waitUntilPageIsLoaded();
+        }
     }
     @Test
     public void TCSC_001() {
@@ -63,7 +62,8 @@ public class ScorecardBetaTest extends TestsInit{
 
     @Test
     public void TCSC_006() {
-        scorecardPage.clickPitchAndMiss();
+        scorecardPage.
+                clickPitchAndMiss();
         scorecardPage.validatePiplelinePitchAndMiss();
     }
 
@@ -557,11 +557,11 @@ public class ScorecardBetaTest extends TestsInit{
         scorecardBetaPage.validateContactsAdvanced();
         scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
-        scorecardBetaPage.clickContactCaseNameDropdown("Case Auto Test 29");
+        scorecardBetaPage.clickContactCaseNameDropdown("Case Test Automation");
         scorecardBetaPage.selectCaseOption("Edit Case Details");
-        scorecardBetaPage.editCaseName("Case Test Automation");
+        scorecardBetaPage.editCaseName("Case Auto Test 29");
         scorecardBetaPage.clickEditCaseSave();
-        scorecardBetaPage.verifyCaseNewName("Case Test Automation");
+        scorecardBetaPage.verifyCaseNewName("Case Auto Test 29");
     }
 
     @Test

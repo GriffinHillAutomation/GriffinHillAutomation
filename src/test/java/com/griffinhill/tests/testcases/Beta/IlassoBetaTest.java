@@ -19,36 +19,33 @@ public class IlassoBetaTest extends TestsInit {
     LoginInfo user = loginCredentials();
 
     @BeforeMethod(alwaysRun = true)
-    public void before() {
-        //try {
-        driver.get("https://beta.griffinhill.com/login");
-
-        login(user);
+    public void before() throws Exception {
+        try {
+            driver.get("https://beta.griffinhill.com/login");
+            login(user);
             achievementHubPage.navigateTo(ILASSO_BETA);
             ilassoBetaPage.checkOpenedPage();
-            try {
-                ilassoBetaPage.navigateTo(CADENCES);
-            }
-            catch (Exception e)
-            {
-                try {
-                    driver.navigate().refresh();
-                    ilassoBetaPage.navigateTo(CADENCES);
-                }
-                catch (Exception ef)
-                {
-                    System.out.println("fak");
-                }
-            }
-            waitUntilPageIsLoaded();
-        /*}
+            ilassoBetaPage.navigateTo(CADENCES);
+        }
         catch (Exception e)
         {
-            //driver.close();
-            //driver.quit();
-            System.out.println("FAIL");
-        }*/
-
+            //driver.get("https://beta.griffinhill.com/login");
+            //login(user);
+            driver.navigate().refresh();
+            System.out.println("uytyutuy");
+            try {
+                achievementHubPage.navigateTo(ILASSO_BETA);
+                ilassoBetaPage.checkOpenedPage();
+                ilassoBetaPage.navigateTo(CADENCES);
+            }
+            catch (Exception f)
+            {
+                System.out.println("asagdfs");
+                driver.navigate().refresh();
+                ilassoBetaPage.navigateTo(CADENCES);
+            }
+        }
+        waitUntilPageIsLoaded();
     }
 
     @Test

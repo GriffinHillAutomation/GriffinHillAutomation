@@ -124,7 +124,7 @@ public class IlassoBetaPage {
     }
 
     @Step("Navigate To")
-    public void navigateTo(PageNavigation page) {
+    public void navigateTo(PageNavigation page) throws Exception {
         checkOpenedPage();
         switch (page) {
             case TASKS:
@@ -143,7 +143,14 @@ public class IlassoBetaPage {
                 click(phoneLogs);
                 break;
             case CADENCES:
-                click(cadences);
+                //try {
+                clickWithException(cadences);
+                //}
+                //catch (Exception e)
+                //{
+                //  throw new Exception("Element not clicked.");
+                //}
+
                 break;
             case SCORECARD:
                 click(scoreCard);
@@ -281,9 +288,11 @@ public class IlassoBetaPage {
         waitForVisibilityOfAllElements(searchResults);
         WebElement e = driver.findElement(By.xpath(String.format("//span[text()='%s']", name)));
         click(e);
+        sleep(1000);
     }
 
     public void clickAddStep() {
+        sleep(2000);
         click(addStep);
         waitForVisibilityOfAllElement(addStepModalForm);
     }
