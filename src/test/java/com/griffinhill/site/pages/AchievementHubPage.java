@@ -1,6 +1,7 @@
 package com.griffinhill.site.pages;
 
 import com.griffinhill.enums.PageNavigation;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,7 +28,7 @@ public class AchievementHubPage {
         checkElementsEnabled(new WebElement[]{learning, priorityAlignmentTool, highPerformanceJournal, goalAchiever, iLasso, scoreCard});
     }
 
-    public void navigateTo(PageNavigation page) {
+    public void navigateTo(PageNavigation page) throws Exception {
 
         //waitForPageLoad();
         //checkOpenedPage();
@@ -46,18 +47,18 @@ public class AchievementHubPage {
                 break;
             case ILASSO:
                 try {
-                    click("//h4[text()='iLasso']/parent::div/parent::div/parent::div/parent::div");
+                    clickWithException(driver.findElement(By.xpath("//h4[text()='iLasso']/parent::div/parent::div/parent::div/parent::div")));
                 }
                 catch (Exception e){
                     waitUntilPageIsLoaded();
-                    click("//h4[text()='iLasso']/parent::div/parent::div/parent::div/parent::div");
+                    clickWithException(driver.findElement(By.xpath("//h4[text()='iLasso']/parent::div/parent::div/parent::div/parent::div")));
                 }
                 break;
             case ILASSO_BETA:
                 click("//span[text()='iLasso']/parent::div/parent::li");
                 break;
             case SCORE_CARD:
-                click(scoreCard);
+                clickWithException(scoreCard);
                 break;
         }
     }

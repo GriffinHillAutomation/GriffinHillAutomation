@@ -380,17 +380,25 @@ public class ScorecardBetaPage {
     }
 
     public void clickContacts() {
-        click(contacts);
+        try {
+            clickWithException(contacts);
+        }
+        catch (Exception e)
+        {
+            driver.navigate().refresh();
+            click(contacts);
+        }
+
     }
 
     public void clickContactsAddSuspect() {
-        click(contacts);
+        clickContacts();
         click(addSuspect);
         addProspectModal.isDisplayed();
     }
 
     public void validateContactsAdvanced() {
-        click(contacts);
+        clickContacts();
         click(advanced);
         checkElementsEnabled(new WebElement[]{addFirstName, addLastName, addCompanyName, addEmail});
     }
@@ -405,28 +413,28 @@ public class ScorecardBetaPage {
     }
 
     public void searchContactFirstName(String firstName) {
-        click(contacts);
+        clickContacts();
         click(advanced);
         sendKeys(addFirstName, firstName);
         click(search);
     }
 
     public void searchContactLastName(String lastName) {
-        click(contacts);
+        clickContacts();
         click(advanced);
         sendKeys(addLastName, lastName);
         click(search);
     }
 
     public void searchContactCompanyName(String companyName) {
-        click(contacts);
+        clickContacts();
         click(advanced);
         sendKeys(addCompanyName, companyName);
         click(search);
     }
 
     public void searchContactEmail(String email) {
-        click(contacts);
+        clickContacts();
         click(advanced);
         sendKeys(addEmail, email);
         click(search);
@@ -434,7 +442,7 @@ public class ScorecardBetaPage {
 
     public void selectTags(String tagName) {
         WebElement tagOption;
-        click(contacts);
+        clickContacts();
         click(advanced);
         click(tagsDropdown);
         if (tagName.equalsIgnoreCase("with any of these tags")) {

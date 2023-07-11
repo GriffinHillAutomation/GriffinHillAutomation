@@ -24,26 +24,41 @@ public class BasePageObject {
     }
 
     public static void waitUntilPageIsLoaded() {
-        //wait.until(driver1 -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
+        wait.until(driver1 -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
     }
 
-    public static void click(WebElement element) {
+    public static void sleep(int seconds)
+    {
         try {
-            waitForPageLoad();
-            verifyElementDisplayed(element);
-            verifyElementClickable(element);
-            element.click();
-            waitForPageLoad();
+            Thread.sleep(seconds);
         }
         catch (Exception e)
         {
-            System.out.println("element not clickable");
-            driver.navigate().refresh();
-            verifyElementDisplayed(element);
-            verifyElementClickable(element);
-            element.click();
-            waitForPageLoad();
+
         }
+    }
+
+    public static void click(WebElement element) throws AssertionError{
+        //try {
+        waitForPageLoad();
+        if(!verifyElementDisplayed(element))
+        {
+            throw new AssertionError("Element not displayed");
+        }
+        verifyElementClickable(element);
+        element.click();
+        waitForPageLoad();
+    }
+    public static void clickWithException(WebElement element) throws Exception{
+        //try {
+        waitForPageLoad();
+        if(!verifyElementDisplayed(element))
+        {
+            throw new Exception("Element not displayed");
+        }
+        verifyElementClickable(element);
+        element.click();
+        waitForPageLoad();
     }
 
     public static void jsClick(WebElement element) {
@@ -81,7 +96,7 @@ public class BasePageObject {
         return ExpectedConditions.visibilityOf(locator);
     }
 
-    public static void verifyElementDisplayed(WebElement element) {
+    public static boolean verifyElementDisplayed(WebElement element) throws AssertionError{
         boolean isDisplayed;
         try {
             wait.until(waitForElementVisibility(element)).isDisplayed();
@@ -91,8 +106,12 @@ public class BasePageObject {
         {
             isDisplayed = false;
         }
-
-        Assert.assertTrue(isDisplayed);
+        return isDisplayed;
+        /*if(!isDisplayed)
+        {
+            throw new AssertionError("Element not found");
+        }
+        //Assert.assertTrue(isDisplayed);*/
     }
 
     public static void verifyElementClickable(WebElement element) {
