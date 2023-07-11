@@ -17,11 +17,11 @@ public class ScorecardLegacyTest extends TestsInit{
     @BeforeMethod
     public void before() {
         //try {
-        driver.get("https://beta-legacy.griffinhill.com/login/");
+            driver.get("https://beta-legacy.griffinhill.com/login/");
         login(user);
             achievementHubPage.navigateTo(SCORE_CARD);
             waitUntilPageIsLoaded();
-            scorecardPage.checkOpenedPage();
+            scorecardBetaPage.checkOpenedPage();
         //}
         //catch (Exception e)
         //{
@@ -41,7 +41,7 @@ public class ScorecardLegacyTest extends TestsInit{
     @Test
     @Description("TCSC_002 - Verify Access in Scorecard Contacts")
     public void Scorecard_TC_002() {
-        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.clickContactsAddSuspect();
         scorecardBetaPage.fillProspect("TestFirst", "TestLast", "");
         scorecardBetaPage.clickSaveProspect();
     }
@@ -122,6 +122,155 @@ public class ScorecardLegacyTest extends TestsInit{
     public void Scorecard_TC_015() {
         scorecardBetaPage.clickReports();
         scorecardBetaPage.validateReportsPerformance();
+    }
+
+    @Test
+    public void Scorecard_TC_016() {
+        scorecardBetaPage.clickAttempts();
+        scorecardBetaPage.clickAttemptsAddContact();
+        scorecardBetaPage.attemptFillContact("Auto", "Test");
+        scorecardBetaPage.clickAttemptContactSave();
+    }
+
+    @Test
+    public void Scorecard_TC_017() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsSuspect();
+        scorecardBetaPage.clickAddSuspect();
+        scorecardBetaPage.fillProspect("TestFirst", "TestLast", "");
+        scorecardBetaPage.clickSaveProspect();
+    }
+
+    @Test
+    public void Scorecard_TC_018() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsLead();
+        scorecardBetaPage.clickAddSuspect();
+        scorecardBetaPage.fillProspect("TestFirst", "TestLast", "");
+        scorecardBetaPage.clickSaveProspect();
+    }
+
+    @Test
+    public void Scorecard_TC_019() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsLead();
+        scorecardBetaPage.clickAddLead();
+        scorecardBetaPage.fillLead("TestFirst", "TestLast");
+        scorecardBetaPage.clickAddLeadSave();
+    }
+
+    @Test
+    public void Scorecard_TC_020() {
+        scorecardBetaPage.clickContacts();
+        scorecardBetaPage.validateContactsAll();
+        scorecardBetaPage.clickAddSuspect();
+        scorecardBetaPage.fillProspect("TestFirst", "TestLast", "");
+        scorecardBetaPage.clickSaveProspect();
+    }
+
+    @Test
+    public void Scorecard_TC_021() {
+        scorecardBetaPage.clickReports();
+        scorecardBetaPage.validateReportsProductivity();
+        scorecardBetaPage.validateProductivityAttemptsAndPoints();
+    }
+
+    @Test
+    public void Scorecard_TC_022() {
+        scorecardBetaPage.clickReports();
+        scorecardBetaPage.validateReportsProductivity();
+        scorecardBetaPage.validateProductivityDemo();
+    }
+
+    @Test
+    public void Scorecard_TC_023() {
+        scorecardBetaPage.clickReports();
+        scorecardBetaPage.validateReportsProductivity();
+        scorecardBetaPage.validateReportsPointsByEvent();
+    }
+
+    @Test
+    public void Scorecard_TC_024() {
+        scorecardBetaPage.clickReports();
+        scorecardBetaPage.validateReportsProductivity();
+        scorecardBetaPage.validateReportsActiveCasesCount();
+    }
+
+    @Test
+    public void Scorecard_TC_025() {
+        scorecardBetaPage.clickReports();
+        scorecardBetaPage.validateReportsProductivity();
+        scorecardBetaPage.validateReportsActiveCasesPercent();
+    }
+
+    @Test
+    public void Scorecard_TC_026() {
+        scorecardBetaPage.clickReports();
+        scorecardBetaPage.validateReportsProductivity();
+        scorecardBetaPage.validateReportsPointTrends();
+    }
+
+    @Test
+    public void Scorecard_TC_027() {
+        scorecardBetaPage.clickReports();
+        scorecardBetaPage.validateReportsProductivity();
+        scorecardBetaPage.validateReportsPointTrendsDOW();
+    }
+
+    @Test
+    public void Scorecard_TC_028() {
+        scorecardBetaPage.clickReports();
+        scorecardBetaPage.validateReportsProficiency();
+        scorecardBetaPage.validateReportsProficiencyRatioNA();
+    }
+
+    @Test
+    public void Scorecard_TC_029() {
+        scorecardBetaPage.clickReports();
+        scorecardBetaPage.validateReportsProficiency();
+        scorecardBetaPage.validateReportsProficiencyRatioSP();
+    }
+
+    @Test
+    public void Scorecard_TC_030() {
+        scorecardBetaPage.clickReports();
+        scorecardBetaPage.validateReportsProficiency();
+        scorecardBetaPage.validateReportsProficiencyRatioAS();
+    }
+
+    @Test
+    public void Scorecard_TC_031() {
+        scorecardBetaPage.clickReports();
+        scorecardBetaPage.validateReportsProficiency();
+        scorecardBetaPage.validateReportsProficiencyPipelineAdvancementCounts();
+    }
+
+    @Test
+    public void Scorecard_TC_032() {
+        scorecardBetaPage.clickReports();
+        scorecardBetaPage.validateReportsProficiency();
+        scorecardBetaPage.validateReportsProficiencyPipelineAdvancementPercent();
+    }
+
+    @Test
+    public void Scorecard_TC_033() {
+        scorecardBetaPage.clickReports();
+        scorecardBetaPage.validateReportsPerformance();
+        scorecardBetaPage.validateReportsPerformanceGoalAnalysis();
+    }
+
+    @Test
+    public void Scorecard_TC_034() {
+        scorecardBetaPage.clickReports();
+        scorecardBetaPage.validateReportsPerformance();
+        scorecardBetaPage.validateReportsPerformanceClosedRevenue();
+    }
+
+    @Test
+    public void Scorecard_TC_035() {
+        scorecardBetaPage.clickReports();
+        scorecardBetaPage.validateReportsPerformance();
+        scorecardBetaPage.validateReportsPerformanceClosed();
     }
 
 }
