@@ -688,11 +688,13 @@ public class ScorecardBetaPage {
     }
 
     public void validateReportsProficiencyRatioSP() {
+        click(reportsProficiency);
         click(proficiencyRatiosBySp);
         checkElementsEnabled(new WebElement[]{reportsChartRSPProficiency});
     }
 
     public void validateReportsProficiencyRatioAS() {
+        click(reportsProficiency);
         click(proficiencyRatiosByAs);
         checkElementsEnabled(new WebElement[]{reportsChartRSPProficiency});
     }
@@ -703,11 +705,13 @@ public class ScorecardBetaPage {
     }
 
     public void validateReportsProficiencyPipelineAdvancementCounts() {
+        click(reportsProficiency);
         click(proficiencyPipelineAdvancementCounts);
         checkElementsEnabled(new WebElement[]{reportsChartPipelineAdvancementCounts});
     }
 
     public void validateReportsProficiencyPipelineAdvancementPercent() {
+        click(reportsProficiency);
         click(proficiencyPipelineAdvancementPercent);
         checkElementsEnabled(new WebElement[]{reportsChartPipelineAdvancementPercentage});
     }

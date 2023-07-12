@@ -15,20 +15,30 @@ public class ScorecardLegacyTest extends TestsInit{
     LoginInfo user = loginCredentials();
 
     @BeforeMethod
-    public void before() {
-        //try {
-            driver.get("https://beta-legacy.griffinhill.com/login/");
-        login(user);
+    public void before() throws Exception {
+
+        try {
+            try {
+                driver.get("https://beta-legacy.griffinhill.com/login/");
+                login(user);
+            }
+            catch (Exception e)
+            {
+                driver.navigate().refresh();
+                login(user);
+            }
+
             achievementHubPage.navigateTo(SCORE_CARD);
             waitUntilPageIsLoaded();
             scorecardBetaPage.checkOpenedPage();
-        //}
-        //catch (Exception e)
-        //{
-            //driver.close();
-            //driver.quit();
-            //System.out.println("FAIL");
-        //}//
+        }
+        catch (Exception e)
+        {
+            driver.navigate().refresh();
+            achievementHubPage.navigateTo(SCORE_CARD);
+            waitUntilPageIsLoaded();
+            scorecardBetaPage.checkOpenedPage();
+        }
     }
     @Test
     @Description("TCSC_001 - Verify Access in Scorecard Pipelines")
