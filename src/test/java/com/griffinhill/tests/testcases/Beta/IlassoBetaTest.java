@@ -21,8 +21,17 @@ public class IlassoBetaTest extends TestsInit {
     @BeforeMethod(alwaysRun = true)
     public void before() throws Exception {
         try {
-            driver.get("https://beta.griffinhill.com/login");
-            login(user);
+            try {
+                driver.get("https://beta.griffinhill.com/login");
+                login(user);
+            }
+            catch (Exception e)
+            {
+                driver.navigate().refresh();
+                login(user);
+            }
+            /*driver.get("https://beta.griffinhill.com/login");
+            login(user);*/
             achievementHubPage.navigateTo(ILASSO_BETA);
             ilassoBetaPage.checkOpenedPage();
             ilassoBetaPage.navigateTo(CADENCES);

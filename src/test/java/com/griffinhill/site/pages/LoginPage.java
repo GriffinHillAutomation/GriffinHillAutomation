@@ -37,20 +37,15 @@ public class LoginPage{
     }
 
     @Step("log in")
-    public static void login(LoginInfo loginInfo) {
-        try {
+    public static void login(LoginInfo loginInfo) throws Exception {
             checkOpenedPage();
             pause(1000);
             username.click();
             sendKeys(username, loginInfo.getEmail());
             sendKeys(password, loginInfo.getPassword());
-            click(login);
-        }
-        catch (Exception e)
-        {
+            clickWithException(login);
             waitForPageLoad();
-            throw new TestException("Log in Failed");
-        }
+
 
         waitUntilPageIsLoaded();
     }

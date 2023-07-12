@@ -18,7 +18,7 @@ public class LoginTest extends  TestsInit{
 
     @Test
     @Description("Validate Login functionality")
-    public void Login_TC_001() {
+    public void Login_TC_001() throws Exception {
         login(user);
     }
 }

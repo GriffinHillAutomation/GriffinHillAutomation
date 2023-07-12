@@ -684,7 +684,14 @@ public class ScorecardBetaPage {
 
     public void clickContactRecordView(String contactName) {
         WebElement contactViewRecord = driver.findElement(By.xpath("//td[text()='"+ contactName +"']/parent::tr//button[text()='View']"));
-        contactViewRecord.click();
+        try {
+            clickWithException(contactViewRecord);
+        }
+        catch (Exception e)
+        {
+            driver.navigate().refresh();
+            click(contactViewRecord);
+        }
     }
 
     public boolean validateContactCaseExists(String contactName) {
