@@ -64,7 +64,7 @@ public class ScorecardBetaPage {
     private WebElement quickAdd;
     @FindBy(xpath = "//li/a[text()='Active']")
     private static WebElement active;
-    @FindBy(xpath = "//li/a[text()='Closed Deals']")
+    @FindBy(xpath = "//li/a[text()='Deals Closed']")
     private static WebElement dealsClosed;
     @FindBy(xpath = "//button[text()='Load All Data']")
     private static WebElement loadAllData;
@@ -88,6 +88,18 @@ public class ScorecardBetaPage {
     private WebElement deleteAttemptOption;
     @FindBy(css = "input[name='first_name']")
     private WebElement addFirstName;
+    @FindBy(xpath = "//form[@name='leadForm']//input[@name='first_name']")
+    private WebElement addLeadFirstName;
+    @FindBy(xpath = "//form[@name='leadForm']//input[@name='last_name']")
+    private WebElement addLeadLastName;
+    @FindBy(xpath = "//button[contains(@ng-click, 'addLead')]")
+    private WebElement addLeadSave;
+    @FindBy(css = "div[ng-hide='!showAddContact'] input[name='first_name']")
+    private WebElement attemptContactFirstName;
+    @FindBy(css = "div[ng-hide='!showAddContact'] input[name='last_name']")
+    private WebElement attemptContactLastName;
+    @FindBy(xpath = "//div[@ng-hide='!showAddContact']//button[text()='Save']")
+    private WebElement attemptContactSave;
     @FindBy(css = "div.AddProspectCaseModalForm input[name='first_name']")
     private WebElement contactsAddFirstName;
     @FindBy(css = "input[name='last_name']")
@@ -180,7 +192,7 @@ public class ScorecardBetaPage {
     private static WebElement viewCaseDetailsNameHeader;
     @FindBy(css = "input[name='position']")
     private static WebElement addPosition;
-    @FindBy(xpath = "//*[@id='suspectModal']/div/div/div[3]/div/div/button[2]|//button[text()='Save']")
+    @FindBy(xpath = "//*[@id='suspectModal']/div/div/div[3]/div/div/button[2]")
     private WebElement addProspectSaveBtn;
     @FindBy(xpath = "//a[text()='Case']")
     private static WebElement dealsClosedCase;
@@ -200,7 +212,7 @@ public class ScorecardBetaPage {
     private static WebElement dealsClosedFulfillmentFollowUp;
     @FindBy(xpath = "//a[text()='Product']")
     private static WebElement dealsClosedProduct;
-    @FindBy(xpath = "//a[text()='Options']")
+    @FindBy(xpath = "//th[text()='Options']")
     private static WebElement dealsClosedOptions;
     @FindBy(xpath = "//li/a[text()='Prospects']")
     private static WebElement contactsProspects;
@@ -228,10 +240,36 @@ public class ScorecardBetaPage {
     private static WebElement productivityPointTrendsByWeek;
     @FindBy(xpath = "//button[text()='Points Trend by Day of Week']")
     private static WebElement productivityPointTrendsDayByWeek;
+    @FindBy(xpath = "//button[text()='Ratios - By SP']")
+    private static WebElement reportsProficiencyRsp;
     @FindBy(xpath = "//li/a[text()='Proficiency']")
     private static WebElement reportsProficiency;
     @FindBy(xpath = "//canvas[@name='chartRNA_Proficiency']")
     private static WebElement reportsChartRNAProficiency;
+    @FindBy(xpath = "//canvas[@name='chartRSP_Proficiency']")
+    private static WebElement reportsChartRSPProficiency;
+    @FindBy(xpath = "//canvas[@name='chartPAC_Proficiency']")
+    private static WebElement reportsChartPipelineAdvancementCounts;
+    @FindBy(xpath = "//canvas[@name='chartPAR_Proficiency']")
+    private static WebElement reportsChartPipelineAdvancementPercentage;
+    @FindBy(xpath = "//canvas[@name='chartRNA_Default']")
+    private static WebElement reportsChartRNADefault;
+    @FindBy(xpath = "//canvas[@name='chartPBE_Productivity']")
+    private static WebElement reportsChartPointsByEvents;
+    @FindBy(xpath = "//canvas[@name='chartACC_Productivity']")
+    private static WebElement reportsChartActiveCasesCount;
+    @FindBy(xpath = "//canvas[@name='chartACP_Productivity']")
+    private static WebElement reportsChartActiveCasesPercent;
+    @FindBy(xpath = "//canvas[@name='chartPT_Productivity']")
+    private static WebElement reportsChartPointsTrends;
+    @FindBy(xpath = "//canvas[@name='chartPTW_Productivity']")
+    private static WebElement reportsChartPointsTrendsW;
+    @FindBy(xpath = "//canvas[@name='chartPAC_Default']")
+    private static WebElement reportsChartPAC;
+    @FindBy(xpath = "//canvas[@name='chartGA_Default']")
+    private static WebElement reportsChartGADefault;
+    @FindBy(xpath = "//canvas[@name='chartFD_Productivity']")
+    private static WebElement reportsChartDemo;
     @FindBy(xpath = "//button[text()='Ratios - By NA']")
     private static WebElement proficiencyRatiosByNa;
     @FindBy(xpath = "//button[text()='Ratios - By SP']")
@@ -288,8 +326,14 @@ public class ScorecardBetaPage {
     private static WebElement reportsPerformance;
     @FindBy(xpath = "//canvas[@name='chartGA_Performance']")
     private static WebElement reportsChartGAPerformance;
+    @FindBy(xpath = "//canvas[@name='chartCR_Performance']")
+    private static WebElement reportsChartCRPerformance;
+    @FindBy(xpath = "//canvas[@name='chartC_Performance']")
+    private static WebElement reportsChartCPerformance;
     @FindBy(xpath = "//button[text()='Goal Analysis']")
     private static WebElement reportsGoalAnalysis;
+    @FindBy(xpath = "//button[text()='Closed Revenue']")
+    private static WebElement reportsClosedRevenue;
     @FindBy(xpath = "//button[text()='Closes']")
     private static WebElement reportsCloses;
     @FindBy(xpath = "//span[text()='Add to ScoreCard Calendar']/parent::a")
@@ -314,6 +358,12 @@ public class ScorecardBetaPage {
     private static WebElement viewCaseNoteValue;
     @FindBy(xpath = "//div[@class='Pagination']/span")
     private static WebElement test2;
+    @FindBy(xpath = "//div[@ng-hide='showAddContact']//button[text()='Add Contact']")
+    private static WebElement attemptsAddContact;
+    @FindBy(xpath = "//div[@ng-hide='showAddContact']//button[text()='Add Attempt']")
+    private static WebElement attemptsAddAttempt;
+    @FindBy(css = "input[name='showDate']")
+    private static WebElement addAttemptDate;
 
 
     public void checkOpenedPage() {
@@ -324,8 +374,7 @@ public class ScorecardBetaPage {
         click(quickAdd);
         checkElementsEnabled(new WebElement[]{
                 addFirstName,
-                addLastName,
-                addNewCase
+                addLastName
         });
         //addProspectModal.isDisplayed();
     }
@@ -451,6 +500,15 @@ public class ScorecardBetaPage {
         inputCompanyName(companyName);
     }
 
+    public void fillLead(String firstName, String lastName) {
+        sendKeys(addLeadFirstName, firstName);
+        sendKeys(addLeadLastName, lastName);
+    }
+
+    public void clickAddLeadSave() {
+        click(addLeadSave);
+    }
+
     public void inputCompanyName(String companyName) {
         if (!companyName.equalsIgnoreCase("")) {
             sendKeys(addCompanyName, companyName);
@@ -565,6 +623,14 @@ public class ScorecardBetaPage {
         });
     }
 
+    public void clickAddSuspect() {
+        click(addSuspect);
+    }
+
+    public void clickAddLead() {
+        click(addLead);
+    }
+
     public void validateReportsProductivity() {
         click(reportsProductivity);
         checkElementsEnabled(new WebElement[]{
@@ -576,14 +642,78 @@ public class ScorecardBetaPage {
         });
     }
 
+    public void validateProductivityAttemptsAndPoints() {
+        click(productivityAttemptsAndPoints);
+        checkElementsEnabled(new WebElement[]{reportsChartProductivity});
+    }
+
+    public void validateProductivityDemo() {
+        click(productivityDemo);
+        checkElementsEnabled(new WebElement[]{reportsChartDemo});
+    }
+
     public void validateReportsProficiency() {
-        checkElementsEnabled(new WebElement[]{proficiencyRatiosByNa ,proficiencyRatiosBySp, proficiencyRatiosByAs,
-                proficiencyRatiosByCl, proficiencyPipelineAdvancementCounts,
-                proficiencyPipelineAdvancementPercent, filterDateFrom,
-                filterDateTo, yearToDate, monthToDate, lastYear,
-                lastQuarter, lastMonth, lastWeek, yesterday,
-                submit, filterByLabel, apply, exportSheet, exportPdf, compare,
-                reportsChart});
+        checkElementsEnabled(new WebElement[]{reportsChartRNADefault,
+                reportsChartPAC, reportsChartGADefault});
+    }
+
+    public void validateReportsPointsByEvent() {
+        click(productivityPointsByEvents);
+        checkElementsEnabled(new WebElement[]{reportsChartPointsByEvents});
+    }
+
+    public void validateReportsActiveCasesCount() {
+        click(productivityActiveCasesCount);
+        checkElementsEnabled(new WebElement[]{reportsChartActiveCasesCount});
+    }
+
+    public void validateReportsActiveCasesPercent() {
+        click(productivityActiveCasesPercent);
+        checkElementsEnabled(new WebElement[]{reportsChartActiveCasesPercent});
+    }
+
+    public void validateReportsPointTrends() {
+        click(productivityPointTrendsByWeek);
+        checkElementsEnabled(new WebElement[]{reportsChartPointsTrends});
+    }
+
+    public void validateReportsPointTrendsDOW() {
+        click(productivityPointTrendsDayByWeek);
+        checkElementsEnabled(new WebElement[]{reportsChartPointsTrendsW});
+    }
+
+    public void validateReportsProficiencyRatioNA() {
+        click(reportsProficiency);
+        checkElementsEnabled(new WebElement[]{reportsChartRNAProficiency});
+    }
+
+    public void validateReportsProficiencyRatioSP() {
+        click(reportsProficiency);
+        click(proficiencyRatiosBySp);
+        checkElementsEnabled(new WebElement[]{reportsChartRSPProficiency});
+    }
+
+    public void validateReportsProficiencyRatioAS() {
+        click(reportsProficiency);
+        click(proficiencyRatiosByAs);
+        checkElementsEnabled(new WebElement[]{reportsChartRSPProficiency});
+    }
+
+    public void validateReportsProficiencyRatioCL() {
+        click(proficiencyRatiosByCl);
+        checkElementsEnabled(new WebElement[]{reportsChartRSPProficiency});
+    }
+
+    public void validateReportsProficiencyPipelineAdvancementCounts() {
+        click(reportsProficiency);
+        click(proficiencyPipelineAdvancementCounts);
+        checkElementsEnabled(new WebElement[]{reportsChartPipelineAdvancementCounts});
+    }
+
+    public void validateReportsProficiencyPipelineAdvancementPercent() {
+        click(reportsProficiency);
+        click(proficiencyPipelineAdvancementPercent);
+        checkElementsEnabled(new WebElement[]{reportsChartPipelineAdvancementPercentage});
     }
 
     public void validateReportsPerformance() {
@@ -593,6 +723,21 @@ public class ScorecardBetaPage {
                 reportsGoalAnalysis,
                 reportsCloses
         });
+    }
+
+    public void validateReportsPerformanceGoalAnalysis() {
+        click(reportsGoalAnalysis);
+        checkElementsEnabled(new WebElement[]{reportsChartGAPerformance});
+    }
+
+    public void validateReportsPerformanceClosedRevenue() {
+        click(reportsClosedRevenue);
+        checkElementsEnabled(new WebElement[]{reportsChartCRPerformance});
+    }
+
+    public void validateReportsPerformanceClosed() {
+        click(reportsCloses);
+        checkElementsEnabled(new WebElement[]{reportsChartCPerformance});
     }
 
     public void clickAddContact() {
@@ -609,6 +754,16 @@ public class ScorecardBetaPage {
         pause(2000);
         sendKeys(addFirstName, firstName);
         sendKeys(addLastName, lastName);
+    }
+
+    public void attemptFillContact(String firstName, String lastName) {
+        pause(2000);
+        sendKeys(attemptContactFirstName, firstName);
+        sendKeys(attemptContactLastName, lastName);
+    }
+
+    public void clickAttemptContactSave() {
+        click(attemptContactSave);
     }
 
     public void clickAddNewCase() {
@@ -935,6 +1090,20 @@ public class ScorecardBetaPage {
         pause(3000);
         Assert.assertTrue(viewCaseNoteValue.getText().equalsIgnoreCase(savedNotes));
     }
+
+    public void clickAttemptsAddContact() {
+        click(attemptsAddContact);
+    }
+
+    public void addAttempt() {
+        click(attemptsAddAttempt);
+    }
+
+    public void selectAttemptDate(String date) {
+        click(addAttemptDate);
+
+    }
+
 
     public void test() {
         pause(1000);
