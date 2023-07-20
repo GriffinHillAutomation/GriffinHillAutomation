@@ -92,6 +92,11 @@ public class BasePageObject {
         element.sendKeys(data);
     }
 
+    public static void uploadFile(WebElement element, String fileName) {
+        waitForElementVisibility(element);
+        element.sendKeys(fileName);
+    }
+
     private static ExpectedCondition<WebElement> waitForElementVisibility(WebElement locator) {
         return ExpectedConditions.visibilityOf(locator);
     }

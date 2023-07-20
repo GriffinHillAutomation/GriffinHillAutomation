@@ -6,9 +6,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.griffinhill.site.pages.BasePageObject.*;
+import static com.griffinhill.utils.DateUtils.getTomorrowDate;
 import static com.griffinhill.utils.PageUtils.checkElementsEnabled;
 import static com.griffinhill.utils.PageUtils.pause;
 
@@ -104,6 +106,14 @@ public class ScorecardBetaPage {
     private WebElement contactsAddFirstName;
     @FindBy(css = "input[name='last_name']")
     private WebElement addLastName;
+    @FindBy(xpath = "//div[@id='suspectModal']//button[text()='Fulfillment and Followup']")
+    private WebElement fulfillmentAndFollowup;
+    @FindBy(id = "choose-a-file")
+    private WebElement contactsSuspectUploadFileField;
+    @FindBy(xpath = "//input[@placeholder='Click Here to Add a Date']")
+    private WebElement datePickerFAF;
+    @FindBy(xpath = "//input[@placeholder='Click here to Add a Date']")
+    private WebElement datePickerNeedsAudit;
     @FindBy(css = "div.AddProspectCaseModalForm input[name='last_name']")
     private WebElement contactsAddLastName;
     @FindBy(xpath = "//input[@name='company_name']")
@@ -350,6 +360,12 @@ public class ScorecardBetaPage {
     private static WebElement contactViewAddNote;
     @FindBy(xpath = "//div[@class='input-group']//textarea")
     private static WebElement addNotesTextfield;
+    @FindBy(xpath = "//textarea[@rows='3']")
+    private static WebElement notesTextarea;
+    @FindBy(xpath = "//form[@name='prospectForm']//textarea[@rows='3']")
+    private static WebElement contactsNotesTextarea;
+    @FindBy(xpath = "//form[@name='leadForm']//textarea[@rows='3']")
+    private static WebElement contactsLeadNotesTextarea;
     @FindBy(xpath = "//button[text()='Save']")
     private static WebElement save;
     @FindBy(xpath = "//button[text()='Add']")
@@ -364,7 +380,10 @@ public class ScorecardBetaPage {
     private static WebElement attemptsAddAttempt;
     @FindBy(css = "input[name='showDate']")
     private static WebElement addAttemptDate;
-
+    @FindBy(xpath = "//div[6]/div/div/div[1]/div[2]/button")
+    private static WebElement pipelineSave;
+    @FindBy(xpath = "//h5[text()='Your Pipeline has been saved!']")
+    private static WebElement pipelineSuccessMessage;
 
     public void checkOpenedPage() {
         checkElementsEnabled(new WebElement[]{pipeline, contacts, reports, quickAdd, active, dealsClosed, pitchAndMiss, all, archived});
@@ -500,6 +519,33 @@ public class ScorecardBetaPage {
         inputCompanyName(companyName);
     }
 
+    public void clickFulfillmentAndFollowup() {
+        pause(2000);
+        click(fulfillmentAndFollowup);
+    }
+
+    public void contactsSuspectUploadFile(String fileName) {
+        uploadFile(contactsSuspectUploadFileField, fileName);
+    }
+
+    public void selectFulfillmentAndFollowUpDateForTomorrow() {
+        String dateTomorrow = getTomorrowDate();
+        String[] date = dateTomorrow.split("-");
+        String day = date[2];
+        click(datePickerFAF);
+        WebElement elem = driver.findElement(By.xpath("//div[@class='dropdown top-margin open']//ul[@aria-labelledby='ffDateToggle'][1]//td[text()='"+ day +"']"));
+        click(elem);
+    }
+
+    public void selectNeedsAuditForTomorrow() {
+        String dateTomorrow = getTomorrowDate();
+        String[] date = dateTomorrow.split("-");
+        String day = date[2];
+        click(datePickerNeedsAudit);
+        WebElement elem = driver.findElement(By.xpath("//div[@class='dropdown top-margin open']//ul[@aria-labelledby='naDateToggle'][1]//td[text()='"+ day +"']"));
+        click(elem);
+    }
+
     public void fillLead(String firstName, String lastName) {
         sendKeys(addLeadFirstName, firstName);
         sendKeys(addLeadLastName, lastName);
@@ -550,6 +596,11 @@ public class ScorecardBetaPage {
                 dealsClosedFulfilled, dealsClosedFulfillmentFollowUp,
                 dealsClosedProduct, dealsClosedOptions
         });
+    }
+
+    public void verifyPipelineSuccessMessage() {
+        click(pipelineSave);
+        pipelineSuccessMessage.isDisplayed();
     }
 
     public void clickPipelinePitchAndMiss() {
@@ -1074,6 +1125,18 @@ public class ScorecardBetaPage {
     public void inputNotes(String notes) {
         sendKeys(addNotesTextfield, notes);
         savedNotes = notes;
+    }
+
+    public void inputNote(String notes) {
+        sendKeys(notesTextarea, notes);
+    }
+
+    public void inputContactsNote(String notes) {
+        sendKeys(contactsNotesTextarea, notes);
+    }
+
+    public void inputContactsLeadNote(String notes) {
+        sendKeys(contactsLeadNotesTextarea, notes);
     }
 
     public void saveNotes() {
