@@ -292,6 +292,8 @@ public class ScorecardBetaPage {
     private static WebElement proficiencyPipelineAdvancementCounts;
     @FindBy(xpath = "//button[text()='Pipeline Advancement Percent']")
     private static WebElement proficiencyPipelineAdvancementPercent;
+    @FindBy(xpath = "//button[text()='Pipeline Advanement Percent']")
+    private static WebElement proficiencyPipelineAdvanementPercent;
     @FindBy(css = "input[name='filters[0].from']")
     private static WebElement filterDateFrom;
     @FindBy(css = "input[name='filters[0].to']")
@@ -589,11 +591,20 @@ public class ScorecardBetaPage {
 
     public void validateDealsClosedView() {
         checkElementsEnabled(new WebElement[]{
-                dealsClosedCase, dealsClosedCase,
+                dealsClosedCase,
                 dealsClosedNeedsAudit, dealsClosedSolutionPresentation,
-                dealsClosedAdaptedSolution, dealsClosedClosingInteractions,
-                dealsClosedClosingInteractions, dealsClosedHeader,
+                dealsClosedAdaptedSolution, dealsClosedClosingInteractions, dealsClosedHeader,
                 dealsClosedFulfilled, dealsClosedFulfillmentFollowUp,
+                dealsClosedProduct, dealsClosedOptions
+        });
+    }
+
+    public void validateDealsClosedViewStg() {
+        checkElementsEnabled(new WebElement[]{
+                dealsClosedCase,
+                dealsClosedNeedsAudit, dealsClosedSolutionPresentation,
+                dealsClosedAdaptedSolution, dealsClosedClosingInteractions, dealsClosedHeader,
+                dealsClosedFulfillmentFollowUp,
                 dealsClosedProduct, dealsClosedOptions
         });
     }
@@ -617,6 +628,16 @@ public class ScorecardBetaPage {
         });
     }
 
+    public void validatePitchAndMissStg() {
+        checkElementsEnabled(new WebElement[]{
+                dealsClosedCase, dealsClosedCase,
+                dealsClosedNeedsAudit, dealsClosedSolutionPresentation,
+                dealsClosedAdaptedSolution, dealsClosedClosingInteractions,
+                dealsClosedFulfillmentFollowUp,
+                dealsClosedProduct, dealsClosedOptions
+        });
+    }
+
     public void clickPipelineAll() {
         click(all);
     }
@@ -632,6 +653,17 @@ public class ScorecardBetaPage {
         });
     }
 
+    public void validatePipelineAllStg() {
+        checkElementsEnabled(new WebElement[]{
+                dealsClosedCase, dealsClosedCase,
+                dealsClosedNeedsAudit, dealsClosedSolutionPresentation,
+                dealsClosedAdaptedSolution, dealsClosedClosingInteractions,
+                dealsClosedClosingInteractions, dealsClosedHeader,
+                dealsClosedFulfillmentFollowUp,
+                dealsClosedProduct, dealsClosedOptions
+        });
+    }
+
     public void clickPipelineArchived() {
         click(archived);
     }
@@ -643,6 +675,16 @@ public class ScorecardBetaPage {
                 dealsClosedAdaptedSolution, dealsClosedClosingInteractions,
                 dealsClosedClosingInteractions, dealsClosedHeader,
                 dealsClosedFulfilled, dealsClosedFulfillmentFollowUp,
+                dealsClosedProduct, dealsClosedOptions
+        });
+    }
+
+    public void validatePipelineArchivedStg() {
+        checkElementsEnabled(new WebElement[]{
+                dealsClosedCase, dealsClosedCase,
+                dealsClosedNeedsAudit, dealsClosedSolutionPresentation,
+                dealsClosedAdaptedSolution, dealsClosedClosingInteractions,
+                dealsClosedClosingInteractions, dealsClosedHeader, dealsClosedFulfillmentFollowUp,
                 dealsClosedProduct, dealsClosedOptions
         });
     }
@@ -764,6 +806,12 @@ public class ScorecardBetaPage {
     public void validateReportsProficiencyPipelineAdvancementPercent() {
         click(reportsProficiency);
         click(proficiencyPipelineAdvancementPercent);
+        checkElementsEnabled(new WebElement[]{reportsChartPipelineAdvancementPercentage});
+    }
+
+    public void validateReportsProficiencyPipelineAdvancementPercentStg() {
+        click(reportsProficiency);
+        click(proficiencyPipelineAdvanementPercent);
         checkElementsEnabled(new WebElement[]{reportsChartPipelineAdvancementPercentage});
     }
 

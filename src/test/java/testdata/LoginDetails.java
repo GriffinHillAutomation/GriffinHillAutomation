@@ -10,4 +10,11 @@ public class LoginDetails {
         loginCredentials.setPassword("Password123@");
         return loginCredentials;
     }
+
+    public static LoginInfo stagingLoginCredentials() {
+        LoginInfo loginCredentials = new LoginInfo();
+        loginCredentials.setEmail("demo@griffinhill.com");
+        loginCredentials.setPassword("test");
+        return loginCredentials;
+    }
 }
