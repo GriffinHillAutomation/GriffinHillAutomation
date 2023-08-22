@@ -8,6 +8,9 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
@@ -75,12 +78,15 @@ public class TestsInit extends BasePageObject {
     }
 
     private void setup() throws InterruptedException {
+//        WebDriverManager.edgedriver().setup();
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
+//        EdgeOptions options = new EdgeOptions();
         options.setCapability(CONFIG_FAILURE_POLICY, "continue");
         //configfailurepolicy
         //	skip|continue
         driver = new ChromeDriver(options);
+//        driver = new EdgeDriver();
         driver.manage().window().maximize();
         driver.navigate().refresh();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

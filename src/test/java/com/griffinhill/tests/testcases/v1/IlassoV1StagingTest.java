@@ -1,4 +1,4 @@
-package com.griffinhill.tests.testcases.Legacy;
+package com.griffinhill.tests.testcases.v1;
 
 import com.griffinhill.entities.LoginInfo;
 import com.griffinhill.tests.TestsInit;
@@ -11,11 +11,10 @@ import reports.AllureListener;
 import static com.griffinhill.enums.PageNavigation.CADENCES;
 import static com.griffinhill.enums.PageNavigation.ILASSO;
 import static com.griffinhill.site.pages.LoginPage.login;
-import static testdata.LoginDetails.loginCredentials;
 import static testdata.LoginDetails.stagingLoginCredentials;
 
 @Listeners({AllureListener.class})
-public class IlassoLegacyStagingTest extends TestsInit {
+public class IlassoV1StagingTest extends TestsInit {
 
     LoginInfo user = stagingLoginCredentials();
 

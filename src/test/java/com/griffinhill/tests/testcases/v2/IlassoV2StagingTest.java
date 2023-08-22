@@ -1,4 +1,4 @@
-package com.griffinhill.tests.testcases.Beta;
+package com.griffinhill.tests.testcases.v2;
 
 import com.griffinhill.entities.LoginInfo;
 import com.griffinhill.tests.TestsInit;
@@ -12,16 +12,17 @@ import static com.griffinhill.enums.PageNavigation.CADENCES;
 import static com.griffinhill.enums.PageNavigation.ILASSO_BETA;
 import static com.griffinhill.site.pages.LoginPage.login;
 import static testdata.LoginDetails.loginCredentials;
+import static testdata.LoginDetails.stagingLoginCredentials;
 
 @Listeners({AllureListener.class})
-public class IlassoBetaTest extends TestsInit {
+public class IlassoV2StagingTest extends TestsInit {
 
-    LoginInfo user = loginCredentials();
+    LoginInfo user = stagingLoginCredentials();
 
     @BeforeMethod(alwaysRun = true)
     public void before() throws Exception {
         try {
-            driver.get("https://beta.griffinhill.com/login");
+            driver.get("https://phplaravel-144553-1687977.cloudwaysapps.com/");
             login(user);
             achievementHubPage.navigateTo(ILASSO_BETA);
             ilassoBetaPage.checkOpenedPage();
