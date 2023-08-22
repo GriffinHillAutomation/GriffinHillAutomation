@@ -1,4 +1,4 @@
-package com.griffinhill.tests.testcases.Legacy;
+package com.griffinhill.tests.testcases.v1;
 
 import com.griffinhill.entities.LoginInfo;
 import com.griffinhill.tests.TestsInit;
@@ -14,7 +14,7 @@ import static com.griffinhill.site.pages.LoginPage.login;
 import static testdata.LoginDetails.loginCredentials;
 
 @Listeners({AllureListener.class})
-public class IlassoLegacyTest extends TestsInit {
+public class IlassoV1BetaTest extends TestsInit {
 
     LoginInfo user = loginCredentials();
 

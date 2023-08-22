@@ -1,4 +1,4 @@
-package com.griffinhill.tests.testcases.Legacy;
+package com.griffinhill.tests.testcases.v1;
 
 import com.griffinhill.entities.LoginInfo;
 import com.griffinhill.tests.TestsInit;
@@ -10,7 +10,7 @@ import static com.griffinhill.enums.PageNavigation.SCORE_CARD;
 import static com.griffinhill.site.pages.LoginPage.login;
 import static testdata.LoginDetails.loginCredentials;
 
-public class ScorecardLegacyStagingTest extends TestsInit{
+public class ScorecardV1BetaTest extends TestsInit{
 
     LoginInfo user = loginCredentials();
 
@@ -19,7 +19,7 @@ public class ScorecardLegacyStagingTest extends TestsInit{
 
         try {
             try {
-                driver.get("https://boyddev.griffinhill.com/login/");
+                driver.get("https://beta-legacy.griffinhill.com/login/");
                 login(user);
             }
             catch (Exception e)
@@ -57,6 +57,7 @@ public class ScorecardLegacyStagingTest extends TestsInit{
     }
 
     @Test
+    @Description("TCSC_003 - Verify Access in Scorecard Reports")
     public void Scorecard_TC_003() {
         scorecardBetaPage.clickReports();
         scorecardBetaPage.validateReportsView();
@@ -69,36 +70,42 @@ public class ScorecardLegacyStagingTest extends TestsInit{
     }
 
     @Test
+    @Description("TCSC_007 - Verify Access View in Scorecard Pipelines Closed Deals")
     public void Scorecard_TC_005() {
         scorecardBetaPage.clickPipelineDealsClosed();
-        scorecardBetaPage.validateDealsClosedViewStg();
+        scorecardBetaPage.validateDealsClosedView();
     }
 
     @Test
+    @Description("TCSC_006 - Verify Access View in Scorecard Pipelines Pitch and Miss")
     public void Scorecard_TC_006() {
         scorecardBetaPage.clickPipelinePitchAndMiss();
-        scorecardBetaPage.validatePitchAndMissStg();
+        scorecardBetaPage.validatePitchAndMiss();
     }
 
     @Test
+    @Description("TCSC_008 - Verify Access View in Scorecard Pipelines All Cases")
     public void Scorecard_TC_007() {
-        scorecardBetaPage.clickPipelineAll();
-        scorecardBetaPage.validatePipelineAllStg();
+        scorecardBetaPage.validatePipelineAll();
+        scorecardBetaPage.validatePitchAndMiss();
     }
 
     @Test
+    @Description("TCSC_009 - Verify Access View in Scorecard Pipelines Archived")
     public void Scorecard_TC_008() {
         scorecardBetaPage.clickPipelineArchived();
-        scorecardBetaPage.validatePipelineArchivedStg();
+        scorecardBetaPage.validatePipelineArchived();
     }
 
     @Test
+    @Description("TCSC_011 - Verify Access View in Scorecard Prospects")
     public void Scorecard_TC_009() {
         scorecardBetaPage.clickContacts();
         scorecardBetaPage.validateContactsProspect();
     }
 
     @Test
+    @Description("TCSC_012 - Verify Access View in Scorecard All Suspects")
     public void Scorecard_TC_010() {
         scorecardBetaPage.clickContacts();
         scorecardBetaPage.validateContactsSuspect();
@@ -111,30 +118,35 @@ public class ScorecardLegacyStagingTest extends TestsInit{
     }
 
     @Test
+    @Description("TCSC_002 - Verify Access in Scorecard Contacts")
     public void Scorecard_TC_012() {
         scorecardBetaPage.clickContacts();
         scorecardBetaPage.validateContactsAll();
     }
 
     @Test
+    @Description("TCSC_014 - Verify Access in Scorecard Reports Productivity")
     public void Scorecard_TC_013() {
         scorecardBetaPage.clickReports();
         scorecardBetaPage.validateReportsProductivity();
     }
 
     @Test
+    @Description("TCSC_015 -   Verify Access in Scorecard Reports Proficiency")
     public void Scorecard_TC_014() {
         scorecardBetaPage.clickReports();
         scorecardBetaPage.validateReportsProficiency();
     }
 
     @Test
+    @Description("TCSC_016 - Verify Access in Scorecard Reports Performance")
     public void Scorecard_TC_015() {
         scorecardBetaPage.clickReports();
         scorecardBetaPage.validateReportsPerformance();
     }
 
     @Test
+    @Description("TCSC_017 - Create new Case in Active pipelines")
     public void Scorecard_TC_016() {
         scorecardBetaPage.clickAttempts();
         scorecardBetaPage.clickAttemptsAddContact();
@@ -259,7 +271,7 @@ public class ScorecardLegacyStagingTest extends TestsInit{
     public void Scorecard_TC_032() {
         scorecardBetaPage.clickReports();
         scorecardBetaPage.validateReportsProficiency();
-        scorecardBetaPage.validateReportsProficiencyPipelineAdvancementPercentStg();
+        scorecardBetaPage.validateReportsProficiencyPipelineAdvancementPercent();
     }
 
     @Test
@@ -311,34 +323,34 @@ public class ScorecardLegacyStagingTest extends TestsInit{
     @Test
     public void Scorecard_TC_039() {
         scorecardBetaPage.clickPipelineDealsClosed();
-        scorecardBetaPage.validateDealsClosedViewStg();
+        scorecardBetaPage.validateDealsClosedView();
     }
 
     @Test
     public void Scorecard_TC_040() {
         scorecardBetaPage.clickPipelineDealsClosed();
-        scorecardBetaPage.validateDealsClosedViewStg();
+        scorecardBetaPage.validateDealsClosedView();
         scorecardBetaPage.verifyPipelineSuccessMessage();
     }
 
     @Test
     public void Scorecard_TC_041() {
         scorecardBetaPage.clickPipelinePitchAndMiss();
-        scorecardBetaPage.validatePitchAndMissStg();
+        scorecardBetaPage.validatePitchAndMiss();
         scorecardBetaPage.verifyPipelineSuccessMessage();
     }
 
     @Test
     public void Scorecard_TC_042() {
         scorecardBetaPage.clickPipelineAll();
-        scorecardBetaPage.validatePipelineAllStg();
+        scorecardBetaPage.validatePipelineAll();
         scorecardBetaPage.verifyPipelineSuccessMessage();
     }
 
     @Test
     public void Scorecard_TC_043() {
         scorecardBetaPage.clickPipelineArchived();
-        scorecardBetaPage.validatePipelineArchivedStg();
+        scorecardBetaPage.validatePipelineArchived();
         scorecardBetaPage.verifyPipelineSuccessMessage();
     }
 
