@@ -34,97 +34,97 @@ public class ScorecardV2StagingTest extends TestsInit{
             waitUntilPageIsLoaded();
         }
     }
-//    @Test
-//    @Description("TCSC_001 - Verify Access in Scorecard Pipelines")
-//    public void TCSC_001() {
-//        scorecardPage.validateScorecardPiplelineActive();
-//    }
-//
-//    @Test
-//    @Description("TCSC_002 - Verify Access in Scorecard Contacts")
-//    public void TCSC_002() {
-//        scorecardPage.clickContacts();
-//        scorecardPage.validateContactsAll();
-//    }
-//
-//    @Test
-//    @Description("TCSC_003 - Verify Access in Scorecard Calendar")
-//    public void TCSC_003() {
-//        scorecardPage.clickCalendar();
-//        scorecardPage.validateCalendar();
-//    }
-//
-//    @Test
-//    @Description("TCSC_004 - Verify Access in Scorecard Reports")
-//    public void TCSC_004() {
-//        scorecardPage.clickReports();
-//        scorecardPage.validateReportsOverview();
-//    }
-//
-//    @Test
-//    @Description("TCSC_005 - Verify Access View in Scorecard Pipelines Active Cases")
-//    public void TCSC_005() {
-//        scorecardPage.validateScorecardPiplelineActive();
-//    }
-//
-//    @Test
-//    @Description("TCSC_006 - Verify Access View in Scorecard Pipelines Pitch and Miss")
-//    public void TCSC_006() {
-//        scorecardPage.
-//                clickPitchAndMiss();
-//        scorecardPage.validatePiplelinePitchAndMiss();
-//    }
-//
-//    @Test
-//    @Description("TCSC_007 - Verify Access View in Scorecard Pipelines Closed Deals")
-//    public void TCSC_007() {
-//        scorecardPage.clickClosedDeals();
-//        scorecardPage.validatePiplelineClosedDeals();
-//    }
-//
-//    @Test
-//    @Description("TCSC_008 - Verify Access View in Scorecard Pipelines All Cases")
-//    public void TCSC_008() {
-//        scorecardPage.clickPipelineAll();
-//        scorecardPage.validatePiplelineAll();
-//    }
-//
-//    @Test
-//    @Description("TCSC_009 - Verify Access View in Scorecard Pipelines Archived")
-//    public void TCSC_009() {
-//        scorecardPage.clickArchived();
-//        scorecardPage.validatePipelineArchived();
-//    }
-//
-//    @Test
-//    @Description("TCSC_010 - Verify Access View in Scorecard All Contacts")
-//    public void TCSC_010() {
-//        scorecardPage.clickContacts();
-//        scorecardPage.validateContactsAll();
-//    }
-//
-//    @Test
-//    @Description("TCSC_011 - Verify Access View in Scorecard Prospects")
-//    public void TCSC_011() {
-//        scorecardPage.clickContacts();
-//        scorecardPage.clickProspects();
-//        scorecardPage.validateContactsProspects();
-//    }
-//
-//    @Test
-//    @Description("TCSC_012 - Verify Access View in Scorecard All Suspects")
-//    public void TCSC_012() {
-//        scorecardPage.clickContacts();
-//        scorecardPage.clickSuspects();
-//        scorecardPage.validateContactsSuspects();
-//    }
-//
-//    @Test
-//    @Description("TCSC_013 - Verify Access in Scorecard Reports Overview")
-//    public void TCSC_013() {
-//        scorecardPage.clickReports();
-//        scorecardPage.validateReportsOverview();
-//    }
+    @Test
+    @Description("TCSC_001 - Verify Access in Scorecard Pipelines")
+    public void TCSC_001() {
+        scorecardPage.validateScorecardPiplelineActive();
+    }
+
+    @Test
+    @Description("TCSC_002 - Verify Access in Scorecard Contacts")
+    public void TCSC_002() {
+        scorecardPage.clickContacts();
+        scorecardPage.validateContactsAll();
+    }
+
+    @Test
+    @Description("TCSC_003 - Verify Access in Scorecard Calendar")
+    public void TCSC_003() {
+        scorecardPage.clickCalendar();
+        scorecardPage.validateCalendar();
+    }
+
+    @Test
+    @Description("TCSC_004 - Verify Access in Scorecard Reports")
+    public void TCSC_004() {
+        scorecardPage.clickReports();
+        scorecardPage.validateReportsOverview();
+    }
+
+    @Test
+    @Description("TCSC_005 - Verify Access View in Scorecard Pipelines Active Cases")
+    public void TCSC_005() {
+        scorecardPage.validateScorecardPiplelineActive();
+    }
+
+    @Test
+    @Description("TCSC_006 - Verify Access View in Scorecard Pipelines Pitch and Miss")
+    public void TCSC_006() {
+        scorecardPage.
+                clickPitchAndMiss();
+        scorecardPage.validatePiplelinePitchAndMiss();
+    }
+
+    @Test
+    @Description("TCSC_007 - Verify Access View in Scorecard Pipelines Closed Deals")
+    public void TCSC_007() {
+        scorecardPage.clickClosedDeals();
+        scorecardPage.validatePiplelineClosedDeals();
+    }
+
+    @Test
+    @Description("TCSC_008 - Verify Access View in Scorecard Pipelines All Cases")
+    public void TCSC_008() {
+        scorecardPage.clickPipelineAll();
+        scorecardPage.validatePiplelineAll();
+    }
+
+    @Test
+    @Description("TCSC_009 - Verify Access View in Scorecard Pipelines Archived")
+    public void TCSC_009() {
+        scorecardPage.clickArchived();
+        scorecardPage.validatePipelineArchived();
+    }
+
+    @Test
+    @Description("TCSC_010 - Verify Access View in Scorecard All Contacts")
+    public void TCSC_010() {
+        scorecardPage.clickContacts();
+        scorecardPage.validateContactsAll();
+    }
+
+    @Test
+    @Description("TCSC_011 - Verify Access View in Scorecard Prospects")
+    public void TCSC_011() {
+        scorecardPage.clickContacts();
+        scorecardPage.clickProspects();
+        scorecardPage.validateContactsProspects();
+    }
+
+    @Test
+    @Description("TCSC_012 - Verify Access View in Scorecard All Suspects")
+    public void TCSC_012() {
+        scorecardPage.clickContacts();
+        scorecardPage.clickSuspects();
+        scorecardPage.validateContactsSuspects();
+    }
+
+    @Test
+    @Description("TCSC_013 - Verify Access in Scorecard Reports Overview")
+    public void TCSC_013() {
+        scorecardPage.clickReports();
+        scorecardPage.validateReportsOverview();
+    }
 
     @Test
     @Description("TCSC_014 - Verify Access in Scorecard Reports Productivity")
@@ -156,7 +156,7 @@ public class ScorecardV2StagingTest extends TestsInit{
         scorecardBetaPage.clickAddContact();
         scorecardBetaPage.fillContact("Auto", "Test");
         scorecardBetaPage.clickAddNewCase();
-        scorecardBetaPage.inputCaseName("Case Automation");
+        scorecardBetaPage.inputCaseNameV2("Case Automation");
         scorecardBetaPage.clickAddNewContactSave();
         scorecardBetaPage.verifyAddNewContactSuccess();
         scorecardBetaPage.confirmAddContact();
@@ -186,7 +186,7 @@ public class ScorecardV2StagingTest extends TestsInit{
         scorecardBetaPage.clickAddContact();
         scorecardBetaPage.fillContact("Auto", "Test");
         scorecardBetaPage.clickAddNewCase();
-        scorecardBetaPage.inputCaseName("Case Auto Test");
+        scorecardBetaPage.inputCaseNameV2("Case Auto Test");
         scorecardBetaPage.clickAddNewContactSave();
         scorecardBetaPage.verifyAddNewContactSuccess();
         scorecardBetaPage.confirmAddContact();
@@ -201,7 +201,7 @@ public class ScorecardV2StagingTest extends TestsInit{
         scorecardBetaPage.clickAddContact();
         scorecardBetaPage.fillContact("Auto21E", "Test21F");
         scorecardBetaPage.clickAddNewCase();
-        scorecardBetaPage.inputCaseName("Case Auto Test21D");
+        scorecardBetaPage.inputCaseNameV2("Case Auto Test21D");
         scorecardBetaPage.clickAddNewContactSave();
         scorecardBetaPage.verifyAddNewContactSuccess();
         scorecardBetaPage.confirmAddContact();
@@ -218,7 +218,7 @@ public class ScorecardV2StagingTest extends TestsInit{
         scorecardBetaPage.clickAddContact();
         scorecardBetaPage.fillContact("Auto22", "Test22");
         scorecardBetaPage.clickAddNewCase();
-        scorecardBetaPage.inputCaseName("Case Auto Test22");
+        scorecardBetaPage.inputCaseNameV2("Case Auto Test22");
         scorecardBetaPage.clickAddNewContactSave();
         scorecardBetaPage.verifyAddNewContactSuccess();
         scorecardBetaPage.confirmAddContact();
@@ -237,14 +237,14 @@ public class ScorecardV2StagingTest extends TestsInit{
         scorecardBetaPage.clickAddContact();
         scorecardBetaPage.fillContact("Auto23", "Test23");
         scorecardBetaPage.clickAddNewCase();
-        scorecardBetaPage.inputCaseName("Case Auto Test23");
+        scorecardBetaPage.inputCaseNameV2("Case Auto Test23");
         scorecardBetaPage.clickAddNewContactSave();
         scorecardBetaPage.verifyAddNewContactSuccess();
         scorecardBetaPage.confirmAddContact();
         scorecardBetaPage.clickCaseNameDropdown("Case Auto Test23");
         scorecardBetaPage.clickSendToPitchAndMiss();
         scorecardBetaPage.clickConfirm();
-        scorecardBetaPage.clickPipelinePitchAndMiss();
+        scorecardBetaPage.clickPipelinePitchAndMissV2();
         scorecardBetaPage.verifyCaseNewName("Case Auto Test23");
     }
 
@@ -254,7 +254,7 @@ public class ScorecardV2StagingTest extends TestsInit{
         scorecardBetaPage.clickAddContact();
         scorecardBetaPage.fillContact("Auto24", "Test24");
         scorecardBetaPage.clickAddNewCase();
-        scorecardBetaPage.inputCaseName("Case Auto Test24");
+        scorecardBetaPage.inputCaseNameV2("Case Auto Test24");
         scorecardBetaPage.clickAddNewContactSave();
         scorecardBetaPage.verifyAddNewContactSuccess();
         scorecardBetaPage.confirmAddContact();
@@ -262,7 +262,7 @@ public class ScorecardV2StagingTest extends TestsInit{
         scorecardBetaPage.clickCloseCase();
         scorecardBetaPage.inputProduct("Test Automation");
         scorecardBetaPage.clickSave();
-        scorecardBetaPage.clickPipelineDealsClosed();
+        scorecardBetaPage.clickPipelinePitchAndMissV2();
         scorecardBetaPage.verifyClosedDeals("Case Auto Test24");
     }
 
@@ -272,7 +272,7 @@ public class ScorecardV2StagingTest extends TestsInit{
         scorecardBetaPage.clickAddContact();
         scorecardBetaPage.fillContact("Auto25", "Test25");
         scorecardBetaPage.clickAddNewCase();
-        scorecardBetaPage.inputCaseName("Case Auto Test25");
+        scorecardBetaPage.inputCaseNameV2("Case Auto Test25");
         scorecardBetaPage.clickAddNewContactSave();
         scorecardBetaPage.verifyAddNewContactSuccess();
         scorecardBetaPage.confirmAddContact();
@@ -289,7 +289,7 @@ public class ScorecardV2StagingTest extends TestsInit{
         scorecardBetaPage.clickAddContact();
         scorecardBetaPage.fillContact("Auto29", "Test29");
         scorecardBetaPage.clickAddNewCase();
-        scorecardBetaPage.inputCaseName("Case Auto Test29");
+        scorecardBetaPage.inputCaseNameV2("Case Auto Test29");
         scorecardBetaPage.clickAddNewContactSave();
         scorecardBetaPage.verifyAddNewContactSuccess();
         scorecardBetaPage.confirmAddContact();
@@ -303,7 +303,7 @@ public class ScorecardV2StagingTest extends TestsInit{
     @Test
     @Description("TCSC_030 - Load All data in Pipeline Closed deals")
     public void TCSC_030() {
-        scorecardBetaPage.clickPipelineDealsClosed();
+        scorecardBetaPage.clickPipelinePitchAndMissV2();
         scorecardBetaPage.clickLoadAllData();
     }
 
@@ -342,10 +342,9 @@ public class ScorecardV2StagingTest extends TestsInit{
     }
 
     @Test
-    @Description("TCSC_041 - Validate Scorecards - Contacts All - Search Tags - with any of these tags")
     public void TCSC_041() {
         scorecardBetaPage.selectTags("with any of these tags");
-        scorecardBetaPage.selectTagsCategory("Category: ");
+        scorecardBetaPage.selectTagsCategory("Category: System Tag");
         scorecardBetaPage.validateSearchResultTableIsNotEmpty();
     }
 
@@ -353,7 +352,7 @@ public class ScorecardV2StagingTest extends TestsInit{
     @Description("TCSC_042 - Validate Scorecards - Contacts All - Search Tags - with all of these tags")
     public void TCSC_042() {
         scorecardBetaPage.selectTags("with all of these tags");
-        scorecardBetaPage.selectTagsCategory("Category: ");
+        scorecardBetaPage.selectTagsCategory("Category: Work");
         scorecardBetaPage.validateSearchResultTableIsNotEmpty();
     }
 
@@ -361,15 +360,14 @@ public class ScorecardV2StagingTest extends TestsInit{
     @Description("TCSC_043 - Validate Scorecards - Contacts All - Search Tags - doesn't have any of these tags")
     public void TCSC_043() {
         scorecardBetaPage.selectTags("with all of these tags");
-        scorecardBetaPage.selectTagsCategory("Category: Student");
+        scorecardBetaPage.selectTagsCategory("Category: import");
         scorecardBetaPage.validateSearchResultTableIsNotEmpty();
     }
 
     @Test
-    @Description("TCSC_044 - Validate Scorecards - Contacts All - Search Tags - doesn't have all of these tags")
     public void TCSC_044() {
         scorecardBetaPage.selectTags("doesn't have all of these tags");
-        scorecardBetaPage.selectTagsCategory("Category: Student");
+        scorecardBetaPage.selectTagsCategory("Category: new_tag");
         scorecardBetaPage.validateSearchResultTableIsNotEmpty();
     }
 
@@ -379,7 +377,7 @@ public class ScorecardV2StagingTest extends TestsInit{
         scorecardBetaPage.clickAddContact();
         scorecardBetaPage.fillContact("Auto", "Test");
         scorecardBetaPage.clickAddNewCase();
-        scorecardBetaPage.inputCaseName("Case Automation");
+        scorecardBetaPage.inputCaseNameV2("Case Automation");
         scorecardBetaPage.clickAddNewContactSave();
         scorecardBetaPage.verifyAddNewContactSuccess();
         scorecardBetaPage.confirmAddContact();
@@ -390,7 +388,7 @@ public class ScorecardV2StagingTest extends TestsInit{
     public void TCSC_046() {
         scorecardBetaPage.clickContacts();
         scorecardBetaPage.validateContactsAdvanced();
-        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
     }
 
@@ -399,7 +397,7 @@ public class ScorecardV2StagingTest extends TestsInit{
     public void TCSC_047() {
         scorecardBetaPage.clickContacts();
         scorecardBetaPage.validateContactsAdvanced();
-        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
         scorecardBetaPage.clickContactRecordsAttempts();
         scorecardBetaPage.validateContactRecordAttemptsView();
@@ -410,7 +408,7 @@ public class ScorecardV2StagingTest extends TestsInit{
     public void TCSC_048() {
         scorecardBetaPage.clickContacts();
         scorecardBetaPage.validateContactsAdvanced();
-        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
         scorecardBetaPage.clickContactRecordsCadences();
         scorecardBetaPage.validateContactRecordCadencesView();
@@ -421,7 +419,7 @@ public class ScorecardV2StagingTest extends TestsInit{
     public void TCSC_049() {
         scorecardBetaPage.clickContacts();
         scorecardBetaPage.validateContactsAdvanced();
-        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
         scorecardBetaPage.clickContactRecordsEmails();
         scorecardBetaPage.validateContactRecordEmailsView();
@@ -432,7 +430,7 @@ public class ScorecardV2StagingTest extends TestsInit{
     public void TCSC_050() {
         scorecardBetaPage.clickContacts();
         scorecardBetaPage.validateContactsAdvanced();
-        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
         scorecardBetaPage.clickContactRecordsTexts();
         scorecardBetaPage.validateContactRecordTextsView();
@@ -443,7 +441,7 @@ public class ScorecardV2StagingTest extends TestsInit{
     public void TCSC_051() {
         scorecardBetaPage.clickContacts();
         scorecardBetaPage.validateContactsAdvanced();
-        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
         scorecardBetaPage.clickContactRecordsActivity();
         scorecardBetaPage.validateContactRecordActivityView();
@@ -454,10 +452,10 @@ public class ScorecardV2StagingTest extends TestsInit{
     public void TCSC_052() {
         scorecardBetaPage.clickContacts();
         scorecardBetaPage.validateContactsAdvanced();
-        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
         scorecardBetaPage.clickContactViewAddCase();
-        scorecardBetaPage.inputCaseName("Case Auto Test2");
+        scorecardBetaPage.inputCaseNameV2("Case Auto Test2");
         scorecardBetaPage.clickAddNewContactSave();
         scorecardBetaPage.verifyAddNewContactSuccess();
         scorecardBetaPage.confirmAddContact();
@@ -468,7 +466,7 @@ public class ScorecardV2StagingTest extends TestsInit{
     public void TCSC_053() {
         scorecardBetaPage.clickContacts();
         scorecardBetaPage.validateContactsAdvanced();
-        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
         scorecardBetaPage.contactsAdvancedSearch("casenametest");
         scorecardBetaPage.validateSearchResultTableIsNotEmpty();
@@ -479,7 +477,7 @@ public class ScorecardV2StagingTest extends TestsInit{
     public void TCSC_054() {
         scorecardBetaPage.clickContacts();
         scorecardBetaPage.validateContactsAdvanced();
-        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
         scorecardBetaPage.clickLoadAllData();
     }
@@ -489,7 +487,7 @@ public class ScorecardV2StagingTest extends TestsInit{
     public void TCSC_055() {
         scorecardBetaPage.clickContacts();
         scorecardBetaPage.validateContactsAdvanced();
-        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
         scorecardBetaPage.clickContactViewAddNote();
         scorecardBetaPage.inputNotes("Test Notes");
@@ -501,7 +499,7 @@ public class ScorecardV2StagingTest extends TestsInit{
     public void TCSC_056() {
         scorecardBetaPage.clickContacts();
         scorecardBetaPage.validateContactsAdvanced();
-        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
         scorecardBetaPage.clickContactCaseNameDropdown("casenametest");
         scorecardBetaPage.selectCaseOption("View Case Details");
@@ -515,7 +513,7 @@ public class ScorecardV2StagingTest extends TestsInit{
         scorecardBetaPage.validateContactsAdvanced();
         scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
-        scorecardBetaPage.clickContactCaseNameDropdown("Case Test Automation");
+        scorecardBetaPage.clickContactCaseNameDropdown("casenametest");
         scorecardBetaPage.selectCaseOption("Edit Case Details");
         scorecardBetaPage.editCaseName("Case Auto Test 29");
         scorecardBetaPage.clickEditCaseSave();
@@ -527,15 +525,15 @@ public class ScorecardV2StagingTest extends TestsInit{
     public void TCSC_058() {
         scorecardBetaPage.clickContacts();
         scorecardBetaPage.validateContactsAdvanced();
-        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
         scorecardBetaPage.clickContactViewAddCase();
-        scorecardBetaPage.inputCaseName("Case Auto Test5");
+        scorecardBetaPage.inputCaseNameV2("Case Auto Test5");
         scorecardBetaPage.clickAddNewContactSave();
         scorecardBetaPage.verifyAddNewContactSuccess();
         scorecardBetaPage.confirmAddContact();
         scorecardBetaPage.contactsAdvancedSearch("Case Auto Test5");
-        scorecardBetaPage.clickContactCaseNameDropdown("Case Auto Test5");
+        scorecardBetaPage.clickContactCaseNameDropdown("casenametest");
         scorecardBetaPage.selectCaseOption("View Case Details");
         scorecardBetaPage.clickTransferCase();
         scorecardBetaPage.selectSalesPerson("Auto Auto");
@@ -547,12 +545,12 @@ public class ScorecardV2StagingTest extends TestsInit{
     public void TCSC_059() {
         scorecardBetaPage.clickContacts();
         scorecardBetaPage.validateContactsAdvanced();
-        scorecardBetaPage.clickContactRecordView("test123");
+        scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
         scorecardBetaPage.clickContactCaseNameDropdown("casenametest");
         scorecardBetaPage.selectCaseOption("View Case Details");
         scorecardBetaPage.clickCaseDetailsAddCase();
-        scorecardBetaPage.inputCaseName("Case Auto Test");
+        scorecardBetaPage.inputCaseNameV2("Case Auto Test");
         scorecardBetaPage.clickAddNewContactSave();
         scorecardBetaPage.verifyAddNewContactSuccess();
     }
@@ -565,12 +563,12 @@ public class ScorecardV2StagingTest extends TestsInit{
         scorecardBetaPage.clickContactRecordView("Auto29");
         scorecardBetaPage.validateContactRecordCasesView();
         scorecardBetaPage.clickContactViewAddCase();
-        scorecardBetaPage.inputCaseName("Case Auto Test4");
+        scorecardBetaPage.inputCaseNameV2("Case Auto Test4");
         scorecardBetaPage.clickAddNewContactSave();
         scorecardBetaPage.verifyAddNewContactSuccess();
         scorecardBetaPage.confirmAddContact();
         scorecardBetaPage.contactsAdvancedSearch("Case Auto Test4");
-        scorecardBetaPage.clickContactCaseNameDropdown("Case Auto Test4");
+        scorecardBetaPage.clickContactCaseNameDropdown("casenametest");
         scorecardBetaPage.selectCaseOption("View Case Details");
         scorecardBetaPage.clickTransferCase();
         scorecardBetaPage.selectSalesPerson("Auto21a Test21b");
@@ -831,6 +829,7 @@ public class ScorecardV2StagingTest extends TestsInit{
         scorecardBetaPage.selectAttemptType("Other Task");
         scorecardBetaPage.inputAttemptDate("12/20/2023");
         scorecardBetaPage.clickAdd();
+
     }
 
 

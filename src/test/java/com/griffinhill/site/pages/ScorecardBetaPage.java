@@ -68,6 +68,8 @@ public class ScorecardBetaPage {
     private static WebElement active;
     @FindBy(xpath = "//li/a[text()='Deals Closed']")
     private static WebElement dealsClosed;
+    @FindBy(xpath = "//li/a[text()='Closed Deals']")
+    private static WebElement dealsClosedV2;
     @FindBy(xpath = "//button[text()='Load All Data']")
     private static WebElement loadAllData;
     @FindBy(xpath = "//li/a[text()='Pitch & Miss']")
@@ -128,6 +130,8 @@ public class ScorecardBetaPage {
     private static WebElement addNewCase;
     @FindBy(css = "input[name='case_name']")
     private static WebElement caseName;
+    @FindBy(css = "input[placeholder='Case Name']")
+    private static WebElement caseNameV2;
     @FindBy(xpath = "//div[@class='action-wrapper show-import']//button[text()='Save']")
     private static WebElement addContactSaveButton;
     @FindBy(xpath = "//div[@class='modal-content']")
@@ -618,6 +622,10 @@ public class ScorecardBetaPage {
         click(dealsClosed);
     }
 
+    public void clickPipelinePitchAndMissV2() {
+        click(dealsClosedV2);
+    }
+
     public void validatePitchAndMiss() {
         checkElementsEnabled(new WebElement[]{
                 dealsClosedCase, dealsClosedCase,
@@ -871,6 +879,10 @@ public class ScorecardBetaPage {
 
     public void inputCaseName(String caseNameValue) {
         sendKeys(caseName, caseNameValue);
+    }
+
+    public void inputCaseNameV2(String caseNameValue) {
+        sendKeys(caseNameV2, caseNameValue);
     }
 
     public void clickAddNewContactSave() {
